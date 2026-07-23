@@ -10,6 +10,7 @@ import {
   Crosshair,
   Sparkles,
   SprayCan,
+  Snowflake,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -262,6 +263,34 @@ export const SERVICES: Service[] = [
       { step: 'Fix with confidence', detail: 'We resolve the issue and clear the fault correctly.' },
     ],
     keywords: ['car diagnostics Fareham'],
+  },
+  {
+    slug: 'air-conditioning-regas',
+    title: 'Air-Conditioning Regas in Fareham',
+    nav: 'Air-Con Regas',
+    short: 'Air-conditioning regas and repairs to get cold, fresh air flowing again.',
+    metaTitle: 'Air-Conditioning Regas Fareham | Car Air-Con Service',
+    metaDescription:
+      'Car air-conditioning regas and repairs in Fareham. Restore cold air, fix leaks and refresh your system with Brookswood Automotive. Call 01329 756796.',
+    image: '/images/generated/air-con.webp',
+    icon: Snowflake,
+    intro:
+      'Over time your car’s air-conditioning loses refrigerant and cools less effectively. We recharge and service air-con systems, check for leaks and refresh the system so you get cold, clean air again — keeping you comfortable in summer and helping demist your windscreen in winter.',
+    included: [
+      'Full air-con regas and recharge',
+      'System leak detection',
+      'Compressor and condenser checks',
+      'Anti-bacterial system cleanse',
+      'Pressure and performance test',
+      'Advice on ongoing air-con care',
+    ],
+    process: [
+      { step: 'Performance check', detail: 'We test how well your air-con is cooling and pressurising.' },
+      { step: 'Find any faults', detail: 'We check for leaks and worn components before recharging.' },
+      { step: 'Regas and cleanse', detail: 'We recharge the system and cleanse it of bacteria and odours.' },
+      { step: 'Cold air restored', detail: 'A final test confirms your air-con is blowing cold again.' },
+    ],
+    keywords: ['air conditioning regas Fareham', 'car air con Fareham', 'air con recharge Fareham'],
   },
   {
     slug: 'tyres',

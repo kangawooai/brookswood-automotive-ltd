@@ -13,6 +13,7 @@ import {
   CheckList,
 } from '@/components/blocks'
 import { FaqList } from '@/components/faq'
+import { Reviews } from '@/components/reviews'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema, faqSchema } from '@/lib/schema'
 
@@ -125,7 +126,7 @@ export default function HomePage() {
           { value: '20+', label: 'Years Experience' },
           { value: '5.0★', label: 'Google Rating' },
           { value: `${SITE.rating.count}`, label: 'Happy Reviews' },
-          { value: '11', label: 'Services Offered' },
+          { value: '12', label: 'Services Offered' },
         ]}
       />
 
@@ -220,6 +221,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Google reviews */}
+      <Reviews />
 
       {/* About teaser */}
       <section className="bg-background py-20 md:py-24">

@@ -2,24 +2,24 @@ import type { Faq } from '@/components/faq'
 
 export const HOME_FAQS: Faq[] = [
   {
-    q: 'How do I book an MOT or service in Fareham?',
-    a: 'You can book by calling us on 01329 756796 or by filling in our online contact form. Let us know your registration and preferred date and we will confirm a convenient slot.',
+    q: 'What is checked during an MOT test?',
+    a: 'An MOT checks the parts of your car that affect safety and emissions. That includes brakes, steering and suspension, lights, tyres, the exhaust and emissions, seatbelts, wipers, the windscreen and the horn. It is a condition check on the day, not a service, so it does not cover engine, clutch or gearbox wear.',
   },
   {
-    q: 'Will servicing my car with you affect its warranty?',
-    a: 'No. We service to manufacturer schedules using quality parts and stamp your service record, so servicing with an independent garage like us keeps your manufacturer warranty intact under block exemption rules.',
+    q: 'Do you pay for MOT before or after?',
+    a: 'You normally pay for the MOT after the test is completed, when you collect the car. If your car fails and needs repairs, we always explain what is required and give you a clear quote first — you only pay for repair work you have approved, and qualifying retests with us are free.',
   },
   {
-    q: 'Do you carry out work without asking me first?',
-    a: 'Never. We inspect your car, explain what we find in plain English, and give you a clear quote before carrying out any work. You are always in control of what gets done.',
+    q: 'How can I prepare my car for an MOT?',
+    a: 'A few quick checks help avoid easy failures. Make sure all lights work, top up screen wash, check tyre tread and pressures, and clear the windscreen and number plates. Test the horn, wipers and seatbelts, and sort any warning lights on the dashboard beforehand. If in doubt, book a pre-MOT check with us.',
   },
   {
-    q: 'What areas do you cover?',
-    a: 'We are based on Hackett Way in Fareham and look after customers across Fareham and the surrounding Hampshire area, including Portchester, Titchfield, Stubbington and Whiteley.',
+    q: 'What is included in an MOT and service?',
+    a: 'The MOT is a legal safety and emissions check with a pass or fail result. A service is preventative maintenance — typically an oil and filter change, fluid top-ups and a multi-point inspection of brakes, tyres and suspension. Booked together, they give you both a road-legal certificate and a car that runs reliably.',
   },
   {
-    q: 'What happens if my car fails its MOT?',
-    a: 'We will explain exactly what failed and why, quote for the repairs, and only proceed with your approval. Qualifying repairs carried out with us come with a free retest.',
+    q: 'Is it worth getting a service with MOT?',
+    a: 'Yes. An MOT only confirms your car meets minimum legal standards on the day, whereas a service keeps it running smoothly and catches wear early. Booking both together saves you a second visit, often flags advisory items before they become failures, and helps protect your car’s reliability and resale value.',
   },
 ]
 
