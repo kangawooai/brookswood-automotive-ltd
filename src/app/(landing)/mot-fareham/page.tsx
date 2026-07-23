@@ -9,6 +9,7 @@ import { MOT_FAQS } from '@/lib/faqs'
 import { RatingBadge, SectionHeading } from '@/components/blocks'
 import { ContactForm } from '@/components/contact-form'
 import { FaqList } from '@/components/faq'
+import { Reviews } from '@/components/reviews'
 import { LandingHeader } from '@/components/landing-header'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/schema'
@@ -227,6 +228,9 @@ export default function MotFarehamLanding() {
             </div>
           </div>
         </section>
+
+        {/* Reviews */}
+        <Reviews />
 
         {/* FAQ */}
         <section id="faq" className="bg-background py-20 md:py-24">
