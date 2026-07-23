@@ -55,6 +55,7 @@ export default function ContactPage() {
 
       <PageHero
         image="/images/generated/contact-hero.webp"
+        imageAlt="Brookswood Automotive garage reception and workshop in Fareham"
         eyebrow="Get in Touch"
         title="Book Your Car In"
         subtitle="Call us, email us or request a callback below. We will get back to you quickly with honest advice and a clear price."

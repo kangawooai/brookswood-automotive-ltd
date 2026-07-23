@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Phone, Check, Award, ShieldCheck, Wallet, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -75,11 +76,16 @@ export default function MotFarehamLanding() {
 
       <main className="flex-1">
         {/* Hero + quote form */}
-        <section
-          id="top"
-          className="relative bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/images/generated/mot-hero.webp)' }}
-        >
+        <section id="top" className="relative isolate overflow-hidden">
+          <Image
+            src="/images/generated/mot-hero.webp"
+            alt="Car undergoing an MOT test on a ramp at a Fareham garage"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/55" />
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-2 lg:px-8">
             <div className="max-w-xl">

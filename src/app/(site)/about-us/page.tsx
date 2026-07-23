@@ -81,6 +81,7 @@ export default function AboutPage() {
 
       <PageHero
         image="/images/generated/about-hero.webp"
+        imageAlt="Exterior of the Brookswood Automotive garage in Fareham"
         eyebrow="About Brookswood"
         title="Over 20 Years Keeping Fareham Moving"
         subtitle="Trading as Fareham MOT Centre, we are a local garage built on honesty, skill and genuine care for our customers' vehicles."

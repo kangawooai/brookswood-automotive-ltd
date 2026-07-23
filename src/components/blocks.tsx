@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, Star, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SITE } from '@/lib/site'
@@ -14,6 +15,7 @@ export function Eyebrow({ children }: { children: React.ReactNode }) {
 /** Full-bleed hero with a background image, dark overlay and white text. */
 export function PageHero({
   image,
+  imageAlt = '',
   eyebrow,
   title,
   subtitle,
@@ -22,6 +24,7 @@ export function PageHero({
   compact = false,
 }: {
   image: string
+  imageAlt?: string
   eyebrow?: string
   title: string
   subtitle?: string
@@ -30,10 +33,16 @@ export function PageHero({
   compact?: boolean
 }) {
   return (
-    <section
-      className="relative bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${image})` }}
-    >
+    <section className="relative isolate overflow-hidden">
+      <Image
+        src={image}
+        alt={imageAlt}
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        className="object-cover"
+      />
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/45" />
       <div
         className={`relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${

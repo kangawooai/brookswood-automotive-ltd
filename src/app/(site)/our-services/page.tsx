@@ -48,6 +48,7 @@ export default function OurServicesPage() {
 
       <PageHero
         image="/images/generated/services-hero.webp"
+        imageAlt="Technician working on a car in the Brookswood Automotive workshop in Fareham"
         eyebrow="Fareham Garage"
         title="Complete Car Care Under One Roof"
         subtitle="From MOTs and servicing to brakes, tyres, diagnostics and bodywork — our Fareham workshop handles it all with honest advice and quality workmanship."

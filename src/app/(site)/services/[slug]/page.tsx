@@ -87,6 +87,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <PageHero
         image={service.image}
+        imageAlt={`${service.title} at Brookswood Automotive in Fareham`}
         eyebrow="Fareham Garage"
         title={service.title}
         subtitle={service.short}
