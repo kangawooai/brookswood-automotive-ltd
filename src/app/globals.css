@@ -3,8 +3,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-    --font-heading: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+    --font-sans: var(--font-uni-neue), ui-sans-serif, system-ui, sans-serif;
+    --font-heading: var(--font-uni-neue), ui-sans-serif, system-ui, sans-serif;
     --font-mono: ui-monospace, monospace;
     --font-serif: Georgia, serif;
     --radius: 0.125rem;
@@ -157,13 +157,36 @@
     * {
         border-color: var(--border);
     }
+    /* UniNeue role mapping — single family, styled by weight + slant.
+       Body / general copy: UniNeue Regular Italic (400 italic). */
     body {
         background-color: var(--background);
         color: var(--foreground);
         letter-spacing: var(--tracking-normal);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-style: italic;
     }
+    /* Headings: UniNeue Black Italic (900 italic). */
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-heading);
+        font-weight: 900;
+        font-style: italic;
+    }
+    /* Buttons, navigation, labels, badges: UniNeue Bold Italic (700 italic). */
+    button,
+    nav,
+    label,
+    [data-slot="button"],
+    [data-slot="badge"],
+    [data-slot="label"] {
+        font-weight: 700;
+        font-style: italic;
+    }
+    /* Heavy emphasis: UniNeue Heavy, upright (800 normal). */
+    strong, b, .font-heavy {
+        font-weight: 800;
+        font-style: normal;
     }
 }
 
