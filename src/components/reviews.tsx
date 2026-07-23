@@ -42,59 +42,99 @@ const REVIEWS: Review[] = [
   },
 ]
 
-const AVATAR_GRADIENTS = [
-  'from-amber-500 to-orange-600',
-  'from-sky-500 to-blue-600',
-  'from-emerald-500 to-teal-600',
-  'from-rose-500 to-pink-600',
-  'from-violet-500 to-purple-600',
-  'from-cyan-500 to-sky-600',
-]
+function initials(name: string) {
+  const parts = name.trim().split(/\s+/)
+  const first = parts[0]?.[0] ?? ''
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : ''
+  return (first + last).toUpperCase()
+}
 
 function Stars({ className = 'size-4' }: { className?: string }) {
   return (
-    <div className="flex" aria-hidden>
+    <div className="flex items-center gap-0.5" role="img" aria-label="Rated 5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className={`${className} fill-[#f0a500] text-[#f0a500]`} />
+        <Star key={i} aria-hidden className={`${className} fill-[#f0a500] text-[#f0a500]`} />
       ))}
     </div>
+  )
+}
+
+function GoogleLabel() {
+  return (
+    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+      <BadgeCheck className="size-3.5 shrink-0 text-primary" aria-label="Verified" />
+      Google review
+    </span>
+  )
+}
+
+function Avatar({ name, className = 'size-9' }: { name: string; className?: string }) {
+  return (
+    <span
+      aria-hidden
+      className={`flex ${className} shrink-0 items-center justify-center rounded-full border border-border bg-muted text-xs font-semibold text-foreground`}
+    >
+      {initials(name)}
+    </span>
+  )
+}
+
+/** Featured highlight card — spans the full grid row on desktop, normal snap card on mobile. */
+function FeaturedCard({ review }: { review: Review }) {
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      className="flex h-full w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-border bg-card p-6 sm:w-[70%] sm:p-8 md:w-auto md:shrink md:col-span-2 lg:col-span-3"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <Avatar name={review.name} className="size-11" />
+          <div className="min-w-0">
+            <span className="block text-sm font-bold capitalize text-foreground">{review.name}</span>
+            <GoogleLabel />
+          </div>
+        </div>
+        <div className="flex shrink-0 items-center gap-3">
+          <span className="hidden rounded-full border border-border px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-muted-foreground sm:inline-block">
+            Verified customer
+          </span>
+          <Stars className="size-4" />
+        </div>
+      </div>
+      <Quote className="mt-5 size-8 shrink-0 text-primary/70" aria-hidden />
+      <blockquote className="mt-2 text-lg font-medium leading-relaxed text-foreground sm:text-xl">
+        {review.text}
+      </blockquote>
+    </motion.figure>
   )
 }
 
 function ReviewCard({ review, index }: { review: Review; index: number }) {
   return (
     <motion.figure
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.5, delay: (index % 4) * 0.08, ease: 'easeOut' }}
-      className="group relative flex h-full snap-center shrink-0 basis-[85%] flex-col overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-sm ring-1 ring-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-primary/30 sm:basis-[47%] md:basis-auto md:shrink"
+      transition={{ duration: 0.35, delay: 0.05 + (index % 3) * 0.06, ease: 'easeOut' }}
+      className="group flex h-full w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-border bg-card p-5 transition-colors duration-300 hover:bg-muted/30 sm:w-[47%] md:w-auto md:shrink"
     >
-      <div
-        className="pointer-events-none absolute -right-8 -top-8 size-28 rounded-full bg-primary/10 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
-        aria-hidden
-      />
-      <Quote className="size-9 shrink-0 text-primary/80" aria-hidden />
-      <div className="mt-4">
-        <Stars />
-      </div>
-      <blockquote className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-muted-foreground">
-        “{review.text}”
-      </blockquote>
-      <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-        <span
-          className={`flex size-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${AVATAR_GRADIENTS[index % AVATAR_GRADIENTS.length]} text-base font-black uppercase text-white shadow-inner`}
-        >
-          {review.name.trim().charAt(0)}
+      <div className="flex items-center justify-between">
+        <Stars className="size-4" />
+        <span className="rounded-full border border-border px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+          Verified
         </span>
+      </div>
+      <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+        {review.text}
+      </blockquote>
+      <figcaption className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+        <Avatar name={review.name} />
         <span className="min-w-0">
-          <span className="flex items-center gap-1.5 text-sm font-bold capitalize text-foreground">
-            {review.name}
-            <BadgeCheck className="size-4 shrink-0 text-primary" aria-label="Verified customer" />
-          </span>
-          <span className="block text-xs uppercase tracking-wide text-muted-foreground">
-            Google review
-          </span>
+          <span className="block text-sm font-bold capitalize text-foreground">{review.name}</span>
+          <GoogleLabel />
         </span>
       </figcaption>
     </motion.figure>
@@ -102,6 +142,8 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
 }
 
 export function Reviews() {
+  const [featured, ...rest] = REVIEWS
+
   return (
     <section className="relative overflow-hidden bg-background py-20 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -139,9 +181,10 @@ export function Reviews() {
           </motion.div>
         </div>
 
-        {/* Grid on desktop, swipeable carousel on mobile */}
-        <div className="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
-          {REVIEWS.map((review, i) => (
+        {/* Grid on desktop (featured card spans the top row), swipeable snap carousel on mobile */}
+        <div className="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
+          <FeaturedCard review={featured} />
+          {rest.map((review, i) => (
             <ReviewCard key={review.name} review={review} index={i} />
           ))}
         </div>
