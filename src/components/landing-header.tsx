@@ -10,6 +10,7 @@ import { SITE } from '@/lib/site'
 const ANCHORS = [
   { label: 'Services', href: '#services' },
   { label: 'Why Us', href: '#why' },
+  { label: 'Reviews', href: '#reviews' },
   { label: 'FAQs', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ]

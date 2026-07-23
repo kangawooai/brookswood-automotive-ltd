@@ -230,7 +230,9 @@ export default function MotFarehamLanding() {
         </section>
 
         {/* Reviews */}
-        <Reviews />
+        <div id="reviews" className="scroll-mt-16">
+          <Reviews />
+        </div>
 
         {/* FAQ */}
         <section id="faq" className="bg-background py-20 md:py-24">
