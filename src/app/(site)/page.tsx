@@ -93,7 +93,7 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="max-w-2xl">
             <span className="inline-block bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
-              Fareham MOT Centre · Est. 20+ years
+              Keeping You Road Ready
             </span>
             <h1 className="mt-5 text-4xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
               MOT, Servicing &amp; Repairs You Can Trust
