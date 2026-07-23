@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { SERVICES } from '@/lib/site'
+import { getStoredTrackingParams } from '@/lib/tracking-params'
 import { Loader2 } from 'lucide-react'
 
 const schema = z.object({
@@ -58,6 +59,7 @@ export function ContactForm({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...values,
+          ...getStoredTrackingParams(),
           fbp: readCookie('_fbp'),
           fbc: readCookie('_fbc'),
         }),

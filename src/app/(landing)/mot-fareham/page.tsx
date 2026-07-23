@@ -83,7 +83,7 @@ export default function MotFarehamLanding() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/55" />
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-2 lg:px-8">
             <div className="max-w-xl">
-              <span className="inline-block bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+              <span className="inline-block bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
                 Fareham MOT Centre
               </span>
               <h1 className="mt-5 text-4xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">

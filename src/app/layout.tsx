@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Rubik } from 'next/font/google'
 import { Tracking } from '@/components/tracking'
+import { UtmProvider } from '@/components/utm-provider'
 import { ConsentInit } from '@/components/consent-init'
 import { CookieConsent } from '@/components/cookie-consent'
 import { JsonLd } from '@/components/json-ld'
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <ConsentInit />
         <Tracking />
+        <UtmProvider />
         {children}
         <CookieConsent />
       </body>

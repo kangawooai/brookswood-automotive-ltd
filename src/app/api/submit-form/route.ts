@@ -21,11 +21,23 @@ export async function POST(request: NextRequest) {
     message = '',
     fbp = '',
     fbc = '',
+    // Ad-campaign tracking params — sent as their own dedicated payload fields,
+    // never mixed into `All Fields`.
+    utm_source = '',
+    utm_medium = '',
+    utm_campaign = '',
+    utm_term = '',
+    utm_content = '',
+    identifier = '',
+    sq = '',
+    loc = '',
+    querystring = '',
   } = payload
 
   const [firstName, ...rest] = name.trim().split(/\s+/)
   const lastName = rest.join(' ')
 
+  // Plain-text summary of ONLY user-visible form fields — no tracking data.
   const allFields = [
     `Name: ${name}`,
     `Email: ${email}`,
@@ -45,13 +57,22 @@ export async function POST(request: NextRequest) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name,
-          email,
-          phone,
-          postcode,
-          service,
-          message,
-          allFields,
+          Name: name,
+          Email: email,
+          Phone: phone,
+          Postcode: postcode,
+          Service: service,
+          Message: message,
+          'Campaign Source': utm_source,
+          'Campaign Medium': utm_medium,
+          'Campaign ID': utm_campaign,
+          'Campaign Term': utm_term,
+          'Campaign Content': utm_content,
+          Identifier: identifier,
+          'Search Query': sq,
+          Location: loc,
+          'All Fields': allFields,
+          querystring,
           submittedAt: new Date().toISOString(),
           source: 'Brookswood Automotive website',
         }),
