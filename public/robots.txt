@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mot-fareham.co.uk/sitemap.xml
