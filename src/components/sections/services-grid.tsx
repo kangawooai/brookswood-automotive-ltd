@@ -6,7 +6,21 @@ import { motion } from 'motion/react'
 import { SERVICES } from '@/lib/site'
 import { Eyebrow } from '@/components/blocks'
 
-export function ServicesGrid() {
+export function ServicesGrid({
+  slugs,
+  eyebrow = 'Our Services',
+  title = 'Everything Your Car Needs, Under One Roof',
+  intro = 'From MOTs and servicing to brakes, tyres and diagnostics, our Fareham team handles it all — with honest advice and no surprises.',
+}: {
+  // Optional subset — pass service slugs (not Service objects) so the icon
+  // components are resolved inside this client component, never serialised
+  // across the server→client boundary.
+  slugs?: string[]
+  eyebrow?: string
+  title?: string
+  intro?: string
+} = {}) {
+  const services = slugs ? SERVICES.filter((s) => slugs.includes(s.slug)) : SERVICES
   return (
     <section className="relative overflow-hidden bg-background py-20 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -17,18 +31,15 @@ export function ServicesGrid() {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="max-w-2xl"
         >
-          <Eyebrow>Our Services</Eyebrow>
+          <Eyebrow>{eyebrow}</Eyebrow>
           <h2 className="mt-4 text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl">
-            Everything Your Car Needs, Under One Roof
+            {title}
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            From MOTs and servicing to brakes, tyres and diagnostics, our Fareham team handles it
-            all — with honest advice and no surprises.
-          </p>
+          {intro ? <p className="mt-4 text-lg text-muted-foreground">{intro}</p> : null}
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {SERVICES.map((service, index) => (
+          {services.map((service, index) => (
             <motion.div
               key={service.slug}
               initial={{ opacity: 0, y: 24 }}

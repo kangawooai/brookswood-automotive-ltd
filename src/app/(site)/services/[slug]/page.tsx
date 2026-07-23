@@ -2,10 +2,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ArrowRight, Phone, Check } from 'lucide-react'
+import { Phone, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SITE, SERVICES, getService } from '@/lib/site'
 import { PageHero, HeroButtons, SectionHeading, CtaBand, CheckList } from '@/components/blocks'
+import { ServicesGrid } from '@/components/sections/services-grid'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema, serviceSchema } from '@/lib/schema'
 
@@ -145,42 +146,24 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* Related services */}
-      <section className="bg-background py-20 md:py-24">
+      {/* Related services — shadcn-space features shadow-lift card grid */}
+      <ServicesGrid
+        slugs={related.map((s) => s.slug)}
+        eyebrow="Related Services"
+        title="You Might Also Need"
+        intro=""
+      />
+
+      <section className="bg-background pb-20 md:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Related Services" title="You Might Also Need" />
-          <div className="mt-12 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
-            {related.map((s) => {
-              const Icon = s.icon
-              return (
-                <Link
-                  key={s.slug}
-                  href={`/services/${s.slug}`}
-                  className="group flex flex-col bg-card p-7 transition-colors hover:bg-muted"
-                >
-                  <span className="flex size-12 items-center justify-center bg-primary text-primary-foreground">
-                    <Icon className="size-6" />
-                  </span>
-                  <h3 className="mt-5 text-lg font-bold uppercase tracking-tight text-foreground">{s.nav}</h3>
-                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{s.short}</p>
-                  <span className="mt-4 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary">
-                    Learn more<span className="sr-only"> about {s.nav}</span>
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              )
-            })}
-          </div>
-          <div className="mt-10">
-            <CheckList
-              items={[
-                'DVSA-approved MOT testing',
-                'Quality parts and workmanship',
-                'Free, honest advice',
-                'Serving Fareham and Hampshire',
-              ]}
-            />
-          </div>
+          <CheckList
+            items={[
+              'DVSA-approved MOT testing',
+              'Quality parts and workmanship',
+              'Free, honest advice',
+              'Serving Fareham and Hampshire',
+            ]}
+          />
         </div>
       </section>
 
