@@ -51,7 +51,7 @@ const WHY_US = [
   {
     icon: ShieldCheck,
     title: '5-star rated service',
-    text: `Rated ${SITE.rating.value}/5 by ${SITE.rating.count} Google reviewers for quality and trust.`,
+    text: `Rated ${SITE.rating.value} by ${SITE.rating.count} Google reviewers for quality and trust.`,
   },
 ]
 

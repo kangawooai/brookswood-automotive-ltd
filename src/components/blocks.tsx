@@ -96,7 +96,7 @@ export function RatingBadge({ light = false }: { light?: boolean }) {
         ))}
       </div>
       <span className={`text-sm font-semibold ${light ? 'text-white/90' : 'text-foreground'}`}>
-        {SITE.rating.value}/5 from {SITE.rating.count} Google reviews
+        {SITE.rating.value} from {SITE.rating.count} Google reviews
       </span>
     </div>
   )
