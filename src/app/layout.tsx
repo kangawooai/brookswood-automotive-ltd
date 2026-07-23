@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Rubik } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Tracking } from '@/components/tracking'
 import { UtmProvider } from '@/components/utm-provider'
 import { ConsentInit } from '@/components/consent-init'
@@ -10,8 +10,25 @@ import { SITE } from '@/lib/site'
 import { PHOTOS } from '@/lib/photos'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
-const rubik = Rubik({ subsets: ['latin'], variable: '--font-rubik', display: 'swap' })
+// UniNeue — the single self-hosted font family for the whole site.
+// All 10 weights/styles live in public/fonts and are exposed through the
+// --font-uni-neue CSS variable (see globals.css for the role mapping).
+const uniNeue = localFont({
+  src: [
+    { path: '../../public/fonts/UniNeue-Light.otf', weight: '300', style: 'normal' },
+    { path: '../../public/fonts/UniNeue-LightItalic.otf', weight: '300', style: 'italic' },
+    { path: '../../public/fonts/UniNeue-Regular.otf', weight: '400', style: 'normal' },
+    { path: '../../public/fonts/UniNeue-RegularItalic.otf', weight: '400', style: 'italic' },
+    { path: '../../public/fonts/UniNeue-Bold.otf', weight: '700', style: 'normal' },
+    { path: '../../public/fonts/UniNeue-BoldItalic.otf', weight: '700', style: 'italic' },
+    { path: '../../public/fonts/UniNeue-Heavy.otf', weight: '800', style: 'normal' },
+    { path: '../../public/fonts/UniNeue-HeavyItalic.otf', weight: '800', style: 'italic' },
+    { path: '../../public/fonts/UniNeue-Black.otf', weight: '900', style: 'normal' },
+    { path: '../../public/fonts/UniNeue-BlackItalic.otf', weight: '900', style: 'italic' },
+  ],
+  variable: '--font-uni-neue',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -60,11 +77,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${inter.variable} ${rubik.variable}`}>
+    <html lang="en-GB" className={uniNeue.variable}>
       <head>
         <JsonLd data={graph(localBusinessSchema(), websiteSchema())} />
       </head>
-      <body className={inter.className}>
+      <body>
         <ConsentInit />
         <Tracking />
         <UtmProvider />
