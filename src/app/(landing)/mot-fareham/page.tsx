@@ -235,7 +235,7 @@ export default function MotFarehamLanding() {
         </div>
 
         {/* FAQ */}
-        <section id="faq" className="bg-background py-20 md:py-24">
+        <section id="faq" className="bg-muted py-20 md:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <SectionHeading eyebrow="MOT FAQs" title="Your MOT Questions, Answered" center />
             <div className="mt-10">

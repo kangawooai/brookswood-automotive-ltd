@@ -36,10 +36,6 @@ const REVIEWS: Review[] = [
     name: 'gary murray',
     text: "Highly recommend to anyone who needs a garage. Honest, reliable and well priced. I'd 100% use them again.",
   },
-  {
-    name: 'Samuel Clarke',
-    text: 'Went in for air-conditioning and the staff were amazing — had my car being worked on within minutes and did a great job.',
-  },
 ]
 
 function initials(name: string) {
