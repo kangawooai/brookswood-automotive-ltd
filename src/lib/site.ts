@@ -13,6 +13,7 @@ import {
   Snowflake,
   type LucideIcon,
 } from 'lucide-react'
+import { PHOTOS } from './photos'
 
 export const SITE = {
   name: 'Brookswood Automotive LTD',
@@ -76,7 +77,7 @@ export const SERVICES: Service[] = [
     metaTitle: 'MOT Testing Fareham | Class 4 MOT Centre',
     metaDescription:
       'Book your MOT in Fareham at Brookswood Automotive. DVSA-approved testers, honest advice and free retests. Call 01329 756796.',
-    image: '/images/generated/mot-hero.webp',
+    image: PHOTOS.fordOnLift,
     icon: Gauge,
     intro:
       'As a fully equipped Fareham MOT centre, we carry out Class 4 MOT tests to the latest DVSA standards. Our approved testers check every legal safety and emissions requirement, explain any advisories in plain English, and never carry out work you have not authorised.',
@@ -104,7 +105,7 @@ export const SERVICES: Service[] = [
     metaTitle: 'Car Servicing Fareham | Interim & Full Service',
     metaDescription:
       'Car servicing in Fareham from Brookswood Automotive. Interim and full services using quality parts, with transparent pricing. Call 01329 756796.',
-    image: '/images/generated/servicing.webp',
+    image: PHOTOS.bmwService,
     icon: Wrench,
     intro:
       'Regular servicing keeps your car safe, efficient and reliable while protecting its resale value. We carry out interim and full services using quality parts and manufacturer-grade oils, and every service is logged so your history stays intact.',

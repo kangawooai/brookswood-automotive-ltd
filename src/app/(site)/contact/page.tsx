@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { SITE } from '@/lib/site'
+import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { PageHero, SectionHeading } from '@/components/blocks'
 import { ContactForm } from '@/components/contact-form'
 import { JsonLd } from '@/components/json-ld'
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     url: PATH,
     images: [
       {
-        url: '/images/generated/contact-hero.webp',
+        url: PHOTOS.reception,
         width: 1536,
         height: 1024,
         alt: 'Brookswood Automotive garage reception and workshop in Fareham',
@@ -54,8 +55,8 @@ export default function ContactPage() {
       />
 
       <PageHero
-        image="/images/generated/contact-hero.webp"
-        imageAlt="Brookswood Automotive garage reception and workshop in Fareham"
+        image={PHOTOS.reception}
+        imageAlt={PHOTO_ALT.reception}
         eyebrow="Get in Touch"
         title="Book Your Car In"
         subtitle="Call us, email us or request a callback below. We will get back to you quickly with honest advice and a clear price."

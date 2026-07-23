@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { ArrowRight } from 'lucide-react'
 import { SITE, SERVICES } from '@/lib/site'
+import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { PageHero, HeroButtons, SectionHeading, CtaBand, CheckList } from '@/components/blocks'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema } from '@/lib/schema'
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     url: PATH,
     images: [
       {
-        url: '/images/generated/services-hero.webp',
+        url: PHOTOS.bmwService,
         width: 1536,
         height: 1024,
         alt: 'Technician working on a car in the Brookswood Automotive workshop in Fareham',
@@ -47,8 +48,8 @@ export default function OurServicesPage() {
       />
 
       <PageHero
-        image="/images/generated/services-hero.webp"
-        imageAlt="Technician working on a car in the Brookswood Automotive workshop in Fareham"
+        image={PHOTOS.bmwService}
+        imageAlt={PHOTO_ALT.bmwService}
         eyebrow="Fareham Garage"
         title="Complete Car Care Under One Roof"
         subtitle="From MOTs and servicing to brakes, tyres, diagnostics and bodywork — our Fareham workshop handles it all with honest advice and quality workmanship."

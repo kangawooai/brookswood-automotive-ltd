@@ -1,4 +1,5 @@
 import { SITE, SERVICES } from '@/lib/site'
+import { PHOTOS } from '@/lib/photos'
 
 const ORG_ID = `${SITE.url}/#organization`
 const WEBSITE_ID = `${SITE.url}/#website`
@@ -12,7 +13,7 @@ export function localBusinessSchema() {
     url: SITE.url,
     telephone: SITE.phoneHref,
     email: SITE.email,
-    image: `${SITE.url}/images/generated/about-hero.webp`,
+    image: PHOTOS.exterior,
     logo: `${SITE.url}/images/logo.webp`,
     priceRange: '££',
     address: {

@@ -7,6 +7,7 @@ import { CookieConsent } from '@/components/cookie-consent'
 import { JsonLd } from '@/components/json-ld'
 import { graph, localBusinessSchema, websiteSchema } from '@/lib/schema'
 import { SITE } from '@/lib/site'
+import { PHOTOS } from '@/lib/photos'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
       'Trusted Fareham garage for MOT tests, car servicing and repairs. Over 20 years of experience and honest pricing.',
     images: [
       {
-        url: '/images/generated/home-hero.webp',
+        url: PHOTOS.workshop,
         width: 1536,
         height: 1024,
         alt: 'Brookswood Automotive car repair workshop in Fareham',
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Brookswood Automotive | MOT, Servicing & Repairs in Fareham',
     description: 'Trusted Fareham garage for MOT tests, car servicing and repairs.',
-    images: ['/images/generated/home-hero.webp'],
+    images: [PHOTOS.workshop],
   },
   icons: {
     icon: '/icon.png',

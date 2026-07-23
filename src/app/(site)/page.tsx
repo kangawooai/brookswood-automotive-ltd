@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Phone, ShieldCheck, Wallet, MessageSquare, Award, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SITE, SERVICES } from '@/lib/site'
+import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { HOME_FAQS } from '@/lib/faqs'
 import {
   TrustBar,
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Brookswood Automotive | MOT, Servicing & Repairs in Fareham',
     description: 'Trusted Fareham garage for MOT tests, car servicing and repairs.',
     url: '/',
-    images: [{ url: '/images/generated/home-hero.webp', width: 1536, height: 1024, alt: 'Brookswood Automotive workshop in Fareham' }],
+    images: [{ url: PHOTOS.workshop, width: 1536, height: 1024, alt: 'Brookswood Automotive workshop in Fareham' }],
   },
 }
 
@@ -78,8 +79,8 @@ export default function HomePage() {
       {/* Hero — next/image LCP */}
       <section className="relative isolate overflow-hidden">
         <Image
-          src="/images/generated/home-hero.webp"
-          alt="Modern car repair workshop in Fareham with a vehicle raised on a ramp"
+          src={PHOTOS.workshop}
+          alt={PHOTO_ALT.workshop}
           fill
           priority
           fetchPriority="high"
@@ -170,8 +171,8 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative aspect-[4/3] overflow-hidden border-4 border-primary">
             <Image
-              src="/images/generated/why-choose.webp"
-              alt="Car raised on a garage ramp being inspected from underneath in Fareham"
+              src={PHOTOS.bmwBay}
+              alt={PHOTO_ALT.bmwBay}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
@@ -255,12 +256,44 @@ export default function HomePage() {
           </div>
           <div className="relative order-first aspect-[4/3] overflow-hidden border-4 border-primary lg:order-last">
             <Image
-              src="/images/generated/about-hero.webp"
-              alt="Exterior of the Brookswood Automotive garage in Fareham"
+              src={PHOTOS.exterior}
+              alt={PHOTO_ALT.exterior}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery — real work from the Fareham workshop */}
+      <section className="bg-secondary py-20 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Our Work"
+            title="Cars We're Trusted to Look After"
+            intro="From everyday runarounds and vans to prestige and performance cars, Fareham drivers rely on us to keep them running their best."
+            light
+          />
+          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden border border-border bg-border lg:grid-cols-3">
+            {[
+              { src: PHOTOS.lotus, alt: PHOTO_ALT.lotus },
+              { src: PHOTOS.bmwI8, alt: PHOTO_ALT.bmwI8 },
+              { src: PHOTOS.fordOnLift, alt: PHOTO_ALT.fordOnLift },
+              { src: PHOTOS.luxuryLineup, alt: PHOTO_ALT.luxuryLineup },
+              { src: PHOTOS.bmwService, alt: PHOTO_ALT.bmwService },
+              { src: PHOTOS.vwVan, alt: PHOTO_ALT.vwVan },
+            ].map((photo) => (
+              <div key={photo.src} className="relative aspect-[4/3] overflow-hidden bg-card">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

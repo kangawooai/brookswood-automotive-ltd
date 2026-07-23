@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Award, HeartHandshake, ShieldCheck, Wallet } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SITE } from '@/lib/site'
+import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import {
   PageHero,
   HeroButtons,
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     url: PATH,
     images: [
       {
-        url: '/images/generated/about-hero.webp',
+        url: PHOTOS.exterior,
         width: 1536,
         height: 1024,
         alt: 'Exterior of the Brookswood Automotive garage in Fareham',
@@ -80,8 +81,8 @@ export default function AboutPage() {
       />
 
       <PageHero
-        image="/images/generated/about-hero.webp"
-        imageAlt="Exterior of the Brookswood Automotive garage in Fareham"
+        image={PHOTOS.exterior}
+        imageAlt={PHOTO_ALT.exterior}
         eyebrow="About Brookswood"
         title="Over 20 Years Keeping Fareham Moving"
         subtitle="Trading as Fareham MOT Centre, we are a local garage built on honesty, skill and genuine care for our customers' vehicles."
@@ -126,8 +127,8 @@ export default function AboutPage() {
           </div>
           <div className="relative order-first aspect-[4/3] overflow-hidden border-4 border-primary lg:order-last">
             <Image
-              src="/images/generated/why-choose.webp"
-              alt="Car raised on a garage ramp being inspected at Brookswood Automotive in Fareham"
+              src={PHOTOS.workshop}
+              alt={PHOTO_ALT.workshop}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"

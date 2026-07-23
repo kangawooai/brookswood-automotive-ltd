@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Phone, Check, Award, ShieldCheck, Wallet, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SITE, getService } from '@/lib/site'
+import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { MOT_FAQS } from '@/lib/faqs'
 import { RatingBadge, SectionHeading } from '@/components/blocks'
 import { ContactForm } from '@/components/contact-form'
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     url: PATH,
     images: [
       {
-        url: '/images/generated/mot-hero.webp',
+        url: PHOTOS.fordOnLift,
         width: 1536,
         height: 1024,
         alt: 'Car undergoing an MOT test on a ramp at a Fareham garage',
@@ -78,8 +79,8 @@ export default function MotFarehamLanding() {
         {/* Hero + quote form */}
         <section id="top" className="relative isolate overflow-hidden">
           <Image
-            src="/images/generated/mot-hero.webp"
-            alt="Car undergoing an MOT test on a ramp at a Fareham garage"
+            src={PHOTOS.fordOnLift}
+            alt={PHOTO_ALT.fordOnLift}
             fill
             priority
             fetchPriority="high"
