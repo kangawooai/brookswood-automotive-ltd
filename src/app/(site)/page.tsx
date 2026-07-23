@@ -154,7 +154,7 @@ export default function HomePage() {
                   </h3>
                   <p className="mt-2 flex-1 text-sm text-muted-foreground">{service.short}</p>
                   <span className="mt-4 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary">
-                    Learn more
+                    Learn more<span className="sr-only"> about {service.nav}</span>
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </Link>

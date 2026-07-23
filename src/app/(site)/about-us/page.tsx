@@ -175,7 +175,12 @@ export default function AboutPage() {
             <Button asChild size="lg" className="font-bold uppercase tracking-wide">
               <Link href="/contact">Get in Touch</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-bold uppercase tracking-wide">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-primary font-bold uppercase tracking-wide text-primary hover:bg-primary hover:text-primary-foreground"
+            >
               <Link href="/our-services">View Our Services</Link>
             </Button>
           </div>

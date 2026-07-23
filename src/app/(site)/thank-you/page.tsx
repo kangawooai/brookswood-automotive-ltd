@@ -31,7 +31,12 @@ export default function ThankYouPage() {
               <Phone /> {SITE.phoneDisplay}
             </a>
           </Button>
-          <Button asChild size="lg" variant="outline" className="font-bold uppercase tracking-wide">
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="border-primary font-bold uppercase tracking-wide text-primary hover:bg-primary hover:text-primary-foreground"
+          >
             <Link href="/">Back to Home</Link>
           </Button>
         </div>

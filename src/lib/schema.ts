@@ -48,7 +48,6 @@ export function localBusinessSchema() {
       areaServed: 'GB',
       availableLanguage: 'English',
     },
-    sameAs: [SITE.social.facebook, SITE.social.x],
   }
 }
 

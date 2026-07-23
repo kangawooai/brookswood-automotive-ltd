@@ -49,10 +49,6 @@ export const SITE = {
     { days: ['Saturday'], opens: '09:00', closes: '13:00' },
   ],
   geo: { lat: 50.8429, lng: -1.2036 },
-  social: {
-    facebook: 'https://www.facebook.com/',
-    x: 'https://twitter.com/',
-  },
 } as const
 
 export type Service = {

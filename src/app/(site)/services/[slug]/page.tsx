@@ -163,7 +163,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <h3 className="mt-5 text-lg font-bold uppercase tracking-tight text-foreground">{s.nav}</h3>
                   <p className="mt-2 flex-1 text-sm text-muted-foreground">{s.short}</p>
                   <span className="mt-4 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary">
-                    Learn more
+                    Learn more<span className="sr-only"> about {s.nav}</span>
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </Link>
