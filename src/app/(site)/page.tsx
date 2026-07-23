@@ -129,7 +129,6 @@ export default function HomePage() {
           { value: '20+', label: 'Years Experience' },
           { value: '5.0★', label: 'Google Rating' },
           { value: `${SITE.rating.count}`, label: 'Happy Reviews' },
-          { value: '12', label: 'Services Offered' },
         ]}
       />
 
