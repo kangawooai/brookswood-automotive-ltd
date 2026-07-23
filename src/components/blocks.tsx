@@ -108,9 +108,10 @@ export function TrustBar({
 }: {
   items: { value: string; label: string }[]
 }) {
+  const mdCols = items.length === 3 ? 'md:grid-cols-3' : items.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-4'
   return (
     <section className="border-y-4 border-primary bg-secondary">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
+      <div className={`mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 ${mdCols}`}>
         {items.map((item) => (
           <div key={item.label} className="px-4 py-8 text-center">
             <p className="text-4xl font-black text-primary md:text-5xl">{item.value}</p>

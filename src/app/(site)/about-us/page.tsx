@@ -98,7 +98,6 @@ export default function AboutPage() {
           { value: `${SITE.yearsExperience}`, label: 'Years Experience' },
           { value: '5.0★', label: 'Google Rating' },
           { value: `${SITE.rating.count}`, label: 'Happy Reviews' },
-          { value: '11', label: 'Services Offered' },
         ]}
       />
 
