@@ -4,6 +4,8 @@ import { SITE } from '@/lib/site'
 import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { PageHero, SectionHeading } from '@/components/blocks'
 import { ContactForm } from '@/components/contact-form'
+import { Reviews } from '@/components/reviews'
+import { FaqSection } from '@/components/sections/faq-section'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema } from '@/lib/schema'
 
@@ -145,6 +147,10 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <Reviews />
+
+      <FaqSection />
 
       {/* Map */}
       <section className="bg-muted">

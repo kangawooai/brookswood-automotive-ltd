@@ -3,6 +3,9 @@ import { SITE } from '@/lib/site'
 import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { PageHero, HeroButtons, SectionHeading, CtaBand, CheckList } from '@/components/blocks'
 import { ServicesGrid } from '@/components/sections/services-grid'
+import { Reviews } from '@/components/reviews'
+import { FaqSection } from '@/components/sections/faq-section'
+import { CallbackSection } from '@/components/sections/callback-section'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema } from '@/lib/schema'
 
@@ -84,6 +87,12 @@ export default function OurServicesPage() {
           </div>
         </div>
       </section>
+
+      <Reviews />
+
+      <FaqSection />
+
+      <CallbackSection />
 
       <CtaBand />
     </>

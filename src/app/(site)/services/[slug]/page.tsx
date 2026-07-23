@@ -7,6 +7,9 @@ import { Button } from '@/components/ui/button'
 import { SITE, SERVICES, getService } from '@/lib/site'
 import { PageHero, HeroButtons, SectionHeading, CtaBand, CheckList } from '@/components/blocks'
 import { ServicesGrid } from '@/components/sections/services-grid'
+import { Reviews } from '@/components/reviews'
+import { FaqSection } from '@/components/sections/faq-section'
+import { CallbackSection } from '@/components/sections/callback-section'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema, serviceSchema } from '@/lib/schema'
 
@@ -166,6 +169,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           />
         </div>
       </section>
+
+      <Reviews />
+
+      <FaqSection />
+
+      <CallbackSection defaultService={service.nav} />
 
       <CtaBand title={`Book your ${service.nav.toLowerCase()} today`} />
     </>

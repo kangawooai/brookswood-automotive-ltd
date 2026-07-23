@@ -14,6 +14,7 @@ import {
   CheckList,
 } from '@/components/blocks'
 import { ServicesGrid } from '@/components/sections/services-grid'
+import { CallbackSection } from '@/components/sections/callback-section'
 import { FaqList } from '@/components/faq'
 import { Reviews } from '@/components/reviews'
 import { JsonLd } from '@/components/json-ld'
@@ -276,6 +277,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Callback form */}
+      <CallbackSection />
 
       <CtaBand />
     </>

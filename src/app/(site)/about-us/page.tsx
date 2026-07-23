@@ -5,6 +5,9 @@ import { Award, HeartHandshake, ShieldCheck, Wallet } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SITE } from '@/lib/site'
 import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
+import { Reviews } from '@/components/reviews'
+import { FaqSection } from '@/components/sections/faq-section'
+import { CallbackSection } from '@/components/sections/callback-section'
 import {
   PageHero,
   HeroButtons,
@@ -188,6 +191,12 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <Reviews />
+
+      <FaqSection />
+
+      <CallbackSection />
 
       <CtaBand />
     </>
