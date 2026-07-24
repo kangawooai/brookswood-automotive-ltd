@@ -1,7 +1,7 @@
 ## Proposed Changes
 
-- Reduce the dark gradient overlay on the Home page hero by 10% so a little more of the workshop photo shows through
-- All text, buttons and rating badge will remain clearly readable
+- Replace the current hero background image on the Home page with the uploaded workshop interior photo
+- Keep the same dark gradient overlay (left-to-right fade) so the white text remains easy to read
 
 **Estimated cost: £1 – £1**
 
