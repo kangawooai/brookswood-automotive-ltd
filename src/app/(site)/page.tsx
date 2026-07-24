@@ -3,7 +3,7 @@ import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Phone, ShieldCheck, Wallet, MessageSquare, Award } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { SITE } from '@/lib/site'
+import { SITE, SERVICES } from '@/lib/site'
 import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { HOME_FAQS } from '@/lib/faqs'
 import {
@@ -31,6 +31,12 @@ export const metadata: Metadata = {
     images: [{ url: PHOTOS.workshop, width: 1536, height: 1024, alt: 'Brookswood Automotive workshop in Fareham' }],
   },
 }
+
+// Core services shown on the home grid. Alloy wheel repair and car body repair
+// are intentionally excluded here (they remain on Our Services and their pages).
+const HOME_SERVICE_SLUGS = SERVICES.map((s) => s.slug).filter(
+  (slug) => slug !== 'alloy-wheel-repair' && slug !== 'car-body-repair',
+)
 
 const WHY_US = [
   {
@@ -132,16 +138,18 @@ export default function HomePage() {
         ]}
       />
 
-      {/* Services — shadcn-space features shadow-lift card grid */}
-      <ServicesGrid />
+      {/* Services — shadcn-space features shadow-lift card grid.
+          Home shows the core services only; alloy wheel repair and car body
+          repair are kept on the Our Services page and their own pages. */}
+      <ServicesGrid slugs={HOME_SERVICE_SLUGS} />
 
       {/* Why choose us — split */}
       <section className="bg-muted py-20 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative aspect-[4/3] overflow-hidden border-4 border-primary">
             <Image
-              src={PHOTOS.bmwBay}
-              alt={PHOTO_ALT.bmwBay}
+              src={PHOTOS.lotusEmira}
+              alt={PHOTO_ALT.lotusEmira}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
