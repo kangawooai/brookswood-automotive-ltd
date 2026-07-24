@@ -81,8 +81,8 @@ export default function HomePage() {
       {/* Hero — next/image LCP */}
       <section className="relative isolate overflow-hidden">
         <Image
-          src={PHOTOS.workshop}
-          alt={PHOTO_ALT.workshop}
+          src={PHOTOS.heroWorkshop}
+          alt={PHOTO_ALT.heroWorkshop}
           fill
           priority
           fetchPriority="high"
