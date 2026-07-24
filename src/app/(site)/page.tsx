@@ -140,8 +140,8 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative aspect-[4/3] overflow-hidden border-4 border-primary">
             <Image
-              src={PHOTOS.bmwBay}
-              alt={PHOTO_ALT.bmwBay}
+              src={PHOTOS.whyWorkshop}
+              alt={PHOTO_ALT.whyWorkshop}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
