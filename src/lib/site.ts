@@ -1,5 +1,4 @@
 import {
-  Gauge,
   Wrench,
   Disc3,
   CircleDot,
@@ -13,6 +12,7 @@ import {
   Snowflake,
   type LucideIcon,
 } from 'lucide-react'
+import { MotIcon } from '@/components/icons/mot-icon'
 import { PHOTOS } from './photos'
 
 export const SITE = {
@@ -78,7 +78,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'Book your MOT in Fareham at Brookswood Automotive. DVSA-approved testers, honest advice and free retests. Call 01329 756796.',
     image: PHOTOS.fordOnLift,
-    icon: Gauge,
+    icon: MotIcon,
     intro:
       'As a fully equipped Fareham MOT centre, we carry out Class 4 MOT tests to the latest DVSA standards. Our approved testers check every legal safety and emissions requirement, explain any advisories in plain English, and never carry out work you have not authorised.',
     included: [
