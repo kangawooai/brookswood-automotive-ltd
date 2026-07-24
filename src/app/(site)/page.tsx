@@ -89,7 +89,7 @@ export default function HomePage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/45" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/60 to-black/35" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="max-w-2xl">
             <span className="inline-block bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
