@@ -29,6 +29,8 @@ export const PHOTOS = {
   bmwBay: `${BASE}/gmb-10.jpg`,
   /** Customer-uploaded finished workshop interior — used for the Home hero background. */
   heroWorkshop: '/images/hero-workshop.webp',
+  /** Customer-uploaded blue Lotus Emira parked outside the Brookswood Automotive garage. */
+  lotusEmira: '/images/lotus-emira-garage.webp',
 } as const
 
 export const PHOTO_ALT = {
@@ -44,4 +46,5 @@ export const PHOTO_ALT = {
   vwVan: 'White Volkswagen van parked inside the Brookswood Automotive workshop beside a vehicle lift',
   bmwBay: 'Blue BMW in a Brookswood Automotive workshop bay with its headlights illuminated',
   heroWorkshop: 'The Brookswood Automotive workshop interior in Fareham, with vehicle lift bays and tool storage',
+  lotusEmira: 'A blue Lotus Emira parked outside the Brookswood Automotive garage in Fareham',
 } as const
