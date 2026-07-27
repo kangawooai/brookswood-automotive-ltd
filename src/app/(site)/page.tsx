@@ -32,10 +32,15 @@ export const metadata: Metadata = {
   },
 }
 
-// Core services shown on the home grid. Alloy wheel repair and car body repair
-// are intentionally excluded here (they remain on Our Services and their pages).
+// Core services shown on the home grid. Alloy wheel repair, car body repair,
+// tyres and wheel alignment are intentionally excluded here (they remain on
+// Our Services and their own pages).
 const HOME_SERVICE_SLUGS = SERVICES.map((s) => s.slug).filter(
-  (slug) => slug !== 'alloy-wheel-repair' && slug !== 'car-body-repair',
+  (slug) =>
+    slug !== 'alloy-wheel-repair' &&
+    slug !== 'car-body-repair' &&
+    slug !== 'tyres' &&
+    slug !== 'wheel-alignment',
 )
 
 const WHY_US = [
