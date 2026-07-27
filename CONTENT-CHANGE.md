@@ -1,11 +1,9 @@
 ## Proposed Changes
 
-- **Home page — Services grid:** Remove the **Alloy Wheel Repair** card from the services grid on the home page only (it will still appear on the Our Services page and its own service page)
-- **Home page — Services grid:** Remove the **Car Body Repair** card from the services grid on the home page only (same — it stays everywhere else)
-- **Home page — "Why Brookswood" section:** Swap the current BMW workshop bay image for the uploaded photo of the blue Lotus Emira outside the Brookswood Automotive garage
+- Remove the **Tyres** card from the homepage services grid
+- Remove the **Wheel Alignment** card from the homepage services grid
+- Everything else (service pages, Our Services page, footer, header dropdown, related services) stays exactly as it is
 
-**Estimated cost: £1 – £2**
+**Estimated cost: £1.65 – £4.30**
 
-## Attached files
-The customer uploaded the following file(s) during this chat. Where the objectives refer to a provided/attached image, logo, icon, screenshot, font or document, download the matching file (e.g. `curl -L -o <path> <url>`) into the project and use it — never hotlink a customer upload.
-- ChatGPT Image Jul 24, 2026, 09_33_11 PM.png (image/png): https://hppgzamzudygkyyzkgdd.supabase.co/storage/v1/object/public/website-media/chat-attachments/1784931468085-9uoldd.png
+Since each update has a one-off setup cost, you'll get more for your money if we do a few tweaks together — anything else you'd like sorted while we're at it?
