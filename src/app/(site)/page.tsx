@@ -17,6 +17,7 @@ import { ServicesGrid } from '@/components/sections/services-grid'
 import { CallbackSection } from '@/components/sections/callback-section'
 import { FaqList } from '@/components/faq'
 import { Reviews } from '@/components/reviews'
+import { getPlaceData } from '@/lib/google-reviews'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema, faqSchema } from '@/lib/schema'
 
@@ -62,7 +63,8 @@ const WHY_US = [
   {
     icon: ShieldCheck,
     title: '5-star rated service',
-    text: `Rated ${SITE.rating.value} by ${SITE.rating.count} Google reviewers for quality and trust.`,
+    text: (value: string, count: number) =>
+      `Rated ${value} by ${count} Google reviewers for quality and trust.`,
   },
 ]
 
@@ -73,7 +75,8 @@ const PROCESS = [
   { step: 'Back on the road', detail: 'We carry out the approved work and hand your car back running its best.' },
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { rating } = await getPlaceData()
   return (
     <>
       <JsonLd
@@ -129,7 +132,7 @@ export default function HomePage() {
               </Button>
             </div>
             <div className="mt-8">
-              <RatingBadge light />
+              <RatingBadge light value={rating.value} count={rating.count} />
             </div>
           </div>
         </div>
@@ -138,8 +141,8 @@ export default function HomePage() {
       <TrustBar
         items={[
           { value: '20+', label: 'Years Experience' },
-          { value: '5.0★', label: 'Google Rating' },
-          { value: `${SITE.rating.count}`, label: 'Happy Reviews' },
+          { value: `${rating.value}★`, label: 'Google Rating' },
+          { value: `${rating.count}`, label: 'Happy Reviews' },
         ]}
       />
 
@@ -175,7 +178,11 @@ export default function HomePage() {
                     <h3 className="mt-3 text-base font-bold uppercase tracking-tight text-foreground">
                       {item.title}
                     </h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{item.text}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {typeof item.text === 'function'
+                        ? item.text(rating.value, rating.count)
+                        : item.text}
+                    </p>
                   </div>
                 )
               })}

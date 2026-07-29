@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { SITE } from '@/lib/site'
 import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { Reviews } from '@/components/reviews'
+import { getPlaceData } from '@/lib/google-reviews'
 import { FaqSection } from '@/components/sections/faq-section'
 import { CallbackSection } from '@/components/sections/callback-section'
 import {
@@ -65,7 +66,8 @@ const VALUES = [
   },
 ]
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { rating } = await getPlaceData()
   return (
     <>
       <JsonLd
@@ -96,8 +98,8 @@ export default function AboutPage() {
       <TrustBar
         items={[
           { value: `${SITE.yearsExperience}`, label: 'Years Experience' },
-          { value: '5.0★', label: 'Google Rating' },
-          { value: `${SITE.rating.count}`, label: 'Happy Reviews' },
+          { value: `${rating.value}★`, label: 'Google Rating' },
+          { value: `${rating.count}`, label: 'Happy Reviews' },
         ]}
       />
 
@@ -116,7 +118,7 @@ export default function AboutPage() {
               <p>
                 We built our reputation the hard way — one honest job at a time. Our customers stay with us
                 because we explain things clearly, quote fairly and never carry out work they have not agreed
-                to. That straightforward approach is reflected in our {SITE.rating.value}-star Google rating.
+                to. That straightforward approach is reflected in our {rating.value}-star Google rating.
               </p>
               <p>
                 Whether it is a quick MOT, a full service or a repair that needs sorting fast, you will get the
@@ -124,7 +126,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="mt-8">
-              <RatingBadge />
+              <RatingBadge value={rating.value} count={rating.count} />
             </div>
           </div>
           <div className="relative order-first aspect-[4/3] overflow-hidden border-4 border-primary lg:order-last">

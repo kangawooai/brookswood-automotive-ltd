@@ -10,6 +10,7 @@ import { RatingBadge, SectionHeading } from '@/components/blocks'
 import { ContactForm } from '@/components/contact-form'
 import { FaqList } from '@/components/faq'
 import { Reviews } from '@/components/reviews'
+import { getPlaceData } from '@/lib/google-reviews'
 import { LandingHeader } from '@/components/landing-header'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/schema'
@@ -51,8 +52,9 @@ const PROCESS = [
   { step: 'Back on the road', detail: 'Pass and you are done; any approved repairs come with a free retest.' },
 ]
 
-export default function MotFarehamLanding() {
+export default async function MotFarehamLanding() {
   const mot = getService('mot-testing')!
+  const { rating } = await getPlaceData()
 
   return (
     <>
@@ -129,7 +131,7 @@ export default function MotFarehamLanding() {
                 </Button>
               </div>
               <div className="mt-8">
-                <RatingBadge light />
+                <RatingBadge light value={rating.value} count={rating.count} />
               </div>
             </div>
 
@@ -151,8 +153,8 @@ export default function MotFarehamLanding() {
           <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
             {[
               { value: `${SITE.yearsExperience}`, label: 'Years Experience' },
-              { value: '5.0★', label: 'Google Rating' },
-              { value: `${SITE.rating.count}`, label: 'Happy Reviews' },
+              { value: `${rating.value}★`, label: 'Google Rating' },
+              { value: `${rating.count}`, label: 'Happy Reviews' },
               { value: 'Free', label: 'Retest Included' },
             ].map((item) => (
               <div key={item.label} className="px-4 py-8 text-center">
