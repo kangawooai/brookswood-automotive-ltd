@@ -6,6 +6,7 @@ import { ConsentInit } from '@/components/consent-init'
 import { CookieConsent } from '@/components/cookie-consent'
 import { JsonLd } from '@/components/json-ld'
 import { graph, localBusinessSchema, websiteSchema } from '@/lib/schema'
+import { getPlaceData } from '@/lib/google-reviews'
 import { SITE } from '@/lib/site'
 import { PHOTOS } from '@/lib/photos'
 import './globals.css'
@@ -75,11 +76,14 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Use the live Google rating in the structured data so search engines show
+  // the same real rating that appears across the site.
+  const { rating } = await getPlaceData()
   return (
     <html lang="en-GB" className={uniNeue.variable}>
       <head>
-        <JsonLd data={graph(localBusinessSchema(), websiteSchema())} />
+        <JsonLd data={graph(localBusinessSchema(rating), websiteSchema())} />
       </head>
       <body>
         <ConsentInit />
