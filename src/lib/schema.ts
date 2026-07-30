@@ -4,7 +4,9 @@ import { PHOTOS } from '@/lib/photos'
 const ORG_ID = `${SITE.url}/#organization`
 const WEBSITE_ID = `${SITE.url}/#website`
 
-export function localBusinessSchema() {
+export function localBusinessSchema(
+  rating: { value: string; count: number } = SITE.rating,
+) {
   return {
     '@type': ['AutoRepair', 'LocalBusiness'],
     '@id': ORG_ID,
@@ -37,8 +39,8 @@ export function localBusinessSchema() {
     })),
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: SITE.rating.value,
-      reviewCount: SITE.rating.count,
+      ratingValue: rating.value,
+      reviewCount: rating.count,
       bestRating: '5',
     },
     contactPoint: {
