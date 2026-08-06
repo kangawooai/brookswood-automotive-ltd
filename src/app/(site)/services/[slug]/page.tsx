@@ -10,6 +10,7 @@ import { ServicesGrid } from '@/components/sections/services-grid'
 import { Reviews } from '@/components/reviews'
 import { FaqSection } from '@/components/sections/faq-section'
 import { CallbackSection } from '@/components/sections/callback-section'
+import { BookingSection } from '@/components/sections/booking-section'
 import { JsonLd } from '@/components/json-ld'
 import { graph, webPageSchema, breadcrumbSchema, serviceSchema } from '@/lib/schema'
 
@@ -132,6 +133,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
+
+      {/* Multi-step booking form — sits above the process section */}
+      <BookingSection defaultService={service.nav} />
 
       {/* Process */}
       <section className="bg-secondary py-20 md:py-24">
