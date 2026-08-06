@@ -1,17 +1,9 @@
 ## Proposed Changes
 
-- **New multistep booking form** added to all service pages, sitting above the "Our Process" section
-- **4-step flow** designed for maximum conversion:
-  - **Step 1 – Your Details:** Name + Phone
-  - **Step 2 – Your Vehicle:** Reg plate + Service (pre-filled with the current service)
-  - **Step 3 – More Info:** Preferred date, morning/afternoon preference + optional message
-  - **Step 4 – Almost done!:** Email + postcode, then submit
-- **Session auto-save** after every step — progress is restored if they navigate away and come back
-- **Partial submission trigger** — if a user drops off mid-form (completes at least step 1), their details are sent automatically when they leave the page
-- **Partial leads fire as a 0.5 conversion event** via Google Tag Manager dataLayer push
-- **Full submissions fire as a 1.0 conversion event**
-- All submissions (full and partial) emailed to **info@brookswoodautomotive.co.uk** and posted to your Zapier webhook
-- Form heading updated from "Request a Callback" to **"Book Now"** throughout the service pages
-- The existing callback form at the bottom of service pages is kept as-is
+- Connect all forms (contact/callback form and the multi-step booking form) to your Zapier webhook at the provided URL
+- Ensure every field is included in the webhook payload — name, email, phone, postcode, service, registration, preferred date, time preference, and message
+- Webhook fires on full form submission (and on partial lead capture for the booking form too)
 
-**Estimated cost: £9.50 – £18.05**
+**Estimated cost: £1.60 – £4.20**
+
+Since each update has a one-off setup cost, you'll get more for your money if we do a few tweaks together — anything else you'd like sorted while we're at it?
