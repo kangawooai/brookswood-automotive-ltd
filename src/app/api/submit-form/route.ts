@@ -19,6 +19,11 @@ export async function POST(request: NextRequest) {
     postcode = '',
     service = '',
     message = '',
+    reg = '',
+    preferredDate = '',
+    timePreference = '',
+    // 'partial' = booking form abandoned after step 1; 'full' = completed.
+    submissionType = 'full',
     fbp = '',
     fbc = '',
     // Ad-campaign tracking params — sent as their own dedicated payload fields,
@@ -38,13 +43,18 @@ export async function POST(request: NextRequest) {
   const lastName = rest.join(' ')
 
   // Plain-text summary of ONLY user-visible form fields — no tracking data.
+  const isPartial = submissionType === 'partial'
   const allFields = [
     `Name: ${name}`,
     `Email: ${email}`,
     `Phone: ${phone}`,
     `Postcode: ${postcode}`,
+    reg ? `Registration: ${reg}` : null,
     service ? `Service: ${service}` : null,
+    preferredDate ? `Preferred date: ${preferredDate}` : null,
+    timePreference ? `Preferred time: ${timePreference}` : null,
     message ? `Message: ${message}` : null,
+    isPartial ? 'Submission: PARTIAL (form abandoned mid-way)' : null,
   ]
     .filter(Boolean)
     .join('\n')
@@ -62,7 +72,12 @@ export async function POST(request: NextRequest) {
           Phone: phone,
           Postcode: postcode,
           Service: service,
+          Registration: reg,
+          'Preferred Date': preferredDate,
+          'Preferred Time': timePreference,
           Message: message,
+          'Submission Type': isPartial ? 'Partial' : 'Full',
+          'Email To': 'info@brookswoodautomotive.co.uk',
           'Campaign Source': utm_source,
           'Campaign Medium': utm_medium,
           'Campaign ID': utm_campaign,
@@ -82,26 +97,29 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  // 2. Fire a Lead event to Meta CAPI with hashed PII.
-  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
-  const userData = await hashUserData({
-    email,
-    phone,
-    firstName,
-    lastName,
-    postcode,
-  })
-  void sendEvent({
-    eventName: 'Lead',
-    eventId: generateEventId(),
-    eventSourceUrl: request.headers.get('referer') ?? undefined,
-    clientIpAddress: ip,
-    clientUserAgent: request.headers.get('user-agent') ?? undefined,
-    fbc: fbc || null,
-    fbp: fbp || null,
-    userData,
-    customData: { content_name: service || 'General enquiry' },
-  })
+  // 2. Fire a Lead event to Meta CAPI with hashed PII. Only full submissions
+  //    count as a Lead — partials are captured via Zapier/email only.
+  if (!isPartial) {
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+    const userData = await hashUserData({
+      email,
+      phone,
+      firstName,
+      lastName,
+      postcode,
+    })
+    void sendEvent({
+      eventName: 'Lead',
+      eventId: generateEventId(),
+      eventSourceUrl: request.headers.get('referer') ?? undefined,
+      clientIpAddress: ip,
+      clientUserAgent: request.headers.get('user-agent') ?? undefined,
+      fbc: fbc || null,
+      fbp: fbp || null,
+      userData,
+      customData: { content_name: service || 'General enquiry' },
+    })
+  }
 
   return NextResponse.json({ ok: true })
 }
