@@ -1,9 +1,11 @@
 ## Proposed Changes
 
-- Connect all forms (contact/callback form and the multi-step booking form) to your Zapier webhook at the provided URL
-- Ensure every field is included in the webhook payload — name, email, phone, postcode, service, registration, preferred date, time preference, and message
-- Webhook fires on full form submission (and on partial lead capture for the booking form too)
+- Replace the MOT Testing service card icon with the uploaded SVG, converted to use `currentColor` strokes/fills so it turns white on hover (matching all other service icons)
 
-**Estimated cost: £1.60 – £4.20**
+**Estimated cost: £1.55 – £4.00**
 
-Since each update has a one-off setup cost, you'll get more for your money if we do a few tweaks together — anything else you'd like sorted while we're at it?
+Since each update has a one-off setup cost, you'll get more for your money if we bundle a few tweaks together — anything else you'd like sorted at the same time?
+
+## Attached files
+The customer uploaded the following file(s) during this chat. Where the objectives refer to a provided/attached image, logo, icon, screenshot, font or document, download the matching file (e.g. `curl -L -o <path> <url>`) into the project and use it — never hotlink a customer upload.
+- MOT_Test_-_Logo.svg (image/svg+xml): https://hppgzamzudygkyyzkgdd.supabase.co/storage/v1/object/public/website-media/chat-attachments/1786047069146-dr2fl7.svg
