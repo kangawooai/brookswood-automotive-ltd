@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-K93M7G6F'
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 export function Tracking() {
