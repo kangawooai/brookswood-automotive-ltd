@@ -14,9 +14,6 @@ Brookswood Automotive LTD, trading as Fareham MOT Centre, is an independent gara
 - Clutches: Clutch diagnosis and full clutch kit replacement.
 - Diagnostics: Electronic fault-code reading and warning-light diagnosis.
 - Tyres: Supply and fitting of budget to premium tyres, puncture repairs and balancing.
-- Wheel Alignment: Precision tracking and alignment to reduce tyre wear.
-- Alloy Wheel Repair: Kerb damage, scuff and corrosion refurbishment.
-- Car Body Repair: Dent, scratch and panel repairs with colour-matched refinishing.
 
 ## Service Areas
 Fareham and the surrounding Hampshire area, including Portchester, Titchfield, Stubbington, Whiteley, Gosport and Portsmouth.
@@ -41,9 +38,6 @@ Fareham and the surrounding Hampshire area, including Portchester, Titchfield, S
 - /services/clutches: Clutch Replacement
 - /services/diagnostics: Car Diagnostics
 - /services/tyres: Tyres & Tyre Fitting
-- /services/wheel-alignment: Wheel Alignment
-- /services/alloy-wheel-repair: Alloy Wheel Repair
-- /services/car-body-repair: Car Body Repair
 - /privacy-policy: Privacy policy
 - /cookie-policy: Cookie policy
 - /terms-and-conditions: Terms and conditions
