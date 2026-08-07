@@ -6,9 +6,6 @@ import {
   Cog,
   ScanLine,
   CircleGauge,
-  Crosshair,
-  Sparkles,
-  SprayCan,
   Snowflake,
   type LucideIcon,
 } from 'lucide-react'
@@ -320,90 +317,6 @@ export const SERVICES: Service[] = [
       { step: 'Safe to drive', detail: 'We confirm pressures and torque before you leave.' },
     ],
     keywords: ['car tyres Fareham', 'tyre fitting Fareham', 'tyre repair Fareham', 'cheap tyres Fareham'],
-  },
-  {
-    slug: 'wheel-alignment',
-    title: 'Wheel Alignment in Fareham',
-    nav: 'Wheel Alignment',
-    short: 'Precision wheel alignment to stop uneven tyre wear and pulling.',
-    metaTitle: 'Wheel Alignment Fareham | Tracking & Balancing',
-    metaDescription:
-      'Wheel alignment and tracking in Fareham. Fix pulling and uneven tyre wear with precision alignment. Call 01329 756796.',
-    image: '/images/generated/wheel-alignment.webp',
-    icon: Crosshair,
-    intro:
-      'Incorrect wheel alignment causes uneven tyre wear, poor handling and higher fuel use. Using precision alignment equipment, we set your wheels back to the manufacturer specification so your car drives straight and your tyres last longer.',
-    included: [
-      'Precision alignment measurement',
-      'Front and rear tracking adjustment',
-      'Camber and toe assessment',
-      'Steering wheel centring',
-      'Uneven wear investigation',
-      'Before-and-after readings',
-    ],
-    process: [
-      { step: 'Measure alignment', detail: 'We take accurate readings against factory specification.' },
-      { step: 'Show the results', detail: 'You see how far each wheel is out of alignment.' },
-      { step: 'Adjust to spec', detail: 'We correct tracking, camber and toe as required.' },
-      { step: 'Drive straight', detail: 'A road test confirms the car tracks true.' },
-    ],
-    keywords: ['wheel alignment Fareham'],
-  },
-  {
-    slug: 'alloy-wheel-repair',
-    title: 'Alloy Wheel Repair in Fareham',
-    nav: 'Alloy Wheel Repair',
-    short: 'Kerb damage and corrosion refurbished to restore your alloys.',
-    metaTitle: 'Alloy Wheel Repair Fareham | Refurbishment',
-    metaDescription:
-      'Alloy wheel repair and refurbishment in Fareham. Kerb damage, scuffs and corrosion restored to a smart finish. Call 01329 756796.',
-    image: '/images/generated/alloy-repair.webp',
-    icon: Sparkles,
-    intro:
-      'Kerbed or corroded alloys let down an otherwise smart car. We repair scuffs, kerb damage and corrosion and refinish your wheels to a durable, factory-style finish that protects them from future damage.',
-    included: [
-      'Kerb and scuff repair',
-      'Corrosion treatment',
-      'Alloy wheel refinishing',
-      'Colour matching',
-      'Lacquer protection',
-      'Balancing after refit',
-    ],
-    process: [
-      { step: 'Assess the damage', detail: 'We inspect each wheel and confirm what can be restored.' },
-      { step: 'Prepare and repair', detail: 'Damage is repaired and the surface prepared for finishing.' },
-      { step: 'Refinish and protect', detail: 'Wheels are refinished and sealed for durability.' },
-      { step: 'Refit and balance', detail: 'Wheels are refitted and balanced ready to drive.' },
-    ],
-    keywords: ['alloy wheel repair Fareham', 'wheel repair Fareham'],
-  },
-  {
-    slug: 'car-body-repair',
-    title: 'Car Body Repair in Fareham',
-    nav: 'Car Body Repair',
-    short: 'Dent, scratch and panel repairs to keep your car looking its best.',
-    metaTitle: 'Car Body Repair Fareham | Dents & Scratches',
-    metaDescription:
-      'Car body repair in Fareham. Dents, scratches and panel damage repaired and refinished by skilled technicians. Call 01329 756796.',
-    image: '/images/generated/body-repair.webp',
-    icon: SprayCan,
-    intro:
-      'Everyday knocks, car park dents and scratches build up over time. We repair dents, scuffs and panel damage and refinish the affected areas so your car looks its best and stays protected against rust.',
-    included: [
-      'Dent removal',
-      'Scratch and scuff repair',
-      'Panel preparation and painting',
-      'Colour matching',
-      'Bumper repairs',
-      'Rust treatment',
-    ],
-    process: [
-      { step: 'Damage assessment', detail: 'We inspect the panels and agree the best repair approach.' },
-      { step: 'Prepare the panel', detail: 'The area is repaired and prepared for a clean finish.' },
-      { step: 'Colour-matched paint', detail: 'We match your paint and refinish the repaired area.' },
-      { step: 'Blended finish', detail: 'The repair is blended so it looks factory fresh.' },
-    ],
-    keywords: ['car body repair Fareham', 'car dent repair Fareham', 'car scratch repair Fareham'],
   },
 ]
 

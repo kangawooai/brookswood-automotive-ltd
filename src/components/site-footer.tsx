@@ -15,7 +15,7 @@ export function SiteFooter() {
               alt={`${SITE.name} logo`}
               width={180}
               height={48}
-              className="h-11 w-auto brightness-0 invert"
+              className="h-11 w-auto"
             />
             <p className="text-sm text-white/70">
               Trading as {SITE.tradingName}. Trusted MOT, servicing and repairs in Fareham with over{' '}

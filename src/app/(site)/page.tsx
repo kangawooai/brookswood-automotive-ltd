@@ -33,15 +33,10 @@ export const metadata: Metadata = {
   },
 }
 
-// Core services shown on the home grid. Alloy wheel repair, car body repair,
-// tyres and wheel alignment are intentionally excluded here (they remain on
-// Our Services and their own pages).
+// Core services shown on the home grid. Tyres is intentionally excluded here
+// (it remains on Our Services and its own page).
 const HOME_SERVICE_SLUGS = SERVICES.map((s) => s.slug).filter(
-  (slug) =>
-    slug !== 'alloy-wheel-repair' &&
-    slug !== 'car-body-repair' &&
-    slug !== 'tyres' &&
-    slug !== 'wheel-alignment',
+  (slug) => slug !== 'tyres',
 )
 
 const WHY_US = [
@@ -52,7 +47,7 @@ const WHY_US = [
   },
   {
     icon: MessageSquare,
-    title: 'Honest, plain-English advice',
+    title: 'Advice you can actually trust',
     text: 'We explain exactly what your car needs and why, so you can make an informed decision.',
   },
   {
