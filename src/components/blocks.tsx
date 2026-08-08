@@ -6,7 +6,7 @@ import { SITE } from '@/lib/site'
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-block bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+    <span className="inline-block bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
       {children}
     </span>
   )

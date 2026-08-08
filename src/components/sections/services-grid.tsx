@@ -51,7 +51,7 @@ export function ServicesGrid({
                 href={`/services/${service.slug}`}
                 className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                <div className="flex size-12 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-colors duration-300">
                   <service.icon className="size-6" />
                 </div>
                 <h3 className="mt-5 text-lg font-bold text-foreground">{service.nav}</h3>

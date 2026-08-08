@@ -79,7 +79,7 @@ export default function OurServicesPage() {
                 'DVSA-approved MOT testing',
                 'Interim and full servicing',
                 'Quality parts and modern equipment',
-                'Honest, plain-English advice',
+                'Advice you can actually trust',
                 'Transparent quotes before any work',
                 'Serving Fareham and Hampshire',
               ]}
