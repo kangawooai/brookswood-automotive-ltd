@@ -138,6 +138,7 @@ export default async function HomePage() {
           { value: '20+', label: 'Years Experience' },
           { value: `${rating.value}★`, label: 'Google Rating' },
           { value: `${rating.count}`, label: 'Happy Reviews' },
+          { prefix: 'Up to', value: '40%', label: 'Less Than Main Dealer' },
         ]}
       />
 

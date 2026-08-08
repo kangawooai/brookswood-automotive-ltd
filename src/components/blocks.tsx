@@ -114,7 +114,7 @@ export function RatingBadge({
 export function TrustBar({
   items,
 }: {
-  items: { value: string; label: string }[]
+  items: { value: string; label: string; prefix?: string }[]
 }) {
   const mdCols = items.length === 3 ? 'md:grid-cols-3' : items.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-4'
   return (
@@ -122,6 +122,11 @@ export function TrustBar({
       <div className={`mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 ${mdCols}`}>
         {items.map((item) => (
           <div key={item.label} className="px-4 py-8 text-center">
+            {item.prefix && (
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/70 md:text-sm">
+                {item.prefix}
+              </p>
+            )}
             <p className="text-4xl font-black text-primary md:text-5xl">{item.value}</p>
             <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-white/70 md:text-sm">
               {item.label}
