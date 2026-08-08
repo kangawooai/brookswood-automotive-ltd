@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/accordion'
 import { SITE, SERVICES } from '@/lib/site'
 
-export function SiteHeader() {
+export function SiteHeader({ linesOpen }: { linesOpen?: boolean }) {
   const [open, setOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const pathname = usePathname()
@@ -201,6 +201,32 @@ export function SiteHeader() {
           </Sheet>
         </div>
       </div>
+
+      {/* Phone-line status banner — home page only. Open/closed state is
+          computed server-side (UK time) and passed in as `linesOpen`, so it
+          renders correctly on first paint with no flicker. */}
+      {isHome &&
+        (linesOpen ? (
+          <div className="w-full bg-primary text-primary-foreground">
+            <div className="mx-auto flex h-9 max-w-7xl items-center justify-center gap-2 px-4 text-xs font-bold uppercase tracking-wide sm:text-sm">
+              <span className="relative flex size-2.5 shrink-0">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex size-2.5 rounded-full bg-green-400" />
+              </span>
+              Lines now open — call now
+            </div>
+          </div>
+        ) : (
+          <a
+            href="#callback"
+            className="block w-full bg-neutral-900 text-white transition-colors hover:bg-neutral-800"
+          >
+            <div className="mx-auto flex h-9 max-w-7xl items-center justify-center gap-2 px-4 text-xs font-bold uppercase tracking-wide sm:text-sm">
+              <span className="inline-flex size-2.5 shrink-0 rounded-full bg-primary" />
+              Lines closed — please enquire below
+            </div>
+          </a>
+        ))}
     </header>
   )
 }
