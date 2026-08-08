@@ -267,7 +267,7 @@ export default async function HomePage() {
           />
           <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden border border-border bg-border lg:grid-cols-3">
             {[
-              { src: PHOTOS.lotus, alt: PHOTO_ALT.lotus },
+              { src: PHOTOS.lotusEmira, alt: PHOTO_ALT.lotusEmira },
               { src: PHOTOS.lineupSunny1, alt: PHOTO_ALT.lineupSunny1 },
               { src: PHOTOS.fordOnLift, alt: PHOTO_ALT.fordOnLift },
               { src: PHOTOS.jaguarPair, alt: PHOTO_ALT.jaguarPair },

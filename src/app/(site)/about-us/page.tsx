@@ -104,6 +104,7 @@ export default async function AboutPage() {
           ...(rating.count != null
             ? [{ value: `${rating.count}`, label: 'Happy Reviews' }]
             : []),
+          { prefix: 'Up to', value: '40%', label: 'Less Than Main Dealer' },
         ]}
       />
 
