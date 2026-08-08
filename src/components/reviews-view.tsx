@@ -1,9 +1,59 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import { Star } from 'lucide-react'
 import { motion } from 'motion/react'
 import { Eyebrow } from '@/components/blocks'
 import type { Review } from '@/lib/google-reviews'
+
+/**
+ * Review body text clamped to three lines with a "Read more" / "Read less"
+ * toggle. The toggle only appears when the text actually overflows three lines,
+ * so short reviews stay clean and no single card dominates the layout.
+ */
+function ClampedText({
+  text,
+  className = '',
+  textClassName = '',
+}: {
+  text: string
+  className?: string
+  textClassName?: string
+}) {
+  const ref = useRef<HTMLQuoteElement>(null)
+  const [expanded, setExpanded] = useState(false)
+  const [clampable, setClampable] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el || expanded) return
+    const check = () => setClampable(el.scrollHeight - el.clientHeight > 1)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [text, expanded])
+
+  return (
+    <div className={className}>
+      <blockquote
+        ref={ref}
+        className={`${textClassName} ${expanded ? '' : 'line-clamp-3'}`}
+      >
+        {text}
+      </blockquote>
+      {clampable && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          className="mt-2 text-xs font-bold uppercase tracking-wide text-primary transition-colors hover:text-primary/80"
+        >
+          {expanded ? 'Read less' : 'Read more'}
+        </button>
+      )}
+    </div>
+  )
+}
 
 function initials(name: string) {
   const parts = name.trim().split(/\s+/)
@@ -102,9 +152,11 @@ function FeaturedCard({ review }: { review: Review }) {
         </div>
         <GoogleG className="size-7 shrink-0" />
       </div>
-      <blockquote className="mt-5 text-lg font-medium leading-relaxed text-foreground sm:text-xl">
-        {review.text}
-      </blockquote>
+      <ClampedText
+        text={review.text}
+        className="mt-5"
+        textClassName="text-lg font-medium leading-relaxed text-foreground sm:text-xl"
+      />
       <figcaption className="mt-6 border-t border-border pt-4">
         <GoogleFooter />
       </figcaption>
@@ -131,9 +183,11 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
         </div>
         <GoogleG className="size-5 shrink-0" />
       </div>
-      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-        {review.text}
-      </blockquote>
+      <ClampedText
+        text={review.text}
+        className="mt-4 flex-1"
+        textClassName="text-sm leading-relaxed text-muted-foreground"
+      />
       <figcaption className="mt-5 border-t border-border pt-4">
         <GoogleFooter />
       </figcaption>
