@@ -11,7 +11,7 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="space-y-4">
             <Image
-              src="/images/logo.webp"
+              src="/images/logo-neg.webp"
               alt={`${SITE.name} logo`}
               width={180}
               height={48}

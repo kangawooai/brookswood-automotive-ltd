@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { Menu, Phone, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
@@ -17,12 +18,22 @@ import { SITE, SERVICES } from '@/lib/site'
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === '/'
+  // On the home page, mobile logo/icon hovers use the cyan accent instead of the
+  // default (which tints towards the dark accent-foreground green).
+  const cyanHover = isHome ? 'group transition-colors hover:bg-accent/10 hover:text-accent' : ''
+  const cyanIcon = isHome ? 'transition-colors group-hover:text-accent' : ''
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center" aria-label={`${SITE.name} home`}>
+        <Link
+          href="/"
+          className={`flex shrink-0 items-center ${isHome ? 'transition-opacity hover:opacity-80' : ''}`}
+          aria-label={`${SITE.name} home`}
+        >
           <Image
             src="/images/logo.webp"
             alt={`${SITE.name} logo`}
@@ -99,15 +110,15 @@ export function SiteHeader() {
 
         {/* Mobile */}
         <div className="flex items-center gap-2 lg:hidden">
-          <Button asChild size="icon" variant="ghost" aria-label="Call us">
+          <Button asChild size="icon" variant="ghost" aria-label="Call us" className={cyanHover}>
             <a href={`tel:${SITE.phoneHref}`}>
-              <Phone className="size-5 text-primary" />
+              <Phone className={`size-5 text-primary ${cyanIcon}`} />
             </a>
           </Button>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline" aria-label="Open menu">
-                <Menu className="size-5" />
+              <Button size="icon" variant="outline" aria-label="Open menu" className={cyanHover}>
+                <Menu className={`size-5 ${cyanIcon}`} />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-sm px-6 pt-6">
