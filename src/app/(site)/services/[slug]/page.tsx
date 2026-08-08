@@ -132,7 +132,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               ))}
             </ul>
             <Button asChild className="mt-8 w-full font-bold uppercase tracking-wide" size="lg">
-              <Link href="/contact">Book {service.nav}</Link>
+              <Link href="#book">Book {service.nav}</Link>
             </Button>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { BookingForm } from '@/components/booking-form'
 // few quick taps.
 export function BookingSection({ defaultService }: { defaultService?: string }) {
   return (
-    <section className="bg-background py-20 md:py-24">
+    <section id="book" className="bg-background py-20 md:py-24">
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Book Online"
