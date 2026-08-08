@@ -11,7 +11,7 @@ export function localBusinessSchema(
     '@type': ['AutoRepair', 'LocalBusiness'],
     '@id': ORG_ID,
     name: SITE.name,
-    alternateName: SITE.tradingName,
+    alternateName: SITE.shortName,
     url: SITE.url,
     telephone: SITE.phoneHref,
     email: SITE.email,

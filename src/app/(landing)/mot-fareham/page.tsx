@@ -94,7 +94,7 @@ export default async function MotFarehamLanding() {
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-2 lg:px-8">
             <div className="max-w-xl">
               <span className="inline-block bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
-                Fareham MOT Centre
+                Brookswood Automotive
               </span>
               <h1 className="mt-5 text-4xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
                 Your MOT in Fareham, Done Properly
@@ -193,7 +193,7 @@ export default async function MotFarehamLanding() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <SectionHeading
               eyebrow="Why Brookswood"
-              title="A Fareham MOT Centre You Can Trust"
+              title="A Fareham MOT You Can Trust"
               intro="Over 20 years of experience, a 5-star reputation and a straight-talking approach to your car."
             />
             <div className="mt-12 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">

@@ -34,8 +34,8 @@ export default function TermsPage() {
       >
         <p>
           These terms and conditions apply to the use of the {SITE.name} website and to the services we provide.
-          By using our website or engaging our services, you agree to these terms. {SITE.name} trades as{' '}
-          {SITE.tradingName} and is registered in England and Wales, company number {SITE.companyReg}.
+          By using our website or engaging our services, you agree to these terms. {SITE.name} is registered in
+          England and Wales, company number {SITE.companyReg}.
         </p>
 
         <LegalSection heading="Our services">

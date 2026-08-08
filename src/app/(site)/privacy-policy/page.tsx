@@ -33,8 +33,8 @@ export default function PrivacyPolicyPage() {
         lastUpdated="23 July 2026"
       >
         <p>
-          This Privacy Policy explains how {SITE.name} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;),
-          trading as {SITE.tradingName}, collects and uses your personal data when you use our website or
+          This Privacy Policy explains how {SITE.name} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;)
+          collects and uses your personal data when you use our website or
           contact us about our services. We are the data controller for the information you provide and are
           committed to protecting it in line with UK GDPR and the Data Protection Act 2018.
         </p>
