@@ -73,6 +73,30 @@ const FALLBACK: PlaceData = {
 /** Below this many live reviews we keep showing the curated set instead. */
 const MIN_LIVE_REVIEWS = 3
 
+/**
+ * Total number of reviews to display — the featured card plus six regular
+ * cards, which fills the desktop grid neatly (two rows of three under the
+ * full-width featured card).
+ */
+const DISPLAY_COUNT = 7
+
+/**
+ * Build the display set: prefer live reviews, then top up with curated ones so
+ * the section always shows exactly {@link DISPLAY_COUNT} cards. Duplicates
+ * (same reviewer name) are skipped so a curated review never repeats a live one.
+ */
+function buildDisplayReviews(live: Review[]): Review[] {
+  const out: Review[] = [...live]
+  const seen = new Set(live.map((r) => r.name.toLowerCase()))
+  for (const review of CURATED_REVIEWS) {
+    if (out.length >= DISPLAY_COUNT) break
+    if (seen.has(review.name.toLowerCase())) continue
+    out.push(review)
+    seen.add(review.name.toLowerCase())
+  }
+  return out.slice(0, DISPLAY_COUNT)
+}
+
 /** How often (in seconds) to refresh the data from Google. */
 const REVALIDATE_SECONDS = 60 * 60 * 12 // twice a day
 
@@ -123,8 +147,12 @@ export async function getPlaceData(): Promise<PlaceData> {
       .filter((r) => r.text.length > 0)
 
     // Google caps reviews at 5; if it returns fewer than we want to show, keep
-    // the curated reviews so the section never looks sparse.
-    const reviews = liveReviews.length >= MIN_LIVE_REVIEWS ? liveReviews : CURATED_REVIEWS
+    // the curated reviews so the section never looks sparse. Either way, top up
+    // to a full set of seven so the desktop grid is always complete.
+    const reviews =
+      liveReviews.length >= MIN_LIVE_REVIEWS
+        ? buildDisplayReviews(liveReviews)
+        : CURATED_REVIEWS.slice(0, DISPLAY_COUNT)
 
     return { rating: { value, count }, reviews, live: true }
   } catch {
