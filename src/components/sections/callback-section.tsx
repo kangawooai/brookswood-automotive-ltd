@@ -16,7 +16,7 @@ export function CallbackSection({
   defaultService?: string
 } = {}) {
   return (
-    <section className="bg-background py-20 md:py-24">
+    <section id="callback" className="scroll-mt-28 bg-background py-20 md:py-24">
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
         <SectionHeading eyebrow={eyebrow} title={title} intro={intro} center />
         <div className="mt-10 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
