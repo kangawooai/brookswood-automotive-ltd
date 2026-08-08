@@ -10,15 +10,18 @@ import { SERVICES } from '@/lib/site'
 import { getStoredTrackingParams } from '@/lib/tracking-params'
 import { Loader2, Check, ArrowLeft, ArrowRight } from 'lucide-react'
 
-// Multi-step "Book Now" form used on the service pages. Progress is auto-saved
-// to sessionStorage after every step, and a partial lead is fired automatically
-// if the visitor completes step 1 and then leaves before submitting.
+// Multi-step "Book Now" form. Used both on the service pages (4 steps) and in
+// the header booking modal (5 steps — with an "Additional Services" step).
+// Progress is auto-saved to sessionStorage after every step on the page variant,
+// and a partial lead is fired automatically if the visitor completes step 1 and
+// then leaves before submitting (page unload, or closing the modal).
 
 type BookingData = {
   name: string
   phone: string
   reg: string
   service: string
+  additionalServices: string[]
   date: string
   timePreference: string
   message: string
@@ -31,6 +34,7 @@ const EMPTY: BookingData = {
   phone: '',
   reg: '',
   service: '',
+  additionalServices: [],
   date: '',
   timePreference: '',
   message: '',
@@ -40,12 +44,18 @@ const EMPTY: BookingData = {
 
 const STORAGE_KEY = 'booking_form_v1'
 
-const STEPS = [
-  { title: 'Your Details', hint: "Let's start with how to reach you." },
-  { title: 'Your Vehicle', hint: 'Tell us about your car and what it needs.' },
-  { title: 'More Info', hint: 'When suits you best?' },
-  { title: 'Almost done!', hint: 'Just a couple more details to confirm.' },
-]
+type StepKey = 'details' | 'vehicle' | 'extras' | 'when' | 'confirm'
+
+const STEP_META: Record<StepKey, { title: string; hint: string }> = {
+  details: { title: 'Your Details', hint: "Let's start with how to reach you." },
+  vehicle: { title: 'Your Vehicle', hint: 'Tell us about your car and what it needs.' },
+  extras: { title: 'Additional Services', hint: 'Would you like to add any other services?' },
+  when: { title: 'When', hint: 'When suits you best?' },
+  confirm: { title: 'Almost done!', hint: 'Just a couple more details to confirm.' },
+}
+
+const PAGE_STEPS: StepKey[] = ['details', 'vehicle', 'when', 'confirm']
+const MODAL_STEPS: StepKey[] = ['details', 'vehicle', 'extras', 'when', 'confirm']
 
 function readCookie(name: string): string {
   if (typeof document === 'undefined') return ''
@@ -63,7 +73,19 @@ function isEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
 }
 
-export function BookingForm({ defaultService }: { defaultService?: string }) {
+export function BookingForm({
+  defaultService,
+  variant = 'page',
+}: {
+  defaultService?: string
+  /** 'page' = service-page section (4 steps, persisted). 'modal' = header modal
+   *  (5 steps, resets on each open, partial lead on close). */
+  variant?: 'page' | 'modal'
+}) {
+  const isModal = variant === 'modal'
+  const STEP_KEYS = isModal ? MODAL_STEPS : PAGE_STEPS
+  const stepCount = STEP_KEYS.length
+
   const router = useRouter()
   const [step, setStep] = useState(0)
   const [data, setData] = useState<BookingData>({ ...EMPTY, service: defaultService ?? '' })
@@ -78,8 +100,10 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
   const fullSentRef = useRef(false)
   dataRef.current = data
 
-  // Restore any saved progress on mount.
+  // Restore any saved progress on mount (page variant only — the modal always
+  // reopens clean with progress reset).
   useEffect(() => {
+    if (isModal) return
     try {
       const raw = window.sessionStorage.getItem(STORAGE_KEY)
       if (raw) {
@@ -88,7 +112,7 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
           setData((d) => ({ ...d, ...saved.data, service: saved.data?.service || d.service }))
         }
         if (typeof saved.step === 'number') {
-          setStep(Math.min(Math.max(saved.step, 0), STEPS.length - 1))
+          setStep(Math.min(Math.max(saved.step, 0), stepCount - 1))
         }
       }
     } catch {
@@ -97,40 +121,61 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const save = useCallback((nextData: BookingData, nextStep: number) => {
-    try {
-      window.sessionStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({ data: nextData, step: nextStep }),
-      )
-    } catch {
-      // Ignore persistence failures (private mode).
-    }
-  }, [])
+  const save = useCallback(
+    (nextData: BookingData, nextStep: number) => {
+      if (isModal) return
+      try {
+        window.sessionStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify({ data: nextData, step: nextStep }),
+        )
+      } catch {
+        // Ignore persistence failures (private mode).
+      }
+    },
+    [isModal],
+  )
 
   const set = (field: keyof BookingData, value: string) => {
     setData((d) => ({ ...d, [field]: value }))
     setErrors((e) => ({ ...e, [field]: undefined }))
   }
 
+  const toggleExtra = (nav: string) => {
+    setData((d) => ({
+      ...d,
+      additionalServices: d.additionalServices.includes(nav)
+        ? d.additionalServices.filter((s) => s !== nav)
+        : [...d.additionalServices, nav],
+    }))
+  }
+
   // Has the visitor given us enough to count as a lead? (step 1 complete)
   const hasStepOne = (d: BookingData) => d.name.trim().length >= 2 && d.phone.trim().length >= 7
 
-  const buildPayload = (d: BookingData, submissionType: 'partial' | 'full') => ({
-    name: d.name,
-    email: d.email,
-    phone: d.phone,
-    postcode: d.postcode,
-    service: d.service,
-    reg: d.reg,
-    preferredDate: d.date,
-    timePreference: d.timePreference,
-    message: d.message,
-    submissionType,
-    ...getStoredTrackingParams(),
-    fbp: readCookie('_fbp'),
-    fbc: readCookie('_fbc'),
-  })
+  const buildPayload = (d: BookingData, submissionType: 'partial' | 'full') => {
+    // Fold any additional services into the message so they reach the notification
+    // email / Zapier alongside the visitor's own note.
+    const extrasLine = d.additionalServices.length
+      ? `Additional services: ${d.additionalServices.join(', ')}`
+      : ''
+    const message = [extrasLine, d.message.trim()].filter(Boolean).join('\n')
+    return {
+      name: d.name,
+      email: d.email,
+      phone: d.phone,
+      postcode: d.postcode,
+      service: d.service,
+      reg: d.reg,
+      preferredDate: d.date,
+      timePreference: d.timePreference,
+      message,
+      submissionType,
+      ...getStoredTrackingParams(),
+      fbp: readCookie('_fbp'),
+      fbc: readCookie('_fbc'),
+    }
+  }
 
   // Fire the partial lead once, when the visitor leaves mid-form.
   const sendPartial = useCallback(() => {
@@ -177,15 +222,24 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
     }
   }, [sendPartial])
 
+  // In the modal, closing the overlay unmounts the form — treat that as leaving
+  // mid-form and fire the partial lead (guarded so a completed booking never
+  // double-sends).
+  useEffect(() => {
+    if (!isModal) return
+    return () => sendPartial()
+  }, [isModal, sendPartial])
+
   function validateStep(current: number): boolean {
+    const key = STEP_KEYS[current]
     const e: Partial<Record<keyof BookingData, string>> = {}
-    if (current === 0) {
+    if (key === 'details') {
       if (data.name.trim().length < 2) e.name = 'Please enter your name'
       if (data.phone.trim().length < 7) e.phone = 'Please enter a valid phone number'
-    } else if (current === 1) {
+    } else if (key === 'vehicle') {
       if (data.reg.trim().length < 2) e.reg = 'Please enter your registration'
       if (!data.service.trim()) e.service = 'Please choose a service'
-    } else if (current === 3) {
+    } else if (key === 'confirm') {
       if (!isEmail(data.email.trim())) e.email = 'Please enter a valid email'
       if (data.postcode.trim().length < 4) e.postcode = 'Please enter your postcode'
     }
@@ -195,7 +249,7 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
 
   function next() {
     if (!validateStep(step)) return
-    const nextStep = Math.min(step + 1, STEPS.length - 1)
+    const nextStep = Math.min(step + 1, stepCount - 1)
     setStep(nextStep)
     save(data, nextStep)
   }
@@ -207,7 +261,7 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
   }
 
   async function submit() {
-    if (!validateStep(3)) return
+    if (!validateStep(step)) return
     setSubmitting(true)
     setSubmitError(null)
     try {
@@ -232,20 +286,21 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
       }
       router.push('/thank-you')
     } catch {
-      setSubmitError('Sorry, something went wrong. Please call us on 01329 640779.')
+      setSubmitError('Sorry, something went wrong. Please call us on 01329 756796.')
       setSubmitting(false)
     }
   }
 
-  const progress = ((step + 1) / STEPS.length) * 100
+  const currentKey = STEP_KEYS[step]
+  const progress = ((step + 1) / stepCount) * 100
 
   return (
     <div>
       {/* Step indicator */}
       <div className="mb-6">
         <div className="flex items-center justify-between">
-          {STEPS.map((s, i) => (
-            <div key={s.title} className="flex flex-1 items-center">
+          {STEP_KEYS.map((key, i) => (
+            <div key={key} className="flex flex-1 items-center">
               <span
                 className={`flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
                   i < step
@@ -257,7 +312,7 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
               >
                 {i < step ? <Check className="size-4" strokeWidth={3} /> : i + 1}
               </span>
-              {i < STEPS.length - 1 && (
+              {i < stepCount - 1 && (
                 <span
                   className={`mx-2 h-0.5 flex-1 ${i < step ? 'bg-primary' : 'bg-border'}`}
                   aria-hidden
@@ -268,12 +323,12 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
         </div>
         <div className="mt-4">
           <p className="text-xs font-bold uppercase tracking-wide text-primary">
-            Step {step + 1} of {STEPS.length}
+            Step {step + 1} of {stepCount}
           </p>
           <h3 className="mt-1 text-xl font-black uppercase tracking-tight text-foreground">
-            {STEPS[step].title}
+            {STEP_META[currentKey].title}
           </h3>
-          <p className="mt-1 text-sm text-muted-foreground">{STEPS[step].hint}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{STEP_META[currentKey].hint}</p>
         </div>
         <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-muted">
           <div
@@ -286,13 +341,13 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          if (step < STEPS.length - 1) next()
+          if (step < stepCount - 1) next()
           else submit()
         }}
         className="space-y-4"
         noValidate
       >
-        {step === 0 && (
+        {currentKey === 'details' && (
           <div className="space-y-4">
             <div className="space-y-1.5">
               <Label htmlFor="bf-name">Name</Label>
@@ -318,7 +373,7 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
           </div>
         )}
 
-        {step === 1 && (
+        {currentKey === 'vehicle' && (
           <div className="space-y-4">
             <div className="space-y-1.5">
               <Label htmlFor="bf-reg">Registration plate</Label>
@@ -352,7 +407,46 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
           </div>
         )}
 
-        {step === 2 && (
+        {currentKey === 'extras' && (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Add any extras you&apos;d like us to look at while your car&apos;s with us — or skip
+              this step.
+            </p>
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {SERVICES.filter((s) => s.nav !== data.service).map((s) => {
+                const checked = data.additionalServices.includes(s.nav)
+                return (
+                  <button
+                    key={s.slug}
+                    type="button"
+                    onClick={() => toggleExtra(s.nav)}
+                    aria-pressed={checked}
+                    className={`flex items-center gap-3 rounded-md border px-3 py-2.5 text-left text-sm font-medium transition-colors ${
+                      checked
+                        ? 'border-primary bg-primary/10 text-foreground'
+                        : 'border-input bg-transparent text-foreground hover:border-primary'
+                    }`}
+                  >
+                    <span
+                      className={`flex size-5 shrink-0 items-center justify-center rounded border ${
+                        checked
+                          ? 'border-primary bg-primary text-primary-foreground'
+                          : 'border-input bg-transparent'
+                      }`}
+                      aria-hidden
+                    >
+                      {checked && <Check className="size-3.5" strokeWidth={3} />}
+                    </span>
+                    {s.nav}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        )}
+
+        {currentKey === 'when' && (
           <div className="space-y-4">
             <div className="space-y-1.5">
               <Label htmlFor="bf-date">Preferred date</Label>
@@ -394,7 +488,7 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
           </div>
         )}
 
-        {step === 3 && (
+        {currentKey === 'confirm' && (
           <div className="space-y-4">
             <div className="space-y-1.5">
               <Label htmlFor="bf-email">Email</Label>
@@ -445,9 +539,10 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
               <>
                 <Loader2 className="animate-spin" /> Sending…
               </>
-            ) : step < STEPS.length - 1 ? (
+            ) : step < stepCount - 1 ? (
               <>
-                Continue <ArrowRight className="size-4" />
+                {currentKey === 'extras' && data.additionalServices.length === 0 ? 'Skip' : 'Continue'}{' '}
+                <ArrowRight className="size-4" />
               </>
             ) : (
               'Book Now'
