@@ -144,9 +144,11 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
 export function ReviewsView({
   reviews,
   rating,
+  redBadge = false,
 }: {
   reviews: Review[]
   rating: { value: string; count: number }
+  redBadge?: boolean
 }) {
   if (reviews.length === 0) return null
   const [featured, ...rest] = reviews
@@ -176,12 +178,22 @@ export function ReviewsView({
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-            className="flex items-center gap-4 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-4 shadow-sm"
+            className={
+              redBadge
+                ? 'flex items-center gap-4 rounded-2xl border border-primary bg-primary px-6 py-4 shadow-sm'
+                : 'flex items-center gap-4 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-4 shadow-sm'
+            }
           >
-            <span className="text-5xl font-black leading-none text-primary">{rating.value}</span>
+            <span
+              className={`text-5xl font-black leading-none ${redBadge ? 'text-white' : 'text-primary'}`}
+            >
+              {rating.value}
+            </span>
             <span>
               <Stars className="size-5" />
-              <span className="mt-1 block text-sm font-semibold text-foreground">
+              <span
+                className={`mt-1 block text-sm font-semibold ${redBadge ? 'text-white' : 'text-foreground'}`}
+              >
                 {rating.count} Google reviews
               </span>
             </span>

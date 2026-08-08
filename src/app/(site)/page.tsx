@@ -208,7 +208,7 @@ export default async function HomePage() {
       </section>
 
       {/* Google reviews */}
-      <Reviews />
+      <Reviews redBadge />
 
       {/* About teaser */}
       <section className="bg-background py-20 md:py-24">
