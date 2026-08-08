@@ -35,7 +35,8 @@ export default function ImprintPage() {
         <LegalSection heading="Company details">
           <ul className="space-y-1">
             <li><strong className="text-foreground">Company name:</strong> {SITE.name}</li>
-            <li><strong className="text-foreground">Registered office:</strong> {SITE.address.full}</li>
+            <li><strong className="text-foreground">Registered office:</strong> {SITE.registeredOffice.full}</li>
+            <li><strong className="text-foreground">Trading address:</strong> {SITE.address.full}</li>
             <li><strong className="text-foreground">Company registration number:</strong> {SITE.companyReg}</li>
             <li><strong className="text-foreground">Registered in:</strong> England and Wales</li>
           </ul>
