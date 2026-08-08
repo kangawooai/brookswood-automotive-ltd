@@ -23,7 +23,7 @@ import { graph, webPageSchema, breadcrumbSchema } from '@/lib/schema'
 
 const PATH = '/about-us'
 const DESCRIPTION =
-  'Brookswood Automotive is a trusted local garage with over 20 years of experience in MOTs, servicing and repairs. Honest advice, fair pricing. Call 01329 756796.'
+  'Brookswood Automotive is a trusted local garage with over 20 years of experience in MOTs, servicing and repairs. Honest advice, fair pricing. Call 01329 640779.'
 
 export const metadata: Metadata = {
   title: 'About Us | Trusted Fareham Garage',

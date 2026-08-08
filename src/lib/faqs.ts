@@ -38,7 +38,7 @@ export const MOT_FAQS: Faq[] = [
   },
   {
     q: 'How much does an MOT cost?',
-    a: 'We charge competitive, transparent rates for MOT testing. Call us on 01329 756796 for our current price and to book a slot that suits you.',
+    a: 'We charge competitive, transparent rates for MOT testing. Call us on 01329 640779 for our current price and to book a slot that suits you.',
   },
   {
     q: 'Can you carry out repairs if my car fails?',
@@ -68,7 +68,7 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
     },
     {
       q: 'How much does an MOT cost in Fareham?',
-      a: 'We keep our MOT pricing competitive and fully transparent, with no hidden extras. Call us on 01329 756796 for our current price and to reserve a slot that suits you.',
+      a: 'We keep our MOT pricing competitive and fully transparent, with no hidden extras. Call us on 01329 640779 for our current price and to reserve a slot that suits you.',
     },
     {
       q: 'Is an MOT the same as a service?',
