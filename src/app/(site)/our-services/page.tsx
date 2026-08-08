@@ -88,7 +88,7 @@ export default function OurServicesPage() {
         </div>
       </section>
 
-      <Reviews />
+      <Reviews redBadge />
 
       <FaqSection />
 

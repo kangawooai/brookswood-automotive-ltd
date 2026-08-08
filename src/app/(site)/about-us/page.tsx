@@ -8,6 +8,7 @@ import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { Reviews } from '@/components/reviews'
 import { getPlaceData } from '@/lib/google-reviews'
 import { FaqSection } from '@/components/sections/faq-section'
+import { ABOUT_FAQS } from '@/lib/faqs'
 import { FindUsSection } from '@/components/sections/find-us-section'
 import { CallbackSection } from '@/components/sections/callback-section'
 import {
@@ -198,7 +199,7 @@ export default async function AboutPage() {
 
       <FindUsSection />
 
-      <FaqSection />
+      <FaqSection faqs={ABOUT_FAQS} />
 
       <CallbackSection />
 

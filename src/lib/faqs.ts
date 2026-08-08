@@ -23,6 +23,31 @@ export const HOME_FAQS: Faq[] = [
   },
 ]
 
+// General garage FAQs for the About Us page — relevant to every customer,
+// not tied to any single service.
+export const ABOUT_FAQS: Faq[] = [
+  {
+    q: 'Is your work guaranteed?',
+    a: 'Yes. We stand behind everything we do, and all our repairs and the quality parts we fit are covered by a guarantee. If you ever have a concern after a job, bring the car back and we will put it right.',
+  },
+  {
+    q: 'Are you fully insured?',
+    a: 'Absolutely. We are a fully insured, established garage, so your vehicle is in safe hands from the moment it comes onto our premises to the moment you drive it away.',
+  },
+  {
+    q: 'How quickly can you get me booked in?',
+    a: 'We do our best to fit you in as soon as possible, and can often book you in within a day or two — sometimes the same day for urgent jobs. Give us a call on 01329 640779 and we will find a slot that suits you.',
+  },
+  {
+    q: 'Do you work on all makes and models?',
+    a: 'Yes. With over 20 years of experience and modern diagnostic equipment, we service and repair all makes and models — petrol, diesel and hybrid, from everyday runabouts to prestige vehicles.',
+  },
+  {
+    q: 'Will you let me know the cost before starting any work?',
+    a: 'Always. We give you a clear, honest quote before we begin, and we never carry out work you have not approved. If we spot anything extra along the way, we will call you first so there are no surprises.',
+  },
+]
+
 export const MOT_FAQS: Faq[] = [
   {
     q: 'How long does an MOT take?',
