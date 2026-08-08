@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { SITE, SERVICES, getService } from '@/lib/site'
 import { PageHero, HeroButtons, SectionHeading, CtaBand, CheckList } from '@/components/blocks'
 import { ServicesGrid } from '@/components/sections/services-grid'
-import { Reviews } from '@/components/reviews'
+import { WhyChooseSection } from '@/components/sections/why-choose-section'
 import { FaqSection } from '@/components/sections/faq-section'
 import { FindUsSection } from '@/components/sections/find-us-section'
 import { CallbackSection } from '@/components/sections/callback-section'
@@ -138,6 +138,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
+      {/* Why choose us — trust points, team photo and Google rating (replaces
+          the full reviews carousel on service pages to keep things tight) */}
+      <WhyChooseSection />
+
       {/* Multi-step booking form — sits above the process section */}
       <BookingSection defaultService={service.nav} />
 
@@ -177,8 +181,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           />
         </div>
       </section>
-
-      <Reviews />
 
       <FindUsSection />
 
