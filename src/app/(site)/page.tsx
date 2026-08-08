@@ -218,7 +218,7 @@ export default async function HomePage() {
             <SectionHeading
               eyebrow="About Us"
               title="Over 20 Years Keeping Fareham Moving"
-              intro="Brookswood Automotive, trading as Fareham MOT Centre, is a family-minded local garage built on honesty, skill and genuine care for our customers' vehicles."
+              intro="Brookswood Automotive is a family-minded local garage built on honesty, skill and genuine care for our customers' vehicles."
             />
             <p className="mt-4 text-muted-foreground">
               Whether it's a routine MOT, a full service or a repair that needs sorting fast, our experienced
@@ -263,11 +263,11 @@ export default async function HomePage() {
           <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden border border-border bg-border lg:grid-cols-3">
             {[
               { src: PHOTOS.lotus, alt: PHOTO_ALT.lotus },
-              { src: PHOTOS.bmwI8, alt: PHOTO_ALT.bmwI8 },
+              { src: PHOTOS.lineupSunny1, alt: PHOTO_ALT.lineupSunny1 },
               { src: PHOTOS.fordOnLift, alt: PHOTO_ALT.fordOnLift },
-              { src: PHOTOS.luxuryLineup, alt: PHOTO_ALT.luxuryLineup },
+              { src: PHOTOS.jaguarPair, alt: PHOTO_ALT.jaguarPair },
               { src: PHOTOS.bmwService, alt: PHOTO_ALT.bmwService },
-              { src: PHOTOS.vwVan, alt: PHOTO_ALT.vwVan },
+              { src: PHOTOS.lineupSunny2, alt: PHOTO_ALT.lineupSunny2 },
             ].map((photo) => (
               <div key={photo.src} className="relative aspect-[4/3] overflow-hidden bg-card">
                 <Image

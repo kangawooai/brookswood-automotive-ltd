@@ -22,14 +22,14 @@ import { graph, webPageSchema, breadcrumbSchema } from '@/lib/schema'
 
 const PATH = '/about-us'
 const DESCRIPTION =
-  'Brookswood Automotive, trading as Fareham MOT Centre, is a trusted local garage with over 20 years of experience in MOTs, servicing and repairs. Honest advice, fair pricing. Call 01329 756796.'
+  'Brookswood Automotive is a trusted local garage with over 20 years of experience in MOTs, servicing and repairs. Honest advice, fair pricing. Call 01329 756796.'
 
 export const metadata: Metadata = {
   title: 'About Us | Trusted Fareham Garage',
   description: DESCRIPTION,
   alternates: { canonical: PATH, languages: { 'en-GB': PATH } },
   openGraph: {
-    title: 'About Brookswood Automotive | Fareham MOT Centre',
+    title: 'About Brookswood Automotive | Trusted Fareham Garage',
     description: DESCRIPTION,
     url: PATH,
     images: [
@@ -90,7 +90,7 @@ export default async function AboutPage() {
         imageAlt={PHOTO_ALT.exterior}
         eyebrow="About Brookswood"
         title="Over 20 Years Keeping Fareham Moving"
-        subtitle="Trading as Fareham MOT Centre, we are a local garage built on honesty, skill and genuine care for our customers' vehicles."
+        subtitle="We are a local garage built on honesty, skill and genuine care for our customers' vehicles."
       >
         <HeroButtons />
       </PageHero>
@@ -110,7 +110,7 @@ export default async function AboutPage() {
             <SectionHeading eyebrow="Our Story" title="A Garage Fareham Drivers Trust" />
             <div className="mt-6 space-y-4 text-lg text-muted-foreground">
               <p>
-                Brookswood Automotive, trading as Fareham MOT Centre, has spent more than{' '}
+                Brookswood Automotive has spent more than{' '}
                 {SITE.yearsExperience} years looking after cars for drivers across Fareham and the wider
                 Hampshire area. From our workshop on Hackett Way, we handle everything from routine MOTs and
                 servicing to brakes, clutches, diagnostics and bodywork.

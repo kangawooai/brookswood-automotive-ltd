@@ -18,7 +18,7 @@ export function SiteFooter() {
               className="h-11 w-auto"
             />
             <p className="text-sm text-white/70">
-              Trading as {SITE.tradingName}. Trusted MOT, servicing and repairs in Fareham with over{' '}
+              Trusted MOT, servicing and repairs in Fareham with over{' '}
               {SITE.yearsExperience} years of experience.
             </p>
           </div>

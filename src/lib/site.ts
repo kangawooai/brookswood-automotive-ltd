@@ -14,7 +14,6 @@ import { PHOTOS } from './photos'
 
 export const SITE = {
   name: 'Brookswood Automotive LTD',
-  tradingName: 'Fareham MOT Centre',
   shortName: 'Brookswood Automotive',
   domain: 'brookswoodautomotive.co.uk',
   url: 'https://brookswoodautomotive.co.uk',

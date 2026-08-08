@@ -6,7 +6,7 @@ import { graph, webPageSchema, breadcrumbSchema } from '@/lib/schema'
 
 const PATH = '/imprint'
 const DESCRIPTION =
-  'Company details and legal information for Brookswood Automotive LTD, trading as Fareham MOT Centre.'
+  'Company details and legal information for Brookswood Automotive LTD.'
 
 export const metadata: Metadata = {
   title: 'Imprint',
@@ -35,7 +35,6 @@ export default function ImprintPage() {
         <LegalSection heading="Company details">
           <ul className="space-y-1">
             <li><strong className="text-foreground">Company name:</strong> {SITE.name}</li>
-            <li><strong className="text-foreground">Trading as:</strong> {SITE.tradingName}</li>
             <li><strong className="text-foreground">Registered office:</strong> {SITE.address.full}</li>
             <li><strong className="text-foreground">Company registration number:</strong> {SITE.companyReg}</li>
             <li><strong className="text-foreground">Registered in:</strong> England and Wales</li>

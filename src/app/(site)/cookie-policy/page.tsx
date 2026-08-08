@@ -33,7 +33,7 @@ export default function CookiePolicyPage() {
         lastUpdated="23 July 2026"
       >
         <p>
-          This Cookie Policy explains how {SITE.name}, trading as {SITE.tradingName}, uses cookies and similar
+          This Cookie Policy explains how {SITE.name} uses cookies and similar
           technologies on our website. It should be read alongside our privacy policy.
         </p>
 
