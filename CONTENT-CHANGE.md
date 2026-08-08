@@ -1,12 +1,8 @@
 ## Proposed Changes
 
-- **Text update:** Change "Honest, plain-English advice" → "Advice you can actually trust" in the checklist on the Our Services page (and anywhere else this text appears site-wide)
-- **Reviews section:** Update the reviews display to show 7 reviews in total — the featured card plus 6 regular cards — looking great on the desktop grid layout
-- **Colour fix:** Change all instances of the lighter red tint (`bg-primary/10` used on eyebrow labels and icon backgrounds) to the same solid red as the "Book Now" button — applied site-wide
-- **Google Places API key:** Your new key is stored and will be wired in during the build so live reviews pull through correctly
+- Change the `--secondary` colour token from `#1C2024` to `#111314` — a true light black with no grey cast
+- This will update **every element** on the site that uses `bg-secondary`, `text-secondary`, `border-secondary` etc. — including the dark process sections, the site footer background, the trust bars, the cookie banner, and the landing page footer
 
-**Estimated cost: £1.85 – £3.50**
+**Estimated cost: £0.95 – £2.50**
 
----
-
-Since each update has a one-off setup cost, you'll get more value by bundling a few more tweaks in the same build — anything else you'd like sorted while we're at it?
+Since this is a quick token tweak, you'll get more for your money if we bundle a few other small changes at the same time — anything else you'd like adjusted while we're at it?
