@@ -13,10 +13,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { BookingModal } from '@/components/booking-modal'
 import { SITE, SERVICES } from '@/lib/site'
 
 export function SiteHeader({ linesOpen }: { linesOpen?: boolean }) {
   const [open, setOpen] = useState(false)
+  const [bookingOpen, setBookingOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const pathname = usePathname()
   const isHome = pathname === '/'
@@ -103,8 +105,11 @@ export function SiteHeader({ linesOpen }: { linesOpen?: boolean }) {
             <Phone className="size-4 text-primary" />
             {SITE.phoneDisplay}
           </a>
-          <Button asChild className="font-bold uppercase tracking-wide">
-            <Link href="/contact">Book Now</Link>
+          <Button
+            onClick={() => setBookingOpen(true)}
+            className="font-bold uppercase tracking-wide"
+          >
+            Book Now
           </Button>
         </div>
 
@@ -184,10 +189,14 @@ export function SiteHeader({ linesOpen }: { linesOpen?: boolean }) {
                 </Link>
               </nav>
               <div className="mt-6 space-y-3 border-t border-border pt-6">
-                <Button asChild className="w-full font-bold uppercase tracking-wide">
-                  <Link href="/contact" onClick={() => setOpen(false)}>
-                    Book Now
-                  </Link>
+                <Button
+                  className="w-full font-bold uppercase tracking-wide"
+                  onClick={() => {
+                    setOpen(false)
+                    setBookingOpen(true)
+                  }}
+                >
+                  Book Now
                 </Button>
                 <a
                   href={`tel:${SITE.phoneHref}`}
@@ -227,6 +236,8 @@ export function SiteHeader({ linesOpen }: { linesOpen?: boolean }) {
             </div>
           </a>
         ))}
+
+      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </header>
   )
 }
