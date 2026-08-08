@@ -1,12 +1,8 @@
 ## Proposed Changes
 
-- **Condense long reviews (all pages)** — clamp review text to 3 lines with a "Read more" toggle so no single card dominates the layout on desktop or mobile
-- **New combined "Why Choose Us" section on all service pages** — inserted between the overview/included panel and the booking form, containing:
-  - 4 key trust points (20+ years experience, honest advice, transparent pricing, 5-star rated)
-  - Team photo alongside the trust points
-  - Google-branded star rating badge (coloured Google "G" logo, gold stars, review count) as a compact summary — no full review cards
-- **Remove the separate full reviews section** from service pages (the trust points + Google rating in the new combined section replaces it, keeping things tight and uncluttered)
+- Add `id="book"` to the `<section>` wrapper in the **BookingSection** component so it can be targeted by anchor links
+- Update the **"Book [Service Name]"** button inside the *What's included* card on every service page to link to `#book` instead of `/contact`, scrolling the visitor straight down to the booking form on that page
 
-**Estimated cost: £1.95 – £3.80**
+**Estimated cost: £1.00 – £2.65**
 
-Since each update has a one-off setup cost, you'll get more for your money if we do a few tweaks together — anything else you'd like sorted while we're at it?
+Since each update has a one-off setup cost, you'll get more for your money if we bundle a few more tweaks in — anything else you'd like sorted at the same time?
