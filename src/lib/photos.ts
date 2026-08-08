@@ -31,6 +31,8 @@ export const PHOTOS = {
   heroWorkshop: '/images/hero-workshop.webp',
   /** Customer-uploaded blue Lotus Emira parked outside the Brookswood Automotive garage. */
   lotusEmira: '/images/lotus-emira-garage.webp',
+  /** Customer-uploaded team photo — two Brookswood Automotive team members seated in the reception area. */
+  team: '/images/team-jay-thom.webp',
 } as const
 
 export const PHOTO_ALT = {
@@ -47,4 +49,5 @@ export const PHOTO_ALT = {
   bmwBay: 'Blue BMW in a Brookswood Automotive workshop bay with its headlights illuminated',
   heroWorkshop: 'The Brookswood Automotive workshop interior in Fareham, with vehicle lift bays and tool storage',
   lotusEmira: 'A blue Lotus Emira parked outside the Brookswood Automotive garage in Fareham',
+  team: 'Two Brookswood Automotive team members seated in the reception area of the garage in Fareham',
 } as const
