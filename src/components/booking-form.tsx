@@ -232,7 +232,7 @@ export function BookingForm({ defaultService }: { defaultService?: string }) {
       }
       router.push('/thank-you')
     } catch {
-      setSubmitError('Sorry, something went wrong. Please call us on 01329 756796.')
+      setSubmitError('Sorry, something went wrong. Please call us on 01329 640779.')
       setSubmitting(false)
     }
   }

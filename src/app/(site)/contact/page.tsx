@@ -11,7 +11,7 @@ import { graph, webPageSchema, breadcrumbSchema } from '@/lib/schema'
 
 const PATH = '/contact'
 const DESCRIPTION =
-  'Contact Brookswood Automotive in Fareham for MOTs, servicing and repairs. Call 01329 756796, email us or request a callback online. 4-6 Hackett Way, Fareham PO14 1AJ.'
+  'Contact Brookswood Automotive in Fareham for MOTs, servicing and repairs. Call 01329 640779, email us or request a callback online. 4-6 Hackett Way, Fareham PO14 1AJ.'
 
 export const metadata: Metadata = {
   title: 'Contact Us | Book Your Car In Fareham',
