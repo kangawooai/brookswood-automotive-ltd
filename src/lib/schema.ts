@@ -5,7 +5,7 @@ const ORG_ID = `${SITE.url}/#organization`
 const WEBSITE_ID = `${SITE.url}/#website`
 
 export function localBusinessSchema(
-  rating: { value: string; count: number } = SITE.rating,
+  rating: { value: string; count: number | null } = { value: SITE.rating.value, count: null },
 ) {
   return {
     '@type': ['AutoRepair', 'LocalBusiness'],
@@ -37,12 +37,18 @@ export function localBusinessSchema(
       opens: h.opens,
       closes: h.closes,
     })),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: rating.value,
-      reviewCount: rating.count,
-      bestRating: '5',
-    },
+    // Only assert an aggregateRating when we have a real, live review count —
+    // never publish a hardcoded or stale figure in structured data.
+    ...(rating.count != null
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: rating.value,
+            reviewCount: rating.count,
+            bestRating: '5',
+          },
+        }
+      : {}),
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: SITE.phoneHref,

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -15,11 +15,23 @@ import {
 } from '@/components/ui/accordion'
 import { BookingModal } from '@/components/booking-modal'
 import { SITE, SERVICES } from '@/lib/site'
+import { getLinesOpen } from '@/lib/lines-open'
 
-export function SiteHeader({ linesOpen }: { linesOpen?: boolean }) {
+export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?: boolean }) {
   const [open, setOpen] = useState(false)
   const [bookingOpen, setBookingOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  // The open/closed status is re-evaluated on the client against the visitor's
+  // own clock (in Europe/London time) so it's always correct — including across
+  // the BST/GMT switch — regardless of the server's timezone or edge caching.
+  // The server-computed value seeds the first paint to avoid any flicker.
+  const [linesOpen, setLinesOpen] = useState(initialLinesOpen)
+  useEffect(() => {
+    const update = () => setLinesOpen(getLinesOpen())
+    update()
+    const id = setInterval(update, 60_000)
+    return () => clearInterval(id)
+  }, [])
   const pathname = usePathname()
   const isHome = pathname === '/'
   // On the home page, mobile logo/icon hovers use the cyan accent instead of the
@@ -212,8 +224,8 @@ export function SiteHeader({ linesOpen }: { linesOpen?: boolean }) {
       </div>
 
       {/* Phone-line status banner — home page only. Open/closed state is
-          computed server-side (UK time) and passed in as `linesOpen`, so it
-          renders correctly on first paint with no flicker. */}
+          re-evaluated on the client against the visitor's clock (UK time), so it
+          stays accurate live; the server value seeds the first paint. */}
       {isHome &&
         (linesOpen ? (
           <div className="w-full bg-primary text-primary-foreground">

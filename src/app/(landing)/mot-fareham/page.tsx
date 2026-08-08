@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   title: 'MOT Fareham | DVSA-Approved MOT Testing',
   description: DESCRIPTION,
   alternates: { canonical: PATH, languages: { 'en-GB': PATH } },
+  // Paid landing page (stripped nav) — keep it out of the organic index so it
+  // doesn't compete with /services/mot-testing. Still allow link following.
+  robots: { index: false, follow: true },
   openGraph: {
     title: 'MOT Fareham | Brookswood Automotive',
     description: DESCRIPTION,
@@ -76,9 +79,16 @@ export default async function MotFarehamLanding() {
         )}
       />
 
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:uppercase focus:tracking-wide focus:text-primary-foreground"
+      >
+        Skip to main content
+      </a>
+
       <LandingHeader />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* Hero + quote form */}
         <section id="top" className="relative isolate overflow-hidden">
           <Image
@@ -154,7 +164,9 @@ export default async function MotFarehamLanding() {
             {[
               { value: `${SITE.yearsExperience}`, label: 'Years Experience' },
               { value: `${rating.value}★`, label: 'Google Rating' },
-              { value: `${rating.count}`, label: 'Happy Reviews' },
+              ...(rating.count != null
+                ? [{ value: `${rating.count}`, label: 'Happy Reviews' }]
+                : []),
               { value: 'Free', label: 'Retest Included' },
             ].map((item) => (
               <div key={item.label} className="px-4 py-8 text-center">

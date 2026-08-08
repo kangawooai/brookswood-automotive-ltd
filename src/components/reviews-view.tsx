@@ -201,7 +201,7 @@ export function ReviewsView({
   redBadge = false,
 }: {
   reviews: Review[]
-  rating: { value: string; count: number }
+  rating: { value: string; count: number | null }
   redBadge?: boolean
 }) {
   if (reviews.length === 0) return null
@@ -248,7 +248,7 @@ export function ReviewsView({
               <span
                 className={`mt-1 block text-sm font-semibold ${redBadge ? 'text-white' : 'text-foreground'}`}
               >
-                {rating.count} Google reviews
+                {rating.count != null ? `${rating.count} Google reviews` : 'Rated on Google'}
               </span>
             </span>
           </motion.div>

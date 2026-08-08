@@ -101,7 +101,9 @@ export default async function AboutPage() {
         items={[
           { value: `${SITE.yearsExperience}`, label: 'Years Experience' },
           { value: `${rating.value}★`, label: 'Google Rating' },
-          { value: `${rating.count}`, label: 'Happy Reviews' },
+          ...(rating.count != null
+            ? [{ value: `${rating.count}`, label: 'Happy Reviews' }]
+            : []),
         ]}
       />
 
