@@ -1,13 +1,12 @@
 ## Proposed Changes
 
-- **Footer logo** — replace the existing logo image with the newly uploaded one, across all pages
-- **Google reviews rating badge** — change the background to Brookswood red (`#CC0100`) and make the "5.0" and review count text white, on the Home page only
-- **Mobile header hover colour** — change the hover colour on logos and icons from green to the cyan accent (`#00CBCC`), on the Home page only
+- Add a slim banner directly below the phone number in the sticky header
+- **When lines are open** (Mon–Fri 08:30–17:30, Sat 08:30–12:30 UK time): shows a **red background** with a green pulsing dot and the text **"Lines now open — call now"**
+- **When lines are closed** (evenings, Sundays, and outside those hours): shows a **darker/muted background** with a red dot and the text **"Lines closed — please enquire below"**
+- Time check runs server-side on every page load, so it's always accurate with no flicker
+- Appears on the **Home page header only**, across all devices (mobile and desktop)
+- The "enquire below" phrasing will anchor-link down to your callback form on the Home page
 
-**Estimated cost: £1.60 – £3.20**
+**Estimated cost: £1.05 – £2.75**
 
-Since each update has a one-off setup cost, you'll get more for your money if we do a few tweaks together — anything else you'd like sorted while we're at it?
-
-## Attached files
-The customer uploaded the following file(s) during this chat. Where the objectives refer to a provided/attached image, logo, icon, screenshot, font or document, download the matching file (e.g. `curl -L -o <path> <url>`) into the project and use it — never hotlink a customer upload.
-- 1784796067107-5ckpgvwtxhg-logo-neg.webp (image/webp): https://hppgzamzudygkyyzkgdd.supabase.co/storage/v1/object/public/website-media/chat-attachments/1786186358834-j6cnf2.webp
+Since this is a small, focused change, you'll get better value if we bundle a few more tweaks into the same build — anything else you'd like sorted while we're at it?
