@@ -1,8 +1,11 @@
 ## Proposed Changes
 
-- Change the `--secondary` colour token from `#1C2024` to `#111314` — a true light black with no grey cast
-- This will update **every element** on the site that uses `bg-secondary`, `text-secondary`, `border-secondary` etc. — including the dark process sections, the site footer background, the trust bars, the cookie banner, and the landing page footer
+- Write a unique set of FAQs (5–6 questions each) tailored to each of the 9 service pages:
+  - MOT Testing, Car Servicing, Brakes, Suspension & Steering, Exhausts, Clutches, Diagnostics, Air-Con Regas, Tyres
+- Add a new FAQs data file (or extend the existing one) with all 9 sets
+- Update each service page to automatically pull in its own relevant FAQs instead of the shared generic ones
+- The Home page and other shared pages keep their existing FAQs unchanged
 
-**Estimated cost: £0.95 – £2.50**
+**Estimated cost: £1.90 – £3.50**
 
-Since this is a quick token tweak, you'll get more for your money if we bundle a few other small changes at the same time — anything else you'd like adjusted while we're at it?
+Since each update has a one-off setup cost, you'll get more for your money if we bundle a few more tweaks in at the same time — anything else you'd like sorted while we're at it?

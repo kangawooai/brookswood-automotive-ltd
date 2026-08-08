@@ -12,7 +12,8 @@ import { FaqSection } from '@/components/sections/faq-section'
 import { CallbackSection } from '@/components/sections/callback-section'
 import { BookingSection } from '@/components/sections/booking-section'
 import { JsonLd } from '@/components/json-ld'
-import { graph, webPageSchema, breadcrumbSchema, serviceSchema } from '@/lib/schema'
+import { getServiceFaqs } from '@/lib/faqs'
+import { graph, webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/schema'
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }))
@@ -70,6 +71,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   const path = `/services/${service.slug}`
   const related = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 3)
+  const faqs = getServiceFaqs(service.slug)
 
   return (
     <>
@@ -87,6 +89,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             path,
             serviceType: service.nav,
           }),
+          faqSchema(faqs.map((f) => ({ q: f.q, a: f.a }))),
         )}
       />
 
@@ -176,7 +179,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <Reviews />
 
-      <FaqSection />
+      <FaqSection faqs={faqs} />
 
       <CallbackSection defaultService={service.nav} />
 
