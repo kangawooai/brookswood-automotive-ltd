@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
       <LegalPage
         title="Privacy Policy"
         intro="Your privacy matters to us. This policy explains how we handle your personal information."
-        lastUpdated="23 July 2026"
+        lastUpdated="8 August 2026"
       >
         <p>
           This Privacy Policy explains how {SITE.name} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;)
@@ -66,32 +66,105 @@ export default function PrivacyPolicyPage() {
 
         <LegalSection heading="Sharing your information">
           <p>
-            We do not sell your personal data. We may share it with trusted service providers who help us run
-            our business — for example, IT and hosting providers, or analytics and advertising platforms where
-            you have consented — and with authorities where we are required to do so by law.
+            We do not sell your personal data. We share it only with the trusted service providers
+            (&ldquo;processors&rdquo;) who help us run our business and website, and with authorities where we
+            are required to do so by law. Our main processors are:
+          </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              <strong className="text-foreground">Vercel Inc.</strong> — website hosting and delivery, which
+              processes technical data such as your IP address in order to serve the site securely.
+            </li>
+            <li>
+              <strong className="text-foreground">Google (Google Ireland Ltd / Google LLC)</strong> — Google
+              Analytics and Google Tag Manager, used with your consent to understand how our site is used and to
+              measure our advertising.
+            </li>
+            <li>
+              <strong className="text-foreground">Meta Platforms (Meta Platforms Ireland Ltd / Meta Platforms,
+              Inc.)</strong> — the Meta pixel and the Meta Conversions API, used with your consent to measure and
+              improve our Facebook and Instagram advertising (see &ldquo;Advertising and measurement&rdquo; below).
+            </li>
+          </ul>
+        </LegalSection>
+
+        <LegalSection heading="Advertising and measurement">
+          <p>
+            Where you consent to advertising cookies, we use the <strong className="text-foreground">Meta
+            pixel</strong> on our website and the <strong className="text-foreground">Meta Conversions API</strong>{' '}
+            (a server-side connection) to tell Meta which enquiries came from our ads, so we can measure their
+            performance and reach relevant audiences. This may involve sharing limited data such as your hashed
+            contact details, the pages you viewed and the action you took (for example, submitting an enquiry).
+            You can withdraw consent at any time and this tracking will stop.
+          </p>
+        </LegalSection>
+
+        <LegalSection heading="International transfers">
+          <p>
+            Some of our processors — including Google and Meta — are US-based or may process data outside the UK
+            and European Economic Area. Where personal data is transferred internationally, it is protected by
+            appropriate safeguards recognised under UK data protection law, such as the UK International Data
+            Transfer Agreement or the UK Extension to the EU–US Data Privacy Framework, together with the
+            providers&rsquo; own standard contractual clauses.
           </p>
         </LegalSection>
 
         <LegalSection heading="How long we keep it">
           <p>
-            We keep your personal data only for as long as necessary to fulfil the purposes we collected it for,
-            including to satisfy any legal, accounting or reporting requirements.
+            We keep your personal data only for as long as necessary for the purposes we collected it for:
           </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              <strong className="text-foreground">Enquiry and booking details</strong> — up to 2 years after our
+              last contact with you, so we can handle follow-up questions and repeat visits.
+            </li>
+            <li>
+              <strong className="text-foreground">Job, invoice and accounting records</strong> — up to 6 years,
+              to meet HMRC and other legal, accounting and reporting requirements.
+            </li>
+            <li>
+              <strong className="text-foreground">Website analytics and advertising data</strong> — retained by
+              our analytics and advertising providers for their standard periods (typically up to 26 months),
+              after which it is deleted or aggregated.
+            </li>
+          </ul>
         </LegalSection>
 
         <LegalSection heading="Your rights">
-          <p>Under UK data protection law you have the right to:</p>
+          <p>Under UK GDPR and the Data Protection Act 2018 you have the right to:</p>
           <ul className="list-disc space-y-1 pl-6">
-            <li>Access the personal data we hold about you</li>
-            <li>Request correction of inaccurate data</li>
-            <li>Request erasure of your data in certain circumstances</li>
-            <li>Object to or restrict our processing of your data</li>
-            <li>Withdraw consent at any time where we rely on it</li>
+            <li>
+              <strong className="text-foreground">Be informed</strong> about how we use your personal data (this
+              policy)
+            </li>
+            <li>
+              <strong className="text-foreground">Access</strong> the personal data we hold about you
+            </li>
+            <li>
+              <strong className="text-foreground">Rectification</strong> — request correction of inaccurate or
+              incomplete data
+            </li>
+            <li>
+              <strong className="text-foreground">Erasure</strong> — request deletion of your data in certain
+              circumstances
+            </li>
+            <li>
+              <strong className="text-foreground">Restrict</strong> or <strong className="text-foreground">object
+              to</strong> our processing of your data
+            </li>
+            <li>
+              <strong className="text-foreground">Data portability</strong> — receive your data in a portable
+              format
+            </li>
+            <li>
+              <strong className="text-foreground">Withdraw consent</strong> at any time where we rely on it, and
+              object to direct marketing
+            </li>
           </ul>
           <p>
             To exercise any of these rights, please contact us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
-            You also have the right to lodge a complaint with the Information Commissioner&rsquo;s Office (ICO) at
-            ico.org.uk.
+            We will respond within one month. You also have the right to lodge a complaint with the Information
+            Commissioner&rsquo;s Office (ICO) at ico.org.uk.
           </p>
         </LegalSection>
 

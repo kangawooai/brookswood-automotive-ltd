@@ -5,7 +5,9 @@ import { Button } from '@/components/ui/button'
 import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Thank You | Brookswood Automotive',
+  // Bare title — the root layout's template appends "| Brookswood Automotive",
+  // so setting the full title here would double the brand suffix.
+  title: 'Thank You',
   description: 'Thank you for contacting Brookswood Automotive in Fareham. We have received your enquiry and will be in touch shortly.',
   alternates: { canonical: '/thank-you', languages: { 'en-GB': '/thank-you' } },
   robots: { index: false, follow: true },

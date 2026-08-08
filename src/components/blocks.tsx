@@ -90,11 +90,11 @@ export function HeroButtons({ bookLabel = 'Book Now' }: { bookLabel?: string }) 
 export function RatingBadge({
   light = false,
   value = SITE.rating.value,
-  count = SITE.rating.count,
+  count = null,
 }: {
   light?: boolean
   value?: string
-  count?: number
+  count?: number | null
 }) {
   return (
     <div className="flex items-center gap-3">
@@ -104,7 +104,7 @@ export function RatingBadge({
         ))}
       </div>
       <span className={`text-sm font-semibold ${light ? 'text-white/90' : 'text-foreground'}`}>
-        {value} from {count} Google reviews
+        {count != null ? `${value} from ${count} Google reviews` : `${value} rating on Google`}
       </span>
     </div>
   )

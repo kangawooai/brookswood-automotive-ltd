@@ -26,7 +26,13 @@ export type Review = {
 }
 
 export type PlaceData = {
-  rating: { value: string; count: number }
+  /**
+   * `count` is `null` whenever we don't have a live figure from Google. We never
+   * hardcode a review count anywhere — the number shown across the site (badges,
+   * schema, stat bars) comes solely from the live Places API, so it can't drift
+   * out of sync. When it's `null`, consumers gracefully omit the count.
+   */
+  rating: { value: string; count: number | null }
   reviews: Review[]
   /** True when the figures came live from Google, false when using fallbacks. */
   live: boolean
@@ -65,7 +71,8 @@ export const CURATED_REVIEWS: Review[] = [
 ]
 
 const FALLBACK: PlaceData = {
-  rating: { value: SITE.rating.value, count: SITE.rating.count },
+  // No live figure available → no count. We never substitute a hardcoded number.
+  rating: { value: SITE.rating.value, count: null },
   reviews: CURATED_REVIEWS,
   live: false,
 }
@@ -136,7 +143,7 @@ export async function getPlaceData(): Promise<PlaceData> {
     const value =
       typeof data.rating === 'number' ? data.rating.toFixed(1) : SITE.rating.value
     const count =
-      typeof data.userRatingCount === 'number' ? data.userRatingCount : SITE.rating.count
+      typeof data.userRatingCount === 'number' ? data.userRatingCount : null
 
     const liveReviews: Review[] = (data.reviews ?? [])
       .map((r) => ({

@@ -115,7 +115,7 @@ export async function WhyChooseSection() {
                 </span>
               </span>
               <span className="mt-1 text-sm font-semibold text-muted-foreground">
-                {rating.count} Google reviews
+                {rating.count != null ? `${rating.count} Google reviews` : 'Rated on Google'}
               </span>
             </span>
           </div>

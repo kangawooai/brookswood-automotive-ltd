@@ -30,7 +30,7 @@ export default function CookiePolicyPage() {
       <LegalPage
         title="Cookie Policy"
         intro="This policy explains what cookies are, how we use them, and how you can control them."
-        lastUpdated="23 July 2026"
+        lastUpdated="8 August 2026"
       >
         <p>
           This Cookie Policy explains how {SITE.name} uses cookies and similar
@@ -61,6 +61,65 @@ export default function CookiePolicyPage() {
               effectiveness of our marketing and, where you consent, to personalise it.
             </li>
           </ul>
+        </LegalSection>
+
+        <LegalSection heading="Cookies we use">
+          <p>
+            The main cookies and similar identifiers used on our website are listed below. Analytics and
+            advertising cookies are only set once you consent to them.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[36rem] border-collapse text-left text-sm">
+              <thead>
+                <tr className="border-b border-border text-foreground">
+                  <th className="py-2 pr-4 font-bold">Cookie</th>
+                  <th className="py-2 pr-4 font-bold">Type</th>
+                  <th className="py-2 pr-4 font-bold">Purpose</th>
+                  <th className="py-2 font-bold">Duration</th>
+                </tr>
+              </thead>
+              <tbody className="align-top">
+                <tr className="border-b border-border">
+                  <td className="py-2 pr-4 font-medium text-foreground">cookie_consent</td>
+                  <td className="py-2 pr-4">Necessary</td>
+                  <td className="py-2 pr-4">Remembers your cookie preferences so we don&rsquo;t ask again.</td>
+                  <td className="py-2">6 months</td>
+                </tr>
+                <tr className="border-b border-border">
+                  <td className="py-2 pr-4 font-medium text-foreground">_ga, _ga_&lt;id&gt;</td>
+                  <td className="py-2 pr-4">Analytics</td>
+                  <td className="py-2 pr-4">
+                    Set by Google Analytics (via Google Tag Manager) to measure how visitors use the site.
+                  </td>
+                  <td className="py-2">Up to 2 years</td>
+                </tr>
+                <tr className="border-b border-border">
+                  <td className="py-2 pr-4 font-medium text-foreground">_gcl_au</td>
+                  <td className="py-2 pr-4">Advertising</td>
+                  <td className="py-2 pr-4">
+                    Set by Google Tag Manager to measure ad conversions and campaign performance.
+                  </td>
+                  <td className="py-2">90 days</td>
+                </tr>
+                <tr className="border-b border-border">
+                  <td className="py-2 pr-4 font-medium text-foreground">_fbp</td>
+                  <td className="py-2 pr-4">Advertising</td>
+                  <td className="py-2 pr-4">
+                    Set for the Meta (Facebook/Instagram) pixel and Conversions API to measure our advertising.
+                  </td>
+                  <td className="py-2">90 days</td>
+                </tr>
+                <tr>
+                  <td className="py-2 pr-4 font-medium text-foreground">_fbc</td>
+                  <td className="py-2 pr-4">Advertising</td>
+                  <td className="py-2 pr-4">
+                    Stores a Meta ad click identifier so an enquiry can be attributed to the ad you clicked.
+                  </td>
+                  <td className="py-2">90 days</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </LegalSection>
 
         <LegalSection heading="Consent Mode">

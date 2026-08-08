@@ -30,7 +30,10 @@ export const SITE = {
     full: '4-6 Hackett Way, Fareham, Hampshire PO14 1AJ',
   },
   companyReg: '14569886',
-  rating: { value: '5.0', count: 71 },
+  // Only the star value is fixed here; the review COUNT always comes live from
+  // the Google Places API (see lib/google-reviews.ts) so it can never drift out
+  // of sync with reality. No hardcoded count lives in this config.
+  rating: { value: '5.0' },
   yearsExperience: '20+',
   hours: [
     { day: 'Monday', open: '08:30', close: '17:30' },
@@ -46,7 +49,7 @@ export const SITE = {
     { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:30', closes: '17:30' },
     { days: ['Saturday'], opens: '09:00', closes: '13:00' },
   ],
-  geo: { lat: 50.8429, lng: -1.2036 },
+  geo: { lat: 50.840335, lng: -1.184461 },
 } as const
 
 export type Service = {
@@ -70,7 +73,7 @@ export const SERVICES: Service[] = [
     title: 'MOT Testing in Fareham',
     nav: 'MOT Testing',
     short: 'Class 4 MOT tests carried out by DVSA-approved testers, with free retests.',
-    metaTitle: 'MOT Testing Fareham | Class 4 MOT Centre',
+    metaTitle: 'MOT Testing Fareham | Class 4 Centre',
     metaDescription:
       'Book your MOT in Fareham at Brookswood Automotive. DVSA-approved testers, honest advice and free retests. Call 01329 640779.',
     image: PHOTOS.fordOnLift,
@@ -98,7 +101,7 @@ export const SERVICES: Service[] = [
     title: 'Car Servicing in Fareham',
     nav: 'Car Servicing',
     short: 'Interim and full servicing that keeps your car reliable and protects its warranty.',
-    metaTitle: 'Car Servicing Fareham | Interim & Full Service',
+    metaTitle: 'Car Servicing Fareham | Full Service',
     metaDescription:
       'Car servicing in Fareham from Brookswood Automotive. Interim and full services using quality parts, with transparent pricing. Call 01329 640779.',
     image: PHOTOS.bmwService,
@@ -126,7 +129,7 @@ export const SERVICES: Service[] = [
     title: 'Brake Repairs in Fareham',
     nav: 'Brakes',
     short: 'Brake pads, discs and fluid checks to keep your stopping power dependable.',
-    metaTitle: 'Brake Repairs Fareham | Pads, Discs & Fluid',
+    metaTitle: 'Brake Repairs Fareham | Pads & Discs',
     metaDescription:
       'Brake repairs and replacements in Fareham. Pads, discs, callipers and brake fluid changes by trusted technicians. Call 01329 640779.',
     image: '/images/generated/brakes.webp',
@@ -154,7 +157,7 @@ export const SERVICES: Service[] = [
     title: 'Suspension & Steering in Fareham',
     nav: 'Suspension & Steering',
     short: 'Shocks, springs and steering repairs for a smooth, controlled ride.',
-    metaTitle: 'Suspension & Steering Repairs Fareham',
+    metaTitle: 'Suspension & Steering Fareham',
     metaDescription:
       'Suspension and steering repairs in Fareham. Shock absorbers, springs, bushes and steering components fixed by expert technicians. Call 01329 640779.',
     image: '/images/generated/suspension.webp',
@@ -182,7 +185,7 @@ export const SERVICES: Service[] = [
     title: 'Exhaust Repairs in Fareham',
     nav: 'Exhausts',
     short: 'Exhaust repairs and replacements including catalytic converters and DPFs.',
-    metaTitle: 'Exhaust Repairs Fareham | Replacements & DPF',
+    metaTitle: 'Exhaust Repairs & DPF Fareham',
     metaDescription:
       'Exhaust repairs and replacements in Fareham. Silencers, catalytic converters and DPF issues resolved. Call 01329 640779.',
     image: '/images/generated/exhausts.webp',
@@ -210,7 +213,7 @@ export const SERVICES: Service[] = [
     title: 'Clutch Replacement in Fareham',
     nav: 'Clutches',
     short: 'Clutch diagnosis and replacement to fix slipping and heavy pedals.',
-    metaTitle: 'Clutch Replacement Fareham | Repairs & Fitting',
+    metaTitle: 'Clutch Replacement Fareham',
     metaDescription:
       'Clutch replacement and repairs in Fareham. Fix slipping clutches, heavy pedals and biting-point issues. Call 01329 640779.',
     image: '/images/generated/clutches.webp',
@@ -238,7 +241,7 @@ export const SERVICES: Service[] = [
     title: 'Car Diagnostics in Fareham',
     nav: 'Diagnostics',
     short: 'Electronic diagnostics to read fault codes and find the real problem.',
-    metaTitle: 'Car Diagnostics Fareham | Fault Code Reading',
+    metaTitle: 'Car Diagnostics Fareham',
     metaDescription:
       'Car diagnostics in Fareham. We read fault codes and pinpoint warning-light causes with modern equipment. Call 01329 640779.',
     image: '/images/generated/diagnostics.webp',
@@ -266,7 +269,7 @@ export const SERVICES: Service[] = [
     title: 'Air-Conditioning Regas in Fareham',
     nav: 'Air-Con Regas',
     short: 'Air-conditioning regas and repairs to get cold, fresh air flowing again.',
-    metaTitle: 'Air-Conditioning Regas Fareham | Car Air-Con Service',
+    metaTitle: 'Air-Conditioning Regas Fareham',
     metaDescription:
       'Car air-conditioning regas and repairs in Fareham. Restore cold air, fix leaks and refresh your system with Brookswood Automotive. Call 01329 640779.',
     image: '/images/generated/air-con.webp',
@@ -294,7 +297,7 @@ export const SERVICES: Service[] = [
     title: 'Tyres & Tyre Fitting in Fareham',
     nav: 'Tyres',
     short: 'Quality tyres supplied and fitted, plus puncture repairs and pressure checks.',
-    metaTitle: 'Tyres Fareham | Supply, Fitting & Repairs',
+    metaTitle: 'Tyres Fareham | Fitting & Repairs',
     metaDescription:
       'Tyres in Fareham supplied and fitted. Quality budget to premium brands, puncture repairs and free tread checks. Call 01329 640779.',
     image: '/images/generated/tyres.webp',
