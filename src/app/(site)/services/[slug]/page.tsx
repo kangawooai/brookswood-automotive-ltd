@@ -9,6 +9,7 @@ import { PageHero, HeroButtons, SectionHeading, CtaBand, CheckList } from '@/com
 import { ServicesGrid } from '@/components/sections/services-grid'
 import { Reviews } from '@/components/reviews'
 import { FaqSection } from '@/components/sections/faq-section'
+import { FindUsSection } from '@/components/sections/find-us-section'
 import { CallbackSection } from '@/components/sections/callback-section'
 import { BookingSection } from '@/components/sections/booking-section'
 import { JsonLd } from '@/components/json-ld'
@@ -178,6 +179,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       <Reviews />
+
+      <FindUsSection />
 
       <FaqSection faqs={faqs} />
 

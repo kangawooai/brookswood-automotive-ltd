@@ -8,6 +8,7 @@ import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
 import { Reviews } from '@/components/reviews'
 import { getPlaceData } from '@/lib/google-reviews'
 import { FaqSection } from '@/components/sections/faq-section'
+import { FindUsSection } from '@/components/sections/find-us-section'
 import { CallbackSection } from '@/components/sections/callback-section'
 import {
   PageHero,
@@ -194,6 +195,8 @@ export default async function AboutPage() {
       </section>
 
       <Reviews />
+
+      <FindUsSection />
 
       <FaqSection />
 

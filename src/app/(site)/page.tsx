@@ -15,6 +15,7 @@ import {
 } from '@/components/blocks'
 import { ServicesGrid } from '@/components/sections/services-grid'
 import { CallbackSection } from '@/components/sections/callback-section'
+import { FindUsSection } from '@/components/sections/find-us-section'
 import { FaqList } from '@/components/faq'
 import { Reviews } from '@/components/reviews'
 import { getPlaceData } from '@/lib/google-reviews'
@@ -282,6 +283,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* How to find us */}
+      <FindUsSection />
 
       {/* FAQ */}
       <section className="bg-muted py-20 md:py-24">
