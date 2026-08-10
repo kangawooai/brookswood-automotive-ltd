@@ -2,7 +2,7 @@ import * as React from 'react'
 import type { LucideProps } from 'lucide-react'
 
 /**
- * MOT Testing icon — the official MOT test-station "three triangles" mark,
+ * MOT Testing icon, the official MOT test-station "three triangles" mark,
  * supplied by the customer. Rendered as a filled icon using `currentColor`, so
  * the service card's colour treatment applies (primary by default, white on
  * hover) with no hardcoded colours.

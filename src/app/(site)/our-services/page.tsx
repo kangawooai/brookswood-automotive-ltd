@@ -11,7 +11,7 @@ import { graph, webPageSchema, breadcrumbSchema } from '@/lib/schema'
 
 const PATH = '/our-services'
 const DESCRIPTION =
-  'Explore the full range of garage services at Brookswood Automotive in Fareham — MOT testing, servicing, brakes, tyres, diagnostics, bodywork and more. Call 01329 640528.'
+  'Explore the full range of garage services at Brookswood Automotive in Fareham, MOT testing, servicing, brakes, tyres, diagnostics, bodywork and more. Call 01329 640528.'
 
 export const metadata: Metadata = {
   title: 'Our Services | Garage Services in Fareham',
@@ -54,16 +54,16 @@ export default function OurServicesPage() {
         imageAlt={PHOTO_ALT.bmwService}
         eyebrow="Fareham Garage"
         title="Complete Car Care Under One Roof"
-        subtitle="From MOTs and servicing to brakes, tyres, diagnostics and bodywork — our Fareham workshop handles it all with honest advice and quality workmanship."
+        subtitle="From MOTs and servicing to brakes, tyres, diagnostics and bodywork, our Fareham workshop handles it all with honest advice and quality workmanship."
       >
         <HeroButtons />
       </PageHero>
 
-      {/* Services — shadcn-space features shadow-lift card grid */}
+      {/* Services, shadcn-space features shadow-lift card grid */}
       <ServicesGrid
         eyebrow="What We Do"
         title="Our Garage Services"
-        intro={`With over ${SITE.yearsExperience} years of experience, we look after every part of your car — safely, reliably and at a fair price.`}
+        intro={`With over ${SITE.yearsExperience} years of experience, we look after every part of your car, safely, reliably and at a fair price.`}
       />
 
       <section className="bg-muted py-20 md:py-24">

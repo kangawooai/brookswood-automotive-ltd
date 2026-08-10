@@ -4,7 +4,7 @@ import { SITE } from './site'
 /**
  * Live Google rating + reviews for Brookswood Automotive.
  *
- * Data is pulled from the Google Places API (New) — Place Details — when a
+ * Data is pulled from the Google Places API (New), Place Details, when a
  * `GOOGLE_PLACES_API_KEY` and `GOOGLE_PLACES_ID` are configured in the
  * environment. Results are cached and refreshed periodically (see `revalidate`
  * below) so the rating, review count and reviews stay current without any
@@ -15,7 +15,7 @@ import { SITE } from './site'
  * reviews. The rating value/count always prefer the live figures when present.
  *
  * The API key is read from the environment only and is NEVER exposed to the
- * client — this module is server-only.
+ * client, this module is server-only.
  */
 
 export type Review = {
@@ -28,7 +28,7 @@ export type Review = {
 export type PlaceData = {
   /**
    * `count` is `null` whenever we don't have a live figure from Google. We never
-   * hardcode a review count anywhere — the number shown across the site (badges,
+   * hardcode a review count anywhere, the number shown across the site (badges,
    * schema, stat bars) comes solely from the live Places API, so it can't drift
    * out of sync. When it's `null`, consumers gracefully omit the count.
    */
@@ -42,7 +42,7 @@ export type PlaceData = {
 export const CURATED_REVIEWS: Review[] = [
   {
     name: 'Rick B',
-    text: 'I cannot recommend Brookswood Automotive highly enough. The day before my holiday my panoramic sunroof jammed almost fully open — they sorted it quickly and saved my trip.',
+    text: 'I cannot recommend Brookswood Automotive highly enough. The day before my holiday my panoramic sunroof jammed almost fully open, they sorted it quickly and saved my trip.',
   },
   {
     name: 'Bonnie Heard',
@@ -50,7 +50,7 @@ export const CURATED_REVIEWS: Review[] = [
   },
   {
     name: 'Roshni Kahol',
-    text: 'These guys are amazing! Other mechanics refused to look at my gearbox issue — Brookswood fixed it in a day. Thank you!',
+    text: 'These guys are amazing! Other mechanics refused to look at my gearbox issue, Brookswood fixed it in a day. Thank you!',
   },
   {
     name: 'Ben West',
@@ -62,7 +62,7 @@ export const CURATED_REVIEWS: Review[] = [
   },
   {
     name: 'Paul Winter',
-    text: 'After a clutch failure my car was towed in — Jay repaired it promptly and Tom even dropped me home while it was done. Excellent all-round service.',
+    text: 'After a clutch failure my car was towed in, Jay repaired it promptly and Tom even dropped me home while it was done. Excellent all-round service.',
   },
   {
     name: 'gary murray',
@@ -81,7 +81,7 @@ const FALLBACK: PlaceData = {
 const MIN_LIVE_REVIEWS = 3
 
 /**
- * Total number of reviews to display — the featured card plus six regular
+ * Total number of reviews to display, the featured card plus six regular
  * cards, which fills the desktop grid neatly (two rows of three under the
  * full-width featured card).
  */

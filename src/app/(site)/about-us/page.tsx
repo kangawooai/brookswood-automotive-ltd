@@ -49,7 +49,7 @@ const VALUES = [
   {
     icon: HeartHandshake,
     title: 'Honesty first',
-    text: 'We tell you the truth about your car — what needs doing now, what can wait, and what does not need doing at all.',
+    text: 'We tell you the truth about your car, what needs doing now, what can wait, and what does not need doing at all.',
   },
   {
     icon: Award,
@@ -64,7 +64,7 @@ const VALUES = [
   {
     icon: ShieldCheck,
     title: 'Genuine care',
-    text: 'We treat every car — and every customer — the way we would want to be treated. That is why drivers keep coming back.',
+    text: 'We treat every car, and every customer, the way we would want to be treated. That is why drivers keep coming back.',
   },
 ]
 
@@ -120,7 +120,7 @@ export default async function AboutPage() {
                 servicing to brakes, clutches, diagnostics and bodywork.
               </p>
               <p>
-                We built our reputation the hard way — one honest job at a time. Our customers stay with us
+                We built our reputation the hard way, one honest job at a time. Our customers stay with us
                 because we explain things clearly, quote fairly and never carry out work they have not agreed
                 to. That straightforward approach is reflected in our {rating.value}-star Google rating.
               </p>
@@ -178,7 +178,7 @@ export default async function AboutPage() {
           <SectionHeading
             eyebrow="Find Us"
             title="Right Here in Fareham"
-            intro={`You will find us at ${SITE.address.full}. Pop in, call us, or book online — whatever suits you best.`}
+            intro={`You will find us at ${SITE.address.full}. Pop in, call us, or book online, whatever suits you best.`}
             center
           />
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">

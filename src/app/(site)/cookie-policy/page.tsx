@@ -49,15 +49,15 @@ export default function CookiePolicyPage() {
           <p>We use cookies for the following purposes:</p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              <strong className="text-foreground">Necessary cookies</strong> — required for the website to
+              <strong className="text-foreground">Necessary cookies</strong>, required for the website to
               function and to remember your cookie choices.
             </li>
             <li>
-              <strong className="text-foreground">Analytics cookies</strong> — help us understand how visitors
+              <strong className="text-foreground">Analytics cookies</strong>, help us understand how visitors
               use our site so we can improve it.
             </li>
             <li>
-              <strong className="text-foreground">Advertising cookies</strong> — used to measure the
+              <strong className="text-foreground">Advertising cookies</strong>, used to measure the
               effectiveness of our marketing and, where you consent, to personalise it.
             </li>
           </ul>

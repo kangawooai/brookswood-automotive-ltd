@@ -21,7 +21,7 @@ export function LandingHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        {/* Logo — not linked on a landing page */}
+        {/* Logo, not linked on a landing page */}
         <span className="flex shrink-0 items-center">
           <Image
             src="/images/logo.webp"
@@ -46,7 +46,7 @@ export function LandingHeader() {
           ))}
         </nav>
 
-        {/* Desktop CTA — call only */}
+        {/* Desktop CTA, call only */}
         <div className="hidden lg:flex">
           <Button asChild className="font-bold uppercase tracking-wide">
             <a href={`tel:${SITE.phoneHref}`}>

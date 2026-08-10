@@ -110,7 +110,7 @@ export function RatingBadge({
   )
 }
 
-/** Horizontal stat strip — Bold Industrial. Labels are <p>, not headings. */
+/** Horizontal stat strip, Bold Industrial. Labels are <p>, not headings. */
 export function TrustBar({
   items,
 }: {

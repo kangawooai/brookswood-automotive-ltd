@@ -7,7 +7,7 @@ export const HOME_FAQS: Faq[] = [
   },
   {
     q: 'Do you pay for MOT before or after?',
-    a: 'You normally pay for the MOT after the test is completed, when you collect the car. If your car fails and needs repairs, we always explain what is required and give you a clear quote first — you only pay for repair work you have approved, and qualifying retests with us are free.',
+    a: 'You normally pay for the MOT after the test is completed, when you collect the car. If your car fails and needs repairs, we always explain what is required and give you a clear quote first, you only pay for repair work you have approved, and qualifying retests with us are free.',
   },
   {
     q: 'How can I prepare my car for an MOT?',
@@ -15,7 +15,7 @@ export const HOME_FAQS: Faq[] = [
   },
   {
     q: 'What is included in an MOT and service?',
-    a: 'The MOT is a legal safety and emissions check with a pass or fail result. A service is preventative maintenance — typically an oil and filter change, fluid top-ups and a multi-point inspection of brakes, tyres and suspension. Booked together, they give you both a road-legal certificate and a car that runs reliably.',
+    a: 'The MOT is a legal safety and emissions check with a pass or fail result. A service is preventative maintenance, typically an oil and filter change, fluid top-ups and a multi-point inspection of brakes, tyres and suspension. Booked together, they give you both a road-legal certificate and a car that runs reliably.',
   },
   {
     q: 'Is it worth getting a service with MOT?',
@@ -23,7 +23,7 @@ export const HOME_FAQS: Faq[] = [
   },
 ]
 
-// General garage FAQs for the About Us page — relevant to every customer,
+// General garage FAQs for the About Us page, relevant to every customer,
 // not tied to any single service.
 export const ABOUT_FAQS: Faq[] = [
   {
@@ -36,11 +36,11 @@ export const ABOUT_FAQS: Faq[] = [
   },
   {
     q: 'How quickly can you get me booked in?',
-    a: 'We do our best to fit you in as soon as possible, and can often book you in within a day or two — sometimes the same day for urgent jobs. Give us a call on 01329 640528 and we will find a slot that suits you.',
+    a: 'We do our best to fit you in as soon as possible, and can often book you in within a day or two, sometimes the same day for urgent jobs. Give us a call on 01329 640528 and we will find a slot that suits you.',
   },
   {
     q: 'Do you work on all makes and models?',
-    a: 'Yes. With over 20 years of experience and modern diagnostic equipment, we service and repair all makes and models — petrol, diesel and hybrid, from everyday runabouts to prestige vehicles.',
+    a: 'Yes. With over 20 years of experience and modern diagnostic equipment, we service and repair all makes and models, petrol, diesel and hybrid, from everyday runabouts to prestige vehicles.',
   },
   {
     q: 'Will you let me know the cost before starting any work?',
@@ -97,7 +97,7 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
     },
     {
       q: 'Is an MOT the same as a service?',
-      a: 'No. An MOT is a legal safety and emissions check with a pass or fail result, while a service is preventative maintenance such as oil changes and inspections. Many customers book both together to save a second visit — just ask when you call.',
+      a: 'No. An MOT is a legal safety and emissions check with a pass or fail result, while a service is preventative maintenance such as oil changes and inspections. Many customers book both together to save a second visit, just ask when you call.',
     },
   ],
   'car-servicing': [
@@ -107,11 +107,11 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
     },
     {
       q: 'What is the difference between an interim and a full service?',
-      a: 'An interim service covers the essentials — oil and filter change, top-ups and a safety check — and suits high-mileage drivers between full services. A full service is far more thorough, with more checks and replacements to keep your car reliable year-round.',
+      a: 'An interim service covers the essentials, oil and filter change, top-ups and a safety check, and suits high-mileage drivers between full services. A full service is far more thorough, with more checks and replacements to keep your car reliable year-round.',
     },
     {
       q: 'Will servicing my car here affect my manufacturer warranty?',
-      a: 'No. Under Block Exemption rules you can have your car serviced at an independent garage like ours without voiding your warranty, provided we follow the manufacturer schedule and use quality parts and oils — which we always do.',
+      a: 'No. Under Block Exemption rules you can have your car serviced at an independent garage like ours without voiding your warranty, provided we follow the manufacturer schedule and use quality parts and oils, which we always do.',
     },
     {
       q: 'Do you stamp my service book?',
@@ -123,7 +123,7 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
     },
     {
       q: 'What if you find extra work is needed?',
-      a: 'If we spot anything beyond the standard service, we will explain it clearly and give you a price before doing any work. You are always in control — we never carry out repairs you have not approved.',
+      a: 'If we spot anything beyond the standard service, we will explain it clearly and give you a price before doing any work. You are always in control, we never carry out repairs you have not approved.',
     },
   ],
   brakes: [
@@ -189,7 +189,7 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
     },
     {
       q: 'What does a catalytic converter do?',
-      a: 'The catalytic converter reduces harmful gases in your exhaust to help your car meet emissions standards. If yours is failing you may see a warning light or fail an emissions test — we can check and advise.',
+      a: 'The catalytic converter reduces harmful gases in your exhaust to help your car meet emissions standards. If yours is failing you may see a warning light or fail an emissions test, we can check and advise.',
     },
   ],
   clutches: [
@@ -220,7 +220,7 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
       a: 'We connect your car to specialist diagnostic equipment that reads the fault codes stored by its onboard computer. Our technicians then interpret those codes, alongside live data, to pinpoint the true cause rather than replacing parts on guesswork.',
     },
     {
-      q: 'My engine warning light is on — is it serious?',
+      q: 'My engine warning light is on, is it serious?',
       a: 'Not always, but it should never be ignored. A warning light can flag anything from a minor sensor fault to a more serious issue. A quick diagnostic check tells you exactly what is wrong so you can act with confidence.',
     },
     {
@@ -251,7 +251,7 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
     },
     {
       q: 'Why does my air-con smell musty?',
-      a: 'A musty smell is usually caused by bacteria and mould building up in the system. An anti-bacterial cleanse clears this out and leaves the air fresh again — we can include it as part of your air-con service.',
+      a: 'A musty smell is usually caused by bacteria and mould building up in the system. An anti-bacterial cleanse clears this out and leaves the air fresh again, we can include it as part of your air-con service.',
     },
     {
       q: 'Should I use my air-con in winter?',
@@ -269,7 +269,7 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
     },
     {
       q: 'Can you repair a puncture rather than replace the tyre?',
-      a: 'Where it is safe and within the industry guidelines, yes — a repair is often more cost-effective than a new tyre. If the damage is to the sidewall or the puncture is too large, we will explain why a replacement is the safer choice.',
+      a: 'Where it is safe and within the industry guidelines, yes, a repair is often more cost-effective than a new tyre. If the damage is to the sidewall or the puncture is too large, we will explain why a replacement is the safer choice.',
     },
     {
       q: 'How do I know if I need new tyres?',

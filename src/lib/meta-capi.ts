@@ -1,4 +1,4 @@
-// Meta Conversions API (server-side). Edge-runtime safe — uses Web Crypto only.
+// Meta Conversions API (server-side). Edge-runtime safe, uses Web Crypto only.
 // No Node.js `crypto` import here because this module is used by middleware (Edge Runtime).
 
 const GRAPH_VERSION = 'v21.0'
@@ -89,7 +89,7 @@ type SendEventArgs = {
 export async function sendEvent(args: SendEventArgs): Promise<void> {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID
   const token = process.env.META_CAPI_ACCESS_TOKEN
-  if (!pixelId || !token) return // Not configured — silently skip.
+  if (!pixelId || !token) return // Not configured, silently skip.
 
   const userData: Record<string, unknown> = { ...(args.userData ?? {}) }
   if (args.clientIpAddress) userData.client_ip_address = args.clientIpAddress

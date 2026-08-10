@@ -80,7 +80,7 @@ export function ContactForm({
         currency: 'GBP',
         service: values.service || 'Not specified',
       })
-      // Show the success message inline on the same page — this preserves the
+      // Show the success message inline on the same page, this preserves the
       // form context and keeps any referral/UTM data intact (no redirect).
       setSubmitted(true)
     } catch {

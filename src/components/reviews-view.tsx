@@ -3,7 +3,7 @@ import { Eyebrow } from '@/components/blocks'
 import { ClampedText } from '@/components/reviews-clamp'
 import type { Review } from '@/lib/google-reviews'
 
-// Reviews section — server-rendered. All the card markup ships as plain HTML;
+// Reviews section, server-rendered. All the card markup ships as plain HTML;
 // only the per-card "Read more" toggle (ClampedText) is a small client island,
 // so the browser downloads very little JavaScript for this section.
 
@@ -62,7 +62,7 @@ function Stars({ value = 5, className = 'size-4' }: { value?: number; className?
   )
 }
 
-/** Footer branding shown on each review card — the Google "G" + "Posted on Google". */
+/** Footer branding shown on each review card, the Google "G" + "Posted on Google". */
 function GoogleFooter() {
   return (
     <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -84,7 +84,7 @@ function Avatar({ name, className = 'size-10' }: { name: string; className?: str
   )
 }
 
-/** Featured highlight card — spans the full grid row on desktop, normal snap card on mobile. */
+/** Featured highlight card, spans the full grid row on desktop, normal snap card on mobile. */
 function FeaturedCard({ review }: { review: Review }) {
   return (
     <figure className="flex h-full w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-border bg-card p-6 shadow-sm sm:w-[70%] sm:p-8 md:w-auto md:shrink md:col-span-2 lg:col-span-3">
@@ -157,7 +157,7 @@ export function ReviewsView({
               Trusted by Fareham Drivers
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Don’t just take our word for it — here’s what our customers say about the service they
+              Don’t just take our word for it, here’s what our customers say about the service they
               received at Brookswood Automotive.
             </p>
           </div>

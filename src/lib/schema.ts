@@ -37,7 +37,7 @@ export function localBusinessSchema(
       opens: h.opens,
       closes: h.closes,
     })),
-    // Only assert an aggregateRating when we have a real, live review count —
+    // Only assert an aggregateRating when we have a real, live review count,
     // never publish a hardcoded or stale figure in structured data.
     ...(rating.count != null
       ? {

@@ -11,7 +11,7 @@ import { SITE } from '@/lib/site'
 import { PHOTOS } from '@/lib/photos'
 import './globals.css'
 
-// UniNeue — the single self-hosted font family for the whole site.
+// UniNeue, the single self-hosted font family for the whole site.
 // All 10 weights/styles live in public/fonts and are exposed through the
 // --font-uni-neue CSS variable (see globals.css for the role mapping).
 const uniNeue = localFont({

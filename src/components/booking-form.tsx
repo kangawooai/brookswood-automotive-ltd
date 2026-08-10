@@ -12,7 +12,7 @@ import { Loader2, Check, ArrowLeft, ArrowRight, CheckCircle2, Phone } from 'luci
 const FORM_ID = 'booking_form'
 
 // Multi-step "Book Now" form. Used both on the service pages (4 steps) and in
-// the header booking modal (5 steps — with an "Additional Services" step).
+// the header booking modal (5 steps, with an "Additional Services" step).
 // Progress is auto-saved to sessionStorage after every step on the page variant,
 // and a partial lead is fired automatically if the visitor completes step 1 and
 // then leaves before submitting (page unload, or closing the modal).
@@ -101,7 +101,7 @@ export function BookingForm({
   const fullSentRef = useRef(false)
   dataRef.current = data
 
-  // Restore any saved progress on mount (page variant only — the modal always
+  // Restore any saved progress on mount (page variant only, the modal always
   // reopens clean with progress reset).
   useEffect(() => {
     if (isModal) return
@@ -117,7 +117,7 @@ export function BookingForm({
         }
       }
     } catch {
-      // sessionStorage unavailable — start fresh.
+      // sessionStorage unavailable, start fresh.
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -197,7 +197,7 @@ export function BookingForm({
         }).catch(() => {})
       }
     } catch {
-      // Best-effort only — never block the visitor leaving.
+      // Best-effort only, never block the visitor leaving.
     }
 
     pushDataLayer({
@@ -224,7 +224,7 @@ export function BookingForm({
     }
   }, [sendPartial])
 
-  // In the modal, closing the overlay unmounts the form — treat that as leaving
+  // In the modal, closing the overlay unmounts the form, treat that as leaving
   // mid-form and fire the partial lead (guarded so a completed booking never
   // double-sends).
   useEffect(() => {
@@ -288,7 +288,7 @@ export function BookingForm({
         // Ignore.
       }
       // Show the success message inline on the same page rather than redirecting
-      // to /thank-you — this keeps the booking context and any referral/UTM data.
+      // to /thank-you, this keeps the booking context and any referral/UTM data.
       setSubmitted(true)
     } catch {
       setSubmitError('Sorry, something went wrong. Please call us on 01329 756796.')
@@ -309,7 +309,7 @@ export function BookingForm({
           Booking Received
         </h3>
         <p className="mt-3 text-sm text-muted-foreground">
-          Thanks{data.name ? `, ${data.name.split(' ')[0]}` : ''} — we&apos;ve got your booking
+          Thanks{data.name ? `, ${data.name.split(' ')[0]}` : ''}, we&apos;ve got your booking
           request and a member of the Brookswood Automotive team will be in touch shortly to confirm
           your appointment. If it&apos;s urgent, please give us a call.
         </p>
@@ -438,7 +438,7 @@ export function BookingForm({
         {currentKey === 'extras' && (
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Add any extras you&apos;d like us to look at while your car&apos;s with us — or skip
+              Add any extras you&apos;d like us to look at while your car&apos;s with us, or skip
               this step.
             </p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">

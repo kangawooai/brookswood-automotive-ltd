@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react'
  * so short reviews stay clean and no single card dominates the layout.
  *
  * This is the only interactive part of a review card, so it lives in its own
- * small client island — the rest of the reviews section is server-rendered.
+ * small client island, the rest of the reviews section is server-rendered.
  */
 export function ClampedText({
   text,

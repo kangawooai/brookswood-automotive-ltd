@@ -37,7 +37,7 @@ const POINTS = [
   {
     icon: ShieldCheck,
     title: 'Honest Advice',
-    text: 'We explain what your car needs — and what it doesn’t — before any work begins.',
+    text: 'We explain what your car needs, and what it doesn’t, before any work begins.',
   },
   {
     icon: BadgePoundSterling,
@@ -52,7 +52,7 @@ const POINTS = [
 ]
 
 /**
- * "Why Choose Us" section for service pages — four key trust points and the
+ * "Why Choose Us" section for service pages, four key trust points and the
  * team photo, with a compact Google-branded star rating badge as the social
  * proof (in place of a full reviews carousel).
  */

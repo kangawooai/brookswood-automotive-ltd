@@ -21,7 +21,7 @@ export function BookingModal({
             Book Your Car In
           </DialogTitle>
           <DialogDescription className="mt-1">
-            Quick, easy and no obligation — we&apos;ll confirm your appointment with honest advice
+            Quick, easy and no obligation, we&apos;ll confirm your appointment with honest advice
             and a clear price.
           </DialogDescription>
         </div>

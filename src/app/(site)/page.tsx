@@ -90,7 +90,7 @@ export default async function HomePage() {
         )}
       />
 
-      {/* Hero — next/image LCP */}
+      {/* Hero, next/image LCP */}
       <section className="relative isolate overflow-hidden">
         <Image
           src={PHOTOS.heroWorkshop}
@@ -112,7 +112,7 @@ export default async function HomePage() {
               MOT, Servicing &amp; Repairs You Can Trust
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/85 md:text-xl">
-              Your local Fareham garage for honest, quality car care. MOTs, servicing, brakes, tyres and more —
+              Your local Fareham garage for honest, quality car care. MOTs, servicing, brakes, tyres and more,
               done properly, priced fairly.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -148,12 +148,12 @@ export default async function HomePage() {
         ]}
       />
 
-      {/* Services — shadcn-space features shadow-lift card grid.
+      {/* Services, shadcn-space features shadow-lift card grid.
           Home shows the core services only; alloy wheel repair and car body
           repair are kept on the Our Services page and their own pages. */}
       <ServicesGrid slugs={HOME_SERVICE_SLUGS} />
 
-      {/* Why choose us — split */}
+      {/* Why choose us, split */}
       <section className="bg-muted py-20 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative aspect-[4/3] overflow-hidden border-4 border-primary">
@@ -169,7 +169,7 @@ export default async function HomePage() {
             <SectionHeading
               eyebrow="Why Brookswood"
               title="A Garage Fareham Drivers Actually Trust"
-              intro="We built our reputation on doing things properly — quality workmanship, fair prices and treating every customer the way we would want to be treated."
+              intro="We built our reputation on doing things properly, quality workmanship, fair prices and treating every customer the way we would want to be treated."
             />
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               {WHY_US.map((item) => {
@@ -228,7 +228,7 @@ export default async function HomePage() {
             />
             <p className="mt-4 text-muted-foreground">
               Whether it's a routine MOT, a full service or a repair that needs sorting fast, our experienced
-              technicians treat every car with the same attention to detail — and always tell you the truth about
+              technicians treat every car with the same attention to detail, and always tell you the truth about
               what it needs.
             </p>
             <div className="mt-8">
@@ -257,7 +257,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Gallery — real work from the Fareham workshop */}
+      {/* Gallery, real work from the Fareham workshop */}
       <section className="bg-secondary py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading

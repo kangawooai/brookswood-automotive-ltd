@@ -275,7 +275,7 @@ export const SERVICES: Service[] = [
     image: '/images/generated/air-con.webp',
     icon: Snowflake,
     intro:
-      'Over time your car’s air-conditioning loses refrigerant and cools less effectively. We recharge and service air-con systems, check for leaks and refresh the system so you get cold, clean air again — keeping you comfortable in summer and helping demist your windscreen in winter.',
+      'Over time your car’s air-conditioning loses refrigerant and cools less effectively. We recharge and service air-con systems, check for leaks and refresh the system so you get cold, clean air again, keeping you comfortable in summer and helping demist your windscreen in winter.',
     included: [
       'Full air-con regas and recharge',
       'System leak detection',

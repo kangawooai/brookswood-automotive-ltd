@@ -10,9 +10,9 @@ export function ServicesGrid({
   slugs,
   eyebrow = 'Our Services',
   title = 'Everything Your Car Needs, Under One Roof',
-  intro = 'From MOTs and servicing to brakes, tyres and diagnostics, our Fareham team handles it all — with honest advice and no surprises.',
+  intro = 'From MOTs and servicing to brakes, tyres and diagnostics, our Fareham team handles it all, with honest advice and no surprises.',
 }: {
-  // Optional subset — pass service slugs (not Service objects) so the icon
+  // Optional subset, pass service slugs (not Service objects) so the icon
   // components are resolved inside this client component, never serialised
   // across the server→client boundary.
   slugs?: string[]

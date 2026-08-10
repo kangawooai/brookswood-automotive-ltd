@@ -43,7 +43,7 @@ export function middleware(request: NextRequest) {
     })
   }
 
-  // Fire a server-side PageView (fire-and-forget — do not block the response).
+  // Fire a server-side PageView (fire-and-forget, do not block the response).
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
   void sendEvent({
     eventName: 'PageView',

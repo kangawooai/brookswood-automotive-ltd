@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { sendEvent, hashUserData, generateEventId } from '@/lib/meta-capi'
 import nodemailer from 'nodemailer'
 
-// Node runtime — access to full request context. Forwards to Zapier + Meta CAPI
+// Node runtime, access to full request context. Forwards to Zapier + Meta CAPI
 // and sends an email notification via Brevo SMTP (from kangawoo).
 export const runtime = 'nodejs'
 
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     submissionType = 'full',
     fbp = '',
     fbc = '',
-    // Ad-campaign tracking params — sent as their own dedicated payload fields,
+    // Ad-campaign tracking params, sent as their own dedicated payload fields,
     // never mixed into `All Fields`.
     utm_source = '',
     utm_medium = '',
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
   const [firstName, ...rest] = name.trim().split(/\s+/)
   const lastName = rest.join(' ')
 
-  // Plain-text summary of ONLY user-visible form fields — no tracking data.
+  // Plain-text summary of ONLY user-visible form fields, no tracking data.
   const isPartial = submissionType === 'partial'
   const allFields = [
     `Name: ${name}`,
@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
   }
 
   // 2. Fire a Lead event to Meta CAPI with hashed PII. Only full submissions
-  //    count as a Lead — partials are captured via Zapier/email only.
+  //    count as a Lead, partials are captured via Zapier/email only.
   if (!isPartial) {
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
     const userData = await hashUserData({
@@ -154,7 +154,7 @@ export async function POST(request: NextRequest) {
         from: `${fromName} <${fromEmail}>`,
         to,
         ...(email ? { replyTo: `${name || 'Website enquiry'} <${email}>` } : {}),
-        subject: `${isPartial ? 'Partial enquiry' : 'New enquiry'} — Brookswood Automotive website`,
+        subject: `${isPartial ? 'Partial enquiry' : 'New enquiry'}, Brookswood Automotive website`,
         text: `New ${isPartial ? 'PARTIAL ' : ''}enquiry from the website:\n\n${allFields}`,
         html: `<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#222;line-height:1.5;">
   <h2 style="margin:0 0 12px;font-size:18px;">New ${isPartial ? 'partial ' : ''}enquiry</h2>

@@ -27,11 +27,11 @@ export const PHOTOS = {
   lineupSunny2: '/images/gallery-lineup-2.webp',
   /** Blue BMW in a workshop bay with its headlights illuminated. */
   bmwBay: `${BASE}/gmb-10.jpg`,
-  /** Customer-uploaded finished workshop interior — used for the Home hero background. */
+  /** Customer-uploaded finished workshop interior, used for the Home hero background. */
   heroWorkshop: '/images/hero-workshop.webp',
   /** Customer-uploaded blue Lotus Emira parked outside the Brookswood Automotive garage. */
   lotusEmira: '/images/lotus-emira-garage.webp',
-  /** Customer-uploaded team photo — two Brookswood Automotive team members seated in the reception area. */
+  /** Customer-uploaded team photo, two Brookswood Automotive team members seated in the reception area. */
   team: '/images/team-jay-thom.webp',
 } as const
 

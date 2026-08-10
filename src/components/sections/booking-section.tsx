@@ -11,7 +11,7 @@ export function BookingSection({ defaultService }: { defaultService?: string }) 
         <SectionHeading
           eyebrow="Book Online"
           title="Book Now"
-          intro="Book your car in online in under a minute — quick, easy and no obligation. We'll confirm your appointment with honest advice and a clear price."
+          intro="Book your car in online in under a minute, quick, easy and no obligation. We'll confirm your appointment with honest advice and a clear price."
           center
         />
         <div className="mt-10 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">

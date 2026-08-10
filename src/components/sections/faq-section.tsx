@@ -2,7 +2,7 @@ import { SectionHeading } from '@/components/blocks'
 import { FaqList, type Faq } from '@/components/faq'
 import { HOME_FAQS } from '@/lib/faqs'
 
-// Shared FAQ section matching the homepage — a centered heading over the
+// Shared FAQ section matching the homepage, a centered heading over the
 // shadcn-space faq-numbered accordion (FaqList). Reused on every main page.
 export function FaqSection({
   faqs = HOME_FAQS,

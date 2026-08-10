@@ -114,7 +114,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="mt-8 border-l-4 border-primary bg-muted p-6">
               <p className="font-bold uppercase tracking-tight text-foreground">Why choose us for this?</p>
               <p className="mt-2 text-muted-foreground">
-                Over {SITE.yearsExperience} years of experience, honest advice and transparent pricing — we
+                Over {SITE.yearsExperience} years of experience, honest advice and transparent pricing, we
                 explain what your car needs before any work begins.
               </p>
             </div>
@@ -138,11 +138,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* Why choose us — trust points, team photo and Google rating (replaces
+      {/* Why choose us, trust points, team photo and Google rating (replaces
           the full reviews carousel on service pages to keep things tight) */}
       <WhyChooseSection />
 
-      {/* Multi-step booking form — sits above the process section */}
+      {/* Multi-step booking form, sits above the process section */}
       <BookingSection defaultService={service.nav} />
 
       {/* Process */}
@@ -161,7 +161,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* Related services — shadcn-space features shadow-lift card grid */}
+      {/* Related services, shadcn-space features shadow-lift card grid */}
       <ServicesGrid
         slugs={related.map((s) => s.slug)}
         eyebrow="Related Services"

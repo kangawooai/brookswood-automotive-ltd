@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: 'MOT Fareham | DVSA-Approved MOT Testing',
   description: DESCRIPTION,
   alternates: { canonical: PATH, languages: { 'en-GB': PATH } },
-  // Paid landing page (stripped nav) — keep it out of the organic index so it
+  // Paid landing page (stripped nav), keep it out of the organic index so it
   // doesn't compete with /services/mot-testing. Still allow link following.
   robots: { index: false, follow: true },
   openGraph: {
@@ -45,7 +45,7 @@ const WHY_US = [
   { icon: Award, title: 'DVSA-approved testers', text: 'Class 4 MOTs carried out by fully approved testers to the latest standards.' },
   { icon: Wallet, title: 'Honest, fair pricing', text: 'Competitive MOT rates with no pressure and no unnecessary work.' },
   { icon: ShieldCheck, title: 'Free retest', text: 'Qualifying repairs carried out with us come with a free retest.' },
-  { icon: Clock, title: 'Quick turnaround', text: 'A standard MOT takes around 45–60 minutes — waiting slots available.' },
+  { icon: Clock, title: 'Quick turnaround', text: 'A standard MOT takes around 45–60 minutes, waiting slots available.' },
 ]
 
 const PROCESS = [
@@ -78,13 +78,6 @@ export default async function MotFarehamLanding() {
           faqSchema(MOT_FAQS.map((f) => ({ q: f.q, a: f.a }))),
         )}
       />
-
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:uppercase focus:tracking-wide focus:text-primary-foreground"
-      >
-        Skip to main content
-      </a>
 
       <LandingHeader />
 

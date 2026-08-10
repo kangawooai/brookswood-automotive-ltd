@@ -18,7 +18,7 @@ import { SITE, SERVICES } from '@/lib/site'
 import { getLinesOpen } from '@/lib/lines-open'
 
 // The booking form (react-hook-form, validation, multi-step state) is a sizeable
-// chunk that most visitors never open, so it's loaded on demand — its JS is only
+// chunk that most visitors never open, so it's loaded on demand, its JS is only
 // fetched the first time someone clicks "Book Now", not on every page load.
 const BookingModal = dynamic(
   () => import('@/components/booking-modal').then((m) => m.BookingModal),
@@ -38,8 +38,8 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
     setBookingOpen(true)
   }
   // The open/closed status is re-evaluated on the client against the visitor's
-  // own clock (in Europe/London time) so it's always correct — including across
-  // the BST/GMT switch — regardless of the server's timezone or edge caching.
+  // own clock (in Europe/London time) so it's always correct, including across
+  // the BST/GMT switch, regardless of the server's timezone or edge caching.
   // The server-computed value seeds the first paint to avoid any flicker.
   const [linesOpen, setLinesOpen] = useState(initialLinesOpen)
   useEffect(() => {
@@ -239,7 +239,7 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
         </div>
       </div>
 
-      {/* Phone-line status banner — home page only. Open/closed state is
+      {/* Phone-line status banner, home page only. Open/closed state is
           re-evaluated on the client against the visitor's clock (UK time), so it
           stays accurate live; the server value seeds the first paint. */}
       {isHome &&
@@ -250,7 +250,7 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex size-2.5 rounded-full bg-green-400" />
               </span>
-              Lines now open — call now
+              Lines now open, call now
             </div>
           </div>
         ) : (
@@ -260,7 +260,7 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
           >
             <div className="mx-auto flex h-9 max-w-7xl items-center justify-center gap-2 px-4 text-xs font-bold uppercase tracking-wide sm:text-sm">
               <span className="inline-flex size-2.5 shrink-0 rounded-full bg-primary" />
-              Lines closed — please enquire below
+              Lines closed, please enquire below
             </div>
           </a>
         ))}

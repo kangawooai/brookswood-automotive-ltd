@@ -36,7 +36,7 @@ export function getStoredTrackingParams(): TrackingParams {
     const raw = window.sessionStorage.getItem(STORAGE_KEY)
     if (raw) return { ...EMPTY_TRACKING, ...JSON.parse(raw) }
   } catch {
-    // sessionStorage may be unavailable (private mode) — fall through.
+    // sessionStorage may be unavailable (private mode), fall through.
   }
   return { ...EMPTY_TRACKING }
 }

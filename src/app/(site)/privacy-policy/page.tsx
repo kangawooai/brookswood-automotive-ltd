@@ -72,17 +72,17 @@ export default function PrivacyPolicyPage() {
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              <strong className="text-foreground">Vercel Inc.</strong> — website hosting and delivery, which
+              <strong className="text-foreground">Vercel Inc.</strong>, website hosting and delivery, which
               processes technical data such as your IP address in order to serve the site securely.
             </li>
             <li>
-              <strong className="text-foreground">Google (Google Ireland Ltd / Google LLC)</strong> — Google
+              <strong className="text-foreground">Google (Google Ireland Ltd / Google LLC)</strong>, Google
               Analytics and Google Tag Manager, used with your consent to understand how our site is used and to
               measure our advertising.
             </li>
             <li>
               <strong className="text-foreground">Meta Platforms (Meta Platforms Ireland Ltd / Meta Platforms,
-              Inc.)</strong> — the Meta pixel and the Meta Conversions API, used with your consent to measure and
+              Inc.)</strong>, the Meta pixel and the Meta Conversions API, used with your consent to measure and
               improve our Facebook and Instagram advertising (see &ldquo;Advertising and measurement&rdquo; below).
             </li>
           </ul>
@@ -101,7 +101,7 @@ export default function PrivacyPolicyPage() {
 
         <LegalSection heading="International transfers">
           <p>
-            Some of our processors — including Google and Meta — are US-based or may process data outside the UK
+            Some of our processors, including Google and Meta, are US-based or may process data outside the UK
             and European Economic Area. Where personal data is transferred internationally, it is protected by
             appropriate safeguards recognised under UK data protection law, such as the UK International Data
             Transfer Agreement or the UK Extension to the EU–US Data Privacy Framework, together with the
@@ -115,15 +115,15 @@ export default function PrivacyPolicyPage() {
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              <strong className="text-foreground">Enquiry and booking details</strong> — up to 2 years after our
+              <strong className="text-foreground">Enquiry and booking details</strong>, up to 2 years after our
               last contact with you, so we can handle follow-up questions and repeat visits.
             </li>
             <li>
-              <strong className="text-foreground">Job, invoice and accounting records</strong> — up to 6 years,
+              <strong className="text-foreground">Job, invoice and accounting records</strong>, up to 6 years,
               to meet HMRC and other legal, accounting and reporting requirements.
             </li>
             <li>
-              <strong className="text-foreground">Website analytics and advertising data</strong> — retained by
+              <strong className="text-foreground">Website analytics and advertising data</strong>, retained by
               our analytics and advertising providers for their standard periods (typically up to 26 months),
               after which it is deleted or aggregated.
             </li>
@@ -141,11 +141,11 @@ export default function PrivacyPolicyPage() {
               <strong className="text-foreground">Access</strong> the personal data we hold about you
             </li>
             <li>
-              <strong className="text-foreground">Rectification</strong> — request correction of inaccurate or
+              <strong className="text-foreground">Rectification</strong>, request correction of inaccurate or
               incomplete data
             </li>
             <li>
-              <strong className="text-foreground">Erasure</strong> — request deletion of your data in certain
+              <strong className="text-foreground">Erasure</strong>, request deletion of your data in certain
               circumstances
             </li>
             <li>
@@ -153,7 +153,7 @@ export default function PrivacyPolicyPage() {
               to</strong> our processing of your data
             </li>
             <li>
-              <strong className="text-foreground">Data portability</strong> — receive your data in a portable
+              <strong className="text-foreground">Data portability</strong>, receive your data in a portable
               format
             </li>
             <li>
