@@ -11,6 +11,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   images: {
+    // Allowed quality values for next/image (Next 15.3+ gates the `quality` prop).
+    // 60 = hero images behind dark overlays, 75 = default.
+    qualities: [60, 75],
     remotePatterns: [
       {
         protocol: 'https',
