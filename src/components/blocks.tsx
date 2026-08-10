@@ -184,7 +184,7 @@ export function CtaBand({
             <h2 className="text-3xl font-black uppercase tracking-tight text-primary-foreground md:text-4xl">
               {title}
             </h2>
-            <p className="mt-4 text-lg text-primary-foreground/85">{text}</p>
+            <p className="mt-4 text-lg text-primary-foreground/90">{text}</p>
           </div>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
             <Button

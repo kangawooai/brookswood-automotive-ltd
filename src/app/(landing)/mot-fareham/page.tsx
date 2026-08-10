@@ -266,7 +266,7 @@ export default async function MotFarehamLanding() {
                 <h2 className="text-3xl font-black uppercase tracking-tight text-primary-foreground md:text-4xl">
                   Ready to book your MOT?
                 </h2>
-                <p className="mt-4 text-lg text-primary-foreground/85">
+                <p className="mt-4 text-lg text-primary-foreground/90">
                   Call our Fareham team now or request a callback and we will get you a convenient slot with
                   honest advice and no surprises.
                 </p>
