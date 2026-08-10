@@ -1,12 +1,13 @@
-import { connection } from 'next/server'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { getLinesOpen } from '@/lib/lines-open'
 
-export default async function SiteLayout({ children }: { children: React.ReactNode }) {
-  // Opt into dynamic rendering so the phone-line status is evaluated fresh on
-  // every request (no stale build-time value, no client-side flicker).
-  await connection()
+export default function SiteLayout({ children }: { children: React.ReactNode }) {
+  // These pages are statically rendered (fast TTFB, edge-cacheable, and no
+  // `no-store` document header that would block the back/forward cache).
+  // `linesOpen` here is only a first-paint seed computed at build/revalidation
+  // time — SiteHeader re-evaluates it on the client against the visitor's own
+  // clock on mount (and every minute), so the displayed status is always live.
   const linesOpen = getLinesOpen()
 
   return (
