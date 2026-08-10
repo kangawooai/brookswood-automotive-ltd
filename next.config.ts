@@ -31,6 +31,11 @@ const nextConfig: NextConfig = {
       { source: '/home', destination: '/', permanent: true },
       { source: '/about', destination: '/about-us', permanent: true },
       { source: '/services', destination: '/our-services', permanent: true },
+      { source: '/privacy-statement', destination: '/privacy-policy', permanent: true },
+      { source: '/services/servicing', destination: '/services/car-servicing', permanent: true },
+      { source: '/services/mots', destination: '/services/mot-testing', permanent: true },
+      { source: '/services/other-services', destination: '/our-services', permanent: true },
+      { source: '/book-online', destination: '/contact', permanent: true },
     ]
   },
 }
