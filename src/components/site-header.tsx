@@ -80,7 +80,7 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
               <ChevronDown className="size-4" />
             </Link>
             {servicesOpen && (
-              <div className="absolute left-0 top-full w-64 border border-border bg-card p-2 shadow-lg">
+              <div className="absolute left-0 top-full z-50 w-64 border border-border bg-card p-2 shadow-lg">
                 {SERVICES.map((s) => (
                   <Link
                     key={s.slug}

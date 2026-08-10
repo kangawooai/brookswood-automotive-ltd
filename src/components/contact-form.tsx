@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -9,9 +8,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { SERVICES } from '@/lib/site'
+import { SITE, SERVICES } from '@/lib/site'
 import { getStoredTrackingParams } from '@/lib/tracking-params'
-import { Loader2 } from 'lucide-react'
+import { Loader2, CheckCircle2, Phone } from 'lucide-react'
 
 const schema = z.object({
   name: z.string().min(2, 'Please enter your name'),
@@ -30,15 +29,24 @@ function readCookie(name: string): string {
   return match ? decodeURIComponent(match[2]) : ''
 }
 
+function pushDataLayer(event: Record<string, unknown>) {
+  const w = window as unknown as { dataLayer?: Record<string, unknown>[] }
+  w.dataLayer = w.dataLayer || []
+  w.dataLayer.push(event)
+}
+
 export function ContactForm({
   defaultService,
   dark = false,
+  formId = 'contact_form',
 }: {
   defaultService?: string
   dark?: boolean
+  /** Identifies which form fired the lead in GA4/GTM (e.g. "contact_form"). */
+  formId?: string
 }) {
-  const router = useRouter()
   const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const {
@@ -65,9 +73,18 @@ export function ContactForm({
         }),
       })
       if (!res.ok) throw new Error('Submission failed')
-      router.push('/thank-you')
+      pushDataLayer({
+        event: 'generate_lead',
+        form_id: formId,
+        value: 1.0,
+        currency: 'GBP',
+        service: values.service || 'Not specified',
+      })
+      // Show the success message inline on the same page — this preserves the
+      // form context and keeps any referral/UTM data intact (no redirect).
+      setSubmitted(true)
     } catch {
-      setError('Sorry, something went wrong. Please call us on 01329 640528.')
+      setError('Sorry, something went wrong. Please call us on 01329 756796.')
       setSubmitting(false)
     }
   }
@@ -76,6 +93,28 @@ export function ContactForm({
   const inputClass = dark
     ? 'bg-white/10 border-white/25 text-white placeholder:text-white/50 focus-visible:border-white'
     : ''
+
+  if (submitted) {
+    return (
+      <div className="flex flex-col items-center py-6 text-center">
+        <span className="flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
+          <CheckCircle2 className="size-8" />
+        </span>
+        <h3 className={`mt-5 text-xl font-black uppercase tracking-tight ${dark ? 'text-white' : 'text-foreground'}`}>
+          Thank You
+        </h3>
+        <p className={`mt-3 text-sm ${dark ? 'text-white/80' : 'text-muted-foreground'}`}>
+          We&apos;ve received your enquiry and a member of the Brookswood Automotive team will be in
+          touch as soon as possible. If it&apos;s urgent, please give us a call.
+        </p>
+        <Button asChild size="lg" className="mt-6 font-bold uppercase tracking-wide">
+          <a href={`tel:${SITE.phoneHref}`}>
+            <Phone /> {SITE.phoneDisplay}
+          </a>
+        </Button>
+      </div>
+    )
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
