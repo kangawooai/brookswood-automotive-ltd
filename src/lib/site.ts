@@ -17,8 +17,8 @@ export const SITE = {
   shortName: 'Brookswood Automotive',
   domain: 'brookswoodautomotive.co.uk',
   url: 'https://brookswoodautomotive.co.uk',
-  phoneDisplay: '01329 640779',
-  phoneHref: '+441329640779',
+  phoneDisplay: '01329 640528',
+  phoneHref: '+441329640528',
   email: 'info@brookswoodautomotive.co.uk',
   contactName: 'Thomas Cullen',
   address: {
@@ -75,7 +75,7 @@ export const SERVICES: Service[] = [
     short: 'Class 4 MOT tests carried out by DVSA-approved testers, with free retests.',
     metaTitle: 'MOT Testing Fareham | Class 4 Centre',
     metaDescription:
-      'Book your MOT in Fareham at Brookswood Automotive. DVSA-approved testers, honest advice and free retests. Call 01329 640779.',
+      'Book your MOT in Fareham at Brookswood Automotive. DVSA-approved testers, honest advice and free retests. Call 01329 640528.',
     image: PHOTOS.fordOnLift,
     icon: MotIcon,
     intro:
@@ -103,7 +103,7 @@ export const SERVICES: Service[] = [
     short: 'Interim and full servicing that keeps your car reliable and protects its warranty.',
     metaTitle: 'Car Servicing Fareham | Full Service',
     metaDescription:
-      'Car servicing in Fareham from Brookswood Automotive. Interim and full services using quality parts, with transparent pricing. Call 01329 640779.',
+      'Car servicing in Fareham from Brookswood Automotive. Interim and full services using quality parts, with transparent pricing. Call 01329 640528.',
     image: PHOTOS.bmwService,
     icon: Wrench,
     intro:
@@ -131,7 +131,7 @@ export const SERVICES: Service[] = [
     short: 'Brake pads, discs and fluid checks to keep your stopping power dependable.',
     metaTitle: 'Brake Repairs Fareham | Pads & Discs',
     metaDescription:
-      'Brake repairs and replacements in Fareham. Pads, discs, callipers and brake fluid changes by trusted technicians. Call 01329 640779.',
+      'Brake repairs and replacements in Fareham. Pads, discs, callipers and brake fluid changes by trusted technicians. Call 01329 640528.',
     image: '/images/generated/brakes.webp',
     icon: Disc3,
     intro:
@@ -159,7 +159,7 @@ export const SERVICES: Service[] = [
     short: 'Shocks, springs and steering repairs for a smooth, controlled ride.',
     metaTitle: 'Suspension & Steering Fareham',
     metaDescription:
-      'Suspension and steering repairs in Fareham. Shock absorbers, springs, bushes and steering components fixed by expert technicians. Call 01329 640779.',
+      'Suspension and steering repairs in Fareham. Shock absorbers, springs, bushes and steering components fixed by expert technicians. Call 01329 640528.',
     image: '/images/generated/suspension.webp',
     icon: Waves,
     intro:
@@ -187,7 +187,7 @@ export const SERVICES: Service[] = [
     short: 'Exhaust repairs and replacements including catalytic converters and DPFs.',
     metaTitle: 'Exhaust Repairs & DPF Fareham',
     metaDescription:
-      'Exhaust repairs and replacements in Fareham. Silencers, catalytic converters and DPF issues resolved. Call 01329 640779.',
+      'Exhaust repairs and replacements in Fareham. Silencers, catalytic converters and DPF issues resolved. Call 01329 640528.',
     image: '/images/generated/exhausts.webp',
     icon: CircleDot,
     intro:
@@ -215,7 +215,7 @@ export const SERVICES: Service[] = [
     short: 'Clutch diagnosis and replacement to fix slipping and heavy pedals.',
     metaTitle: 'Clutch Replacement Fareham',
     metaDescription:
-      'Clutch replacement and repairs in Fareham. Fix slipping clutches, heavy pedals and biting-point issues. Call 01329 640779.',
+      'Clutch replacement and repairs in Fareham. Fix slipping clutches, heavy pedals and biting-point issues. Call 01329 640528.',
     image: '/images/generated/clutches.webp',
     icon: Cog,
     intro:
@@ -243,7 +243,7 @@ export const SERVICES: Service[] = [
     short: 'Electronic diagnostics to read fault codes and find the real problem.',
     metaTitle: 'Car Diagnostics Fareham',
     metaDescription:
-      'Car diagnostics in Fareham. We read fault codes and pinpoint warning-light causes with modern equipment. Call 01329 640779.',
+      'Car diagnostics in Fareham. We read fault codes and pinpoint warning-light causes with modern equipment. Call 01329 640528.',
     image: '/images/generated/diagnostics.webp',
     icon: ScanLine,
     intro:
@@ -271,7 +271,7 @@ export const SERVICES: Service[] = [
     short: 'Air-conditioning regas and repairs to get cold, fresh air flowing again.',
     metaTitle: 'Air-Conditioning Regas Fareham',
     metaDescription:
-      'Car air-conditioning regas and repairs in Fareham. Restore cold air, fix leaks and refresh your system with Brookswood Automotive. Call 01329 640779.',
+      'Car air-conditioning regas and repairs in Fareham. Restore cold air, fix leaks and refresh your system with Brookswood Automotive. Call 01329 640528.',
     image: '/images/generated/air-con.webp',
     icon: Snowflake,
     intro:
@@ -299,7 +299,7 @@ export const SERVICES: Service[] = [
     short: 'Quality tyres supplied and fitted, plus puncture repairs and pressure checks.',
     metaTitle: 'Tyres Fareham | Fitting & Repairs',
     metaDescription:
-      'Tyres in Fareham supplied and fitted. Quality budget to premium brands, puncture repairs and free tread checks. Call 01329 640779.',
+      'Tyres in Fareham supplied and fitted. Quality budget to premium brands, puncture repairs and free tread checks. Call 01329 640528.',
     image: '/images/generated/tyres.webp',
     icon: CircleGauge,
     intro:
