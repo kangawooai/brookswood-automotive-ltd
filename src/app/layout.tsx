@@ -83,6 +83,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en-GB" className={uniNeue.variable}>
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <JsonLd data={graph(localBusinessSchema(rating), websiteSchema())} />
       </head>
       <body>
