@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -13,14 +14,29 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { BookingModal } from '@/components/booking-modal'
 import { SITE, SERVICES } from '@/lib/site'
 import { getLinesOpen } from '@/lib/lines-open'
+
+// The booking form (react-hook-form, validation, multi-step state) is a sizeable
+// chunk that most visitors never open, so it's loaded on demand — its JS is only
+// fetched the first time someone clicks "Book Now", not on every page load.
+const BookingModal = dynamic(
+  () => import('@/components/booking-modal').then((m) => m.BookingModal),
+  { ssr: false },
+)
 
 export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?: boolean }) {
   const [open, setOpen] = useState(false)
   const [bookingOpen, setBookingOpen] = useState(false)
+  // Stays true once the modal has been opened for the first time so it remains
+  // mounted (keeping Radix's open/close transitions) after the chunk loads.
+  const [bookingMounted, setBookingMounted] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+
+  const openBooking = () => {
+    setBookingMounted(true)
+    setBookingOpen(true)
+  }
   // The open/closed status is re-evaluated on the client against the visitor's
   // own clock (in Europe/London time) so it's always correct — including across
   // the BST/GMT switch — regardless of the server's timezone or edge caching.
@@ -118,7 +134,7 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
             {SITE.phoneDisplay}
           </a>
           <Button
-            onClick={() => setBookingOpen(true)}
+            onClick={openBooking}
             className="font-bold uppercase tracking-wide"
           >
             Book Now
@@ -205,7 +221,7 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
                   className="w-full font-bold uppercase tracking-wide"
                   onClick={() => {
                     setOpen(false)
-                    setBookingOpen(true)
+                    openBooking()
                   }}
                 >
                   Book Now
@@ -249,7 +265,7 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
           </a>
         ))}
 
-      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
+      {bookingMounted && <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />}
     </header>
   )
 }

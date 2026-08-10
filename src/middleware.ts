@@ -10,6 +10,16 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next()
   const now = Date.now()
 
+  // bfcache-friendly caching for HTML documents. These pages are rendered fresh
+  // per request, but we deliberately avoid `no-store` (which disables the
+  // browser's instant back/forward cache). `no-cache` + `must-revalidate` still
+  // forces revalidation so nothing stale is ever reused, while letting the
+  // browser restore the page instantly on back/forward navigation.
+  const accept = request.headers.get('accept') ?? ''
+  if (accept.includes('text/html')) {
+    response.headers.set('Cache-Control', 'private, no-cache, max-age=0, must-revalidate')
+  }
+
   // First-party _fbp cookie.
   let fbp = request.cookies.get('_fbp')?.value
   if (!fbp) {
