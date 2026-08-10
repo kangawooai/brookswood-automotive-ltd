@@ -36,7 +36,7 @@ export const ABOUT_FAQS: Faq[] = [
   },
   {
     q: 'How quickly can you get me booked in?',
-    a: 'We do our best to fit you in as soon as possible, and can often book you in within a day or two — sometimes the same day for urgent jobs. Give us a call on 01329 640779 and we will find a slot that suits you.',
+    a: 'We do our best to fit you in as soon as possible, and can often book you in within a day or two — sometimes the same day for urgent jobs. Give us a call on 01329 640528 and we will find a slot that suits you.',
   },
   {
     q: 'Do you work on all makes and models?',
@@ -63,7 +63,7 @@ export const MOT_FAQS: Faq[] = [
   },
   {
     q: 'How much does an MOT cost?',
-    a: 'We charge competitive, transparent rates for MOT testing. Call us on 01329 640779 for our current price and to book a slot that suits you.',
+    a: 'We charge competitive, transparent rates for MOT testing. Call us on 01329 640528 for our current price and to book a slot that suits you.',
   },
   {
     q: 'Can you carry out repairs if my car fails?',
@@ -93,7 +93,7 @@ export const SERVICE_FAQS: Record<string, Faq[]> = {
     },
     {
       q: 'How much does an MOT cost in Fareham?',
-      a: 'We keep our MOT pricing competitive and fully transparent, with no hidden extras. Call us on 01329 640779 for our current price and to reserve a slot that suits you.',
+      a: 'We keep our MOT pricing competitive and fully transparent, with no hidden extras. Call us on 01329 640528 for our current price and to reserve a slot that suits you.',
     },
     {
       q: 'Is an MOT the same as a service?',

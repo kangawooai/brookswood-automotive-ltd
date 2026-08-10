@@ -67,7 +67,7 @@ export function ContactForm({
       if (!res.ok) throw new Error('Submission failed')
       router.push('/thank-you')
     } catch {
-      setError('Sorry, something went wrong. Please call us on 01329 640779.')
+      setError('Sorry, something went wrong. Please call us on 01329 640528.')
       setSubmitting(false)
     }
   }

@@ -17,7 +17,7 @@ import { graph, webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from
 
 const PATH = '/mot-fareham'
 const DESCRIPTION =
-  'Book your MOT in Fareham at Brookswood Automotive. DVSA-approved Class 4 testing, honest advice and free retests on qualifying repairs. Call 01329 640779 for a slot.'
+  'Book your MOT in Fareham at Brookswood Automotive. DVSA-approved Class 4 testing, honest advice and free retests on qualifying repairs. Call 01329 640528 for a slot.'
 
 export const metadata: Metadata = {
   title: 'MOT Fareham | DVSA-Approved MOT Testing',

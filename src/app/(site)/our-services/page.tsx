@@ -11,7 +11,7 @@ import { graph, webPageSchema, breadcrumbSchema } from '@/lib/schema'
 
 const PATH = '/our-services'
 const DESCRIPTION =
-  'Explore the full range of garage services at Brookswood Automotive in Fareham — MOT testing, servicing, brakes, tyres, diagnostics, bodywork and more. Call 01329 640779.'
+  'Explore the full range of garage services at Brookswood Automotive in Fareham — MOT testing, servicing, brakes, tyres, diagnostics, bodywork and more. Call 01329 640528.'
 
 export const metadata: Metadata = {
   title: 'Our Services | Garage Services in Fareham',

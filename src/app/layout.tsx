@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: '%s | Brookswood Automotive',
   },
   description:
-    'Trusted Fareham garage for MOT tests, car servicing and repairs. Over 20 years of experience, honest pricing and a 5-star rating. Call 01329 640779.',
+    'Trusted Fareham garage for MOT tests, car servicing and repairs. Over 20 years of experience, honest pricing and a 5-star rating. Call 01329 640528.',
   applicationName: SITE.name,
   authors: [{ name: SITE.name }],
   keywords: ['MOT Fareham', 'car servicing Fareham', 'garage Fareham', 'car repairs Fareham'],

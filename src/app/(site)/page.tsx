@@ -24,7 +24,7 @@ import { graph, webPageSchema, breadcrumbSchema, faqSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
   description:
-    'Trusted Fareham garage for MOT tests, car servicing and repairs. 20+ years experience, honest pricing and a 5-star Google rating. Call 01329 640779.',
+    'Trusted Fareham garage for MOT tests, car servicing and repairs. 20+ years experience, honest pricing and a 5-star Google rating. Call 01329 640528.',
   alternates: { canonical: '/', languages: { 'en-GB': '/' } },
   openGraph: {
     title: 'Brookswood Automotive | MOT, Servicing & Repairs in Fareham',
