@@ -1,14 +1,15 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { SERVICES } from '@/lib/site'
+import { SITE, SERVICES } from '@/lib/site'
 import { getStoredTrackingParams } from '@/lib/tracking-params'
-import { Loader2, Check, ArrowLeft, ArrowRight } from 'lucide-react'
+import { Loader2, Check, ArrowLeft, ArrowRight, CheckCircle2, Phone } from 'lucide-react'
+
+const FORM_ID = 'booking_form'
 
 // Multi-step "Book Now" form. Used both on the service pages (4 steps) and in
 // the header booking modal (5 steps — with an "Additional Services" step).
@@ -86,11 +87,11 @@ export function BookingForm({
   const STEP_KEYS = isModal ? MODAL_STEPS : PAGE_STEPS
   const stepCount = STEP_KEYS.length
 
-  const router = useRouter()
   const [step, setStep] = useState(0)
   const [data, setData] = useState<BookingData>({ ...EMPTY, service: defaultService ?? '' })
   const [errors, setErrors] = useState<Partial<Record<keyof BookingData, string>>>({})
   const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
 
   // Refs used by the "leave the page" partial-submit handler so it always sees
@@ -201,6 +202,7 @@ export function BookingForm({
 
     pushDataLayer({
       event: 'generate_lead',
+      form_id: FORM_ID,
       lead_type: 'partial',
       value: 0.5,
       currency: 'GBP',
@@ -274,6 +276,7 @@ export function BookingForm({
       fullSentRef.current = true
       pushDataLayer({
         event: 'generate_lead',
+        form_id: FORM_ID,
         lead_type: 'full',
         value: 1.0,
         currency: 'GBP',
@@ -284,7 +287,9 @@ export function BookingForm({
       } catch {
         // Ignore.
       }
-      router.push('/thank-you')
+      // Show the success message inline on the same page rather than redirecting
+      // to /thank-you — this keeps the booking context and any referral/UTM data.
+      setSubmitted(true)
     } catch {
       setSubmitError('Sorry, something went wrong. Please call us on 01329 756796.')
       setSubmitting(false)
@@ -293,6 +298,29 @@ export function BookingForm({
 
   const currentKey = STEP_KEYS[step]
   const progress = ((step + 1) / stepCount) * 100
+
+  if (submitted) {
+    return (
+      <div className="flex flex-col items-center py-6 text-center">
+        <span className="flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
+          <CheckCircle2 className="size-8" />
+        </span>
+        <h3 className="mt-5 text-xl font-black uppercase tracking-tight text-foreground">
+          Booking Received
+        </h3>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Thanks{data.name ? `, ${data.name.split(' ')[0]}` : ''} — we&apos;ve got your booking
+          request and a member of the Brookswood Automotive team will be in touch shortly to confirm
+          your appointment. If it&apos;s urgent, please give us a call.
+        </p>
+        <Button asChild size="lg" className="mt-6 font-bold uppercase tracking-wide">
+          <a href={`tel:${SITE.phoneHref}`}>
+            <Phone /> {SITE.phoneDisplay}
+          </a>
+        </Button>
+      </div>
+    )
+  }
 
   return (
     <div>

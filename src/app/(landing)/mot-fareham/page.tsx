@@ -152,7 +152,7 @@ export default async function MotFarehamLanding() {
                 Send us your details and we will call you back to arrange a convenient slot.
               </p>
               <div className="mt-6">
-                <ContactForm defaultService="MOT Testing" />
+                <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
               </div>
             </div>
           </div>
