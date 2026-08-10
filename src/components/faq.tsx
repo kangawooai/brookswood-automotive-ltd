@@ -2,13 +2,15 @@
 
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
-import { AnimatePresence, motion } from 'motion/react'
 
 export type Faq = { q: string; a: string }
 
 // Adapted from shadcn-space PRO "faq-numbered": monospace numbered badges,
 // single-item expand with smooth height transitions. Wired to the site's
 // { q, a } FAQ shape; the heading/CTA around it are supplied by the page.
+//
+// The open/close height animation is done with a pure CSS grid-rows transition
+// (0fr → 1fr) so no JavaScript animation library ships to the browser.
 export function FaqList({ faqs }: { faqs: Faq[] }) {
   const [expanded, setExpanded] = useState<number | null>(0)
 
@@ -48,24 +50,20 @@ export function FaqList({ faqs }: { faqs: Faq[] }) {
               />
             </button>
 
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  id={panelId}
-                  role="region"
-                  aria-labelledby={triggerId}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.28, ease: 'easeOut' }}
-                  className="overflow-hidden"
-                >
-                  <p className="px-6 pb-6 pl-[76px] text-base leading-relaxed text-muted-foreground sm:px-8 sm:pb-8 sm:pl-[88px]">
-                    {faq.a}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div
+              id={panelId}
+              role="region"
+              aria-labelledby={triggerId}
+              className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+              }`}
+            >
+              <div className="overflow-hidden">
+                <p className="px-6 pb-6 pl-[76px] text-base leading-relaxed text-muted-foreground sm:px-8 sm:pb-8 sm:pl-[88px]">
+                  {faq.a}
+                </p>
+              </div>
+            </div>
           </div>
         )
       })}

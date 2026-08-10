@@ -1,59 +1,11 @@
-'use client'
-
-import { useEffect, useRef, useState } from 'react'
 import { Star } from 'lucide-react'
-import { motion } from 'motion/react'
 import { Eyebrow } from '@/components/blocks'
+import { ClampedText } from '@/components/reviews-clamp'
 import type { Review } from '@/lib/google-reviews'
 
-/**
- * Review body text clamped to three lines with a "Read more" / "Read less"
- * toggle. The toggle only appears when the text actually overflows three lines,
- * so short reviews stay clean and no single card dominates the layout.
- */
-function ClampedText({
-  text,
-  className = '',
-  textClassName = '',
-}: {
-  text: string
-  className?: string
-  textClassName?: string
-}) {
-  const ref = useRef<HTMLQuoteElement>(null)
-  const [expanded, setExpanded] = useState(false)
-  const [clampable, setClampable] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el || expanded) return
-    const check = () => setClampable(el.scrollHeight - el.clientHeight > 1)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [text, expanded])
-
-  return (
-    <div className={className}>
-      <blockquote
-        ref={ref}
-        className={`${textClassName} ${expanded ? '' : 'line-clamp-3'}`}
-      >
-        {text}
-      </blockquote>
-      {clampable && (
-        <button
-          type="button"
-          onClick={() => setExpanded((v) => !v)}
-          aria-expanded={expanded}
-          className="mt-2 text-xs font-bold uppercase tracking-wide text-primary transition-colors hover:text-primary/80"
-        >
-          {expanded ? 'Read less' : 'Read more'}
-        </button>
-      )}
-    </div>
-  )
-}
+// Reviews section — server-rendered. All the card markup ships as plain HTML;
+// only the per-card "Read more" toggle (ClampedText) is a small client island,
+// so the browser downloads very little JavaScript for this section.
 
 function initials(name: string) {
   const parts = name.trim().split(/\s+/)
@@ -135,13 +87,7 @@ function Avatar({ name, className = 'size-10' }: { name: string; className?: str
 /** Featured highlight card — spans the full grid row on desktop, normal snap card on mobile. */
 function FeaturedCard({ review }: { review: Review }) {
   return (
-    <motion.figure
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="flex h-full w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-border bg-card p-6 shadow-sm sm:w-[70%] sm:p-8 md:w-auto md:shrink md:col-span-2 lg:col-span-3"
-    >
+    <figure className="flex h-full w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-border bg-card p-6 shadow-sm sm:w-[70%] sm:p-8 md:w-auto md:shrink md:col-span-2 lg:col-span-3">
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
           <Avatar name={review.name} className="size-12" />
@@ -160,19 +106,13 @@ function FeaturedCard({ review }: { review: Review }) {
       <figcaption className="mt-6 border-t border-border pt-4">
         <GoogleFooter />
       </figcaption>
-    </motion.figure>
+    </figure>
   )
 }
 
-function ReviewCard({ review, index }: { review: Review; index: number }) {
+function ReviewCard({ review }: { review: Review }) {
   return (
-    <motion.figure
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.35, delay: 0.05 + (index % 3) * 0.06, ease: 'easeOut' }}
-      className="group flex h-full w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-shadow duration-300 hover:shadow-md sm:w-[47%] md:w-auto md:shrink"
-    >
+    <figure className="group flex h-full w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-shadow duration-300 hover:shadow-md sm:w-[47%] md:w-auto md:shrink">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           <Avatar name={review.name} />
@@ -191,7 +131,7 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
       <figcaption className="mt-5 border-t border-border pt-4">
         <GoogleFooter />
       </figcaption>
-    </motion.figure>
+    </figure>
   )
 }
 
@@ -211,13 +151,7 @@ export function ReviewsView({
     <section id="reviews" className="relative overflow-hidden bg-background py-20 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="max-w-2xl"
-          >
+          <div className="max-w-2xl">
             <Eyebrow>Reviews</Eyebrow>
             <h2 className="mt-4 text-3xl font-black uppercase tracking-tight text-foreground md:text-4xl">
               Trusted by Fareham Drivers
@@ -226,21 +160,15 @@ export function ReviewsView({
               Don’t just take our word for it — here’s what our customers say about the service they
               received at Brookswood Automotive.
             </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+          </div>
+          <div
             className={
               redBadge
                 ? 'flex items-center gap-4 rounded-2xl border border-primary bg-primary px-6 py-4 shadow-sm'
                 : 'flex items-center gap-4 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-4 shadow-sm'
             }
           >
-            <span
-              className={`text-5xl font-black leading-none ${redBadge ? 'text-white' : 'text-primary'}`}
-            >
+            <span className={`text-5xl font-black leading-none ${redBadge ? 'text-white' : 'text-primary'}`}>
               {rating.value}
             </span>
             <span>
@@ -251,14 +179,14 @@ export function ReviewsView({
                 {rating.count != null ? `${rating.count} Google reviews` : 'Rated on Google'}
               </span>
             </span>
-          </motion.div>
+          </div>
         </div>
 
         {/* Grid on desktop (featured card spans the top row), swipeable snap carousel on mobile */}
         <div className="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
           <FeaturedCard review={featured} />
           {rest.map((review, i) => (
-            <ReviewCard key={`${review.name}-${i}`} review={review} index={i} />
+            <ReviewCard key={`${review.name}-${i}`} review={review} />
           ))}
         </div>
 

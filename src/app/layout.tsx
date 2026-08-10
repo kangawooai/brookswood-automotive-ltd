@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import { Tracking } from '@/components/tracking'
 import { UtmProvider } from '@/components/utm-provider'
 import { ConsentInit } from '@/components/consent-init'
-import { CookieConsent } from '@/components/cookie-consent'
+import { CookieConsentLoader } from '@/components/cookie-consent-loader'
 import { JsonLd } from '@/components/json-ld'
 import { graph, localBusinessSchema, websiteSchema } from '@/lib/schema'
 import { getPlaceData } from '@/lib/google-reviews'
@@ -91,7 +91,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Tracking />
         <UtmProvider />
         {children}
-        <CookieConsent />
+        <CookieConsentLoader />
       </body>
     </html>
   )
