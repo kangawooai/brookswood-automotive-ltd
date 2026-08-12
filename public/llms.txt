@@ -1,43 +1,36 @@
 # Brookswood Automotive LTD
 
-> Trusted local garage in Fareham, Hampshire — trading as Fareham MOT Centre — offering MOT tests, car servicing and vehicle repairs with over 20 years of experience.
-
 ## About
-Brookswood Automotive LTD, trading as Fareham MOT Centre, is an independent garage on Hackett Way in Fareham. With more than 20 years of experience, the team focuses on honest, plain-English advice, quality workmanship and transparent pricing. The garage holds a 5.0-star Google rating from 71 reviews and never carries out work without the customer's approval.
-
-## Services
-- MOT Testing: DVSA-approved Class 4 MOT tests with free retests on qualifying repairs.
-- Car Servicing: Interim and full servicing using quality parts, protecting your warranty.
-- Brakes: Pad, disc, calliper and brake fluid repairs and replacements.
-- Suspension & Steering: Shock absorber, spring, bush and steering component repairs.
-- Exhausts: Silencer, catalytic converter and DPF repairs and replacements.
-- Clutches: Clutch diagnosis and full clutch kit replacement.
-- Diagnostics: Electronic fault-code reading and warning-light diagnosis.
-- Tyres: Supply and fitting of budget to premium tyres, puncture repairs and balancing.
-
-## Service Areas
-Fareham and the surrounding Hampshire area, including Portchester, Titchfield, Stubbington, Whiteley, Gosport and Portsmouth.
+Brookswood Automotive LTD is a auto repair based in Fareham.
 
 ## Contact
+- Website: https://brookswoodautomotive.co.uk
 - Phone: 01329 640779
 - Email: info@brookswoodautomotive.co.uk
-- Address: 4-6 Hackett Way, Fareham, Hampshire PO14 1AJ, United Kingdom
-- Opening hours: Monday to Friday 08:30–17:30, Saturday 09:00–13:00, Sunday closed
+- Address: 4-6 Hackett Way, Fareham, PO14 1AJ
 
-## Pages
-- /: Homepage
-- /our-services: Full list of garage services
-- /about-us: About Brookswood Automotive
-- /contact: Contact form and details
-- /mot-fareham: MOT testing in Fareham (landing page)
-- /services/mot-testing: MOT Testing
-- /services/car-servicing: Car Servicing
-- /services/brakes: Brake Repairs
-- /services/suspension-steering: Suspension & Steering
-- /services/exhausts: Exhaust Repairs
-- /services/clutches: Clutch Replacement
-- /services/diagnostics: Car Diagnostics
-- /services/tyres: Tyres & Tyre Fitting
-- /privacy-policy: Privacy policy
-- /cookie-policy: Cookie policy
-- /terms-and-conditions: Terms and conditions
+## Areas served
+Brookswood Automotive LTD serves the following towns and cities:
+Fareham.
+
+## Opening hours
+- Monday: 08:30–17:30
+- Tuesday: 08:30–17:30
+- Wednesday: 08:30–17:30
+- Thursday: 08:30–17:30
+- Friday: 08:30–17:30
+- Saturday: 08:30–12:30
+- Sunday: Closed
+
+## FAQ
+Q: What areas does Brookswood Automotive LTD cover?
+A: Brookswood Automotive LTD serves Fareham.
+
+Q: Do you cover Fareham?
+A: Yes — Brookswood Automotive LTD covers Fareham and the surrounding area.
+
+Q: How do I contact Brookswood Automotive LTD?
+A: Call 01329 640779 or email info@brookswoodautomotive.co.uk.
+
+Q: What are Brookswood Automotive LTD's opening hours?
+A: Monday: 08:30–17:30; Tuesday: 08:30–17:30; Wednesday: 08:30–17:30; Thursday: 08:30–17:30; Friday: 08:30–17:30; Saturday: 08:30–12:30; Sunday: Closed

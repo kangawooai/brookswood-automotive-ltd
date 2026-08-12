@@ -10,6 +10,7 @@ import { getPlaceData } from '@/lib/google-reviews'
 import { SITE } from '@/lib/site'
 import { PHOTOS } from '@/lib/photos'
 import './globals.css'
+import { StructuredData } from '@/components/structured-data'
 
 // UniNeue, the single self-hosted font family for the whole site.
 // All 10 weights/styles live in public/fonts and are exposed through the
@@ -87,6 +88,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <JsonLd data={graph(localBusinessSchema(rating), websiteSchema())} />
       </head>
       <body>
+        <StructuredData />
         <ConsentInit />
         <Tracking />
         <UtmProvider />
