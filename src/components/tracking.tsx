@@ -2,9 +2,13 @@ import Script from 'next/script'
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-K93M7G6F'
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+// Google Ads account (e.g. "AW-1013904242"). When set, loads gtag so the forms can fire
+// per-form Google Ads conversions via `fireAdsConversion` (see src/lib/ads-conversions.ts).
+// Dormant until set — leave unset while the GTM container still fires the Ads conversion tag.
+const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
 
 export function Tracking() {
-  if (!GTM_ID && !GA_ID) return null
+  if (!GTM_ID && !GA_ID && !ADS_ID) return null
 
   return (
     <>
@@ -40,6 +44,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '${GA_ID}');`}
+          </Script>
+        </>
+      )}
+      {ADS_ID && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`}
+            strategy="lazyOnload"
+          />
+          <Script id="google-ads" strategy="lazyOnload">
+            {`window.dataLayer = window.dataLayer || [];
+window.gtag = window.gtag || function(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${ADS_ID}');`}
           </Script>
         </>
       )}

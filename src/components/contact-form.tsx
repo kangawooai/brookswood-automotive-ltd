@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { SITE, SERVICES } from '@/lib/site'
 import { getStoredTrackingParams } from '@/lib/tracking-params'
+import { fireAdsConversion } from '@/lib/ads-conversions'
 import { Loader2, CheckCircle2, Phone } from 'lucide-react'
 
 const schema = z.object({
@@ -80,6 +81,7 @@ export function ContactForm({
         currency: 'GBP',
         service: values.service || 'Not specified',
       })
+      fireAdsConversion(formId, { value: 1.0, leadType: 'full' })
       // Show the success message inline on the same page, this preserves the
       // form context and keeps any referral/UTM data intact (no redirect).
       setSubmitted(true)

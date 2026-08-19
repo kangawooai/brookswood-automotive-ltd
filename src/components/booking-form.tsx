@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { SITE, SERVICES } from '@/lib/site'
 import { getStoredTrackingParams } from '@/lib/tracking-params'
+import { fireAdsConversion } from '@/lib/ads-conversions'
 import { Loader2, Check, ArrowLeft, ArrowRight, CheckCircle2, Phone } from 'lucide-react'
 
 const FORM_ID = 'booking_form'
@@ -208,6 +209,7 @@ export function BookingForm({
       currency: 'GBP',
       service: d.service || 'Not specified',
     })
+    fireAdsConversion(FORM_ID, { value: 0.5, leadType: 'partial' })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -281,6 +283,7 @@ export function BookingForm({
         currency: 'GBP',
         service: data.service || 'Not specified',
       })
+      fireAdsConversion(FORM_ID, { value: 1.0, leadType: 'full' })
       try {
         window.sessionStorage.removeItem(STORAGE_KEY)
       } catch {
