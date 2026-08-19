@@ -211,17 +211,14 @@ export function BookingForm({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Fire the partial ONLY when the visitor genuinely leaves the page (pagehide). We must NOT
+  // use `visibilitychange: hidden` here — that fires on every tab switch / phone lock while
+  // filling the form (checking a reg, insurance, etc.), which sent a partial conversion and
+  // then a full one when they came back and completed, double-counting the same lead.
   useEffect(() => {
     const onHide = () => sendPartial()
-    const onVisibility = () => {
-      if (document.visibilityState === 'hidden') sendPartial()
-    }
     window.addEventListener('pagehide', onHide)
-    document.addEventListener('visibilitychange', onVisibility)
-    return () => {
-      window.removeEventListener('pagehide', onHide)
-      document.removeEventListener('visibilitychange', onVisibility)
-    }
+    return () => window.removeEventListener('pagehide', onHide)
   }, [sendPartial])
 
   // In the modal, closing the overlay unmounts the form, treat that as leaving
@@ -266,6 +263,9 @@ export function BookingForm({
     if (!validateStep(step)) return
     setSubmitting(true)
     setSubmitError(null)
+    // Mark completion committed BEFORE the request: if the visitor leaves while the submit is
+    // in flight, the pagehide handler must not also fire a partial for this same lead.
+    fullSentRef.current = true
     try {
       const res = await fetch('/api/submit-form', {
         method: 'POST',
@@ -273,7 +273,6 @@ export function BookingForm({
         body: JSON.stringify(buildPayload(data, 'full')),
       })
       if (!res.ok) throw new Error('Submission failed')
-      fullSentRef.current = true
       pushDataLayer({
         event: 'generate_lead',
         form_id: FORM_ID,
@@ -291,6 +290,8 @@ export function BookingForm({
       // to /thank-you, this keeps the booking context and any referral/UTM data.
       setSubmitted(true)
     } catch {
+      // Submission failed — un-commit so a genuine later abandonment can still fire a partial.
+      fullSentRef.current = false
       setSubmitError('Sorry, something went wrong. Please call us on 01329 756796.')
       setSubmitting(false)
     }
