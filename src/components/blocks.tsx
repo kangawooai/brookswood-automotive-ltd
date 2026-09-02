@@ -67,7 +67,7 @@ export function PageHero({
   )
 }
 
-export function HeroButtons({ bookLabel = 'Book Now' }: { bookLabel?: string }) {
+export function HeroButtons({ bookLabel = 'Contact Us' }: { bookLabel?: string }) {
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
       <Button asChild size="lg" className="font-bold uppercase tracking-wide">
@@ -202,7 +202,7 @@ export function CtaBand({
               variant="outline"
               className="border-white/60 bg-transparent font-bold uppercase tracking-wide text-white hover:bg-white/10 hover:text-white"
             >
-              <Link href="/contact">Request a Callback</Link>
+              <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
         </div>

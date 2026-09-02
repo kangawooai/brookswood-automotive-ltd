@@ -117,7 +117,7 @@ export default async function HomePage() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" className="font-bold uppercase tracking-wide">
-                <Link href="/contact">Book Your Car In</Link>
+                <Link href="/contact">Contact Us</Link>
               </Button>
               <Button
                 asChild
