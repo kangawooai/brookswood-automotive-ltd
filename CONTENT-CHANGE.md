@@ -1,15 +1,11 @@
 ## Proposed Changes
 
-- **Add bfcache-friendly cache headers** — adjust the server response headers so the homepage and key pages don't send `Cache-Control: no-store`, allowing browsers to use the fast back/forward cache
-- **Lazy-load the cookie consent & tracking scripts** — defer GTM and the cookie banner until after the page is interactive, reducing script evaluation on first load
-- **Code-split the booking modal** — the booking form JS is currently loaded on every page even if the modal is never opened; load it only when the visitor clicks "Book Now"
-- **Defer the Framer Motion animation library** — the FAQ accordion uses `motion/react` (Framer Motion) which adds to parse/compile time; switch to a CSS-only accordion or lazy-load it
-- **Optimise the reviews client component** — move more of the reviews rendering server-side to cut the JS sent to the browser
+- Change all "Book Now" CTA buttons across the site to "Contact Us" (hero sections, CTA bands, booking sections)
+- Update `HeroButtons` component so every page using it automatically gets "Contact Us"
+- Update the home page hero button from "Book Your Car In" to "Contact Us"
+- Update the `CtaBand` default button label from "Book Now" to "Contact Us"
+- On all service pages, add a bold "Contact Us for a Fast, Free Quote" callout/banner above the booking section, with a direct link to the contact page and the phone number, making it visually prominent with the brand red
 
-**Estimated cost: £4.50 – £9.80**
+**Estimated cost: £1.35 – £3.50**
 
----
-
-It's worth noting that some of the main-thread time (the "Not actionable" bfcache items and some script evaluation) comes from **third-party scripts like GTM and Google Maps** — those are outside our control, but the changes above will meaningfully reduce what *we* control.
-
-Since each update has a one-off setup cost, you'll get more value bundling these together — anything else you'd like sorted at the same time?
+Since this is a small but widespread change, you'll get great value bundling it. Is there anything else you'd like updated at the same time, such as wording on the callback forms or any other text across the site?

@@ -142,6 +142,44 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           the full reviews carousel on service pages to keep things tight) */}
       <WhyChooseSection />
 
+      {/* Prominent quote callout, drives visitors to contact us before the form */}
+      <section className="bg-background pt-20 md:pt-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="bg-primary px-6 py-10 sm:px-10 md:py-12">
+            <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+              <div className="max-w-2xl">
+                <h2 className="text-3xl font-black uppercase tracking-tight text-primary-foreground md:text-4xl">
+                  Contact Us for a Fast, Free Quote
+                </h2>
+                <p className="mt-4 text-lg text-primary-foreground/90">
+                  Need a price on your {service.nav.toLowerCase()}? Get in touch today for honest advice
+                  and a no-obligation quote, with no surprises.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white font-bold uppercase tracking-wide text-primary hover:bg-white/90"
+                >
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white/60 bg-transparent font-bold uppercase tracking-wide text-white hover:bg-white/10 hover:text-white"
+                >
+                  <a href={`tel:${SITE.phoneHref}`}>
+                    <Phone /> {SITE.phoneDisplay}
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Multi-step booking form, sits above the process section */}
       <BookingSection defaultService={service.nav} />
 
