@@ -1,11 +1,11 @@
 ## Proposed Changes
 
-- Change all "Book Now" CTA buttons across the site to "Contact Us" (hero sections, CTA bands, booking sections)
-- Update `HeroButtons` component so every page using it automatically gets "Contact Us"
-- Update the home page hero button from "Book Your Car In" to "Contact Us"
-- Update the `CtaBand` default button label from "Book Now" to "Contact Us"
-- On all service pages, add a bold "Contact Us for a Fast, Free Quote" callout/banner above the booking section, with a direct link to the contact page and the phone number, making it visually prominent with the brand red
+- **Email all form submissions** to `info@brookswoodautomotive.co.uk` via Brevo SMTP, covering the contact form, multi-step booking form, and MOT landing page quote form
+- **Post all form submissions** to your Zapier webhook (securely stored 🔒)
+- **Include the GCLID** in every form payload, passed through to both the email and Zapier webhook
+- **Loud error logging** if the webhook fails, email always sends regardless
+- All forms covered via the shared `/api/submit-form` route in a single build
 
-**Estimated cost: £1.35 – £3.50**
+**Estimated cost: £1.40 – £3.60**
 
-Since this is a small but widespread change, you'll get great value bundling it. Is there anything else you'd like updated at the same time, such as wording on the callback forms or any other text across the site?
+Click **Accept Plan** to get started, or **Amend Plan** to make changes.
