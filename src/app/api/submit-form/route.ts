@@ -41,6 +41,8 @@ export async function POST(request: NextRequest) {
     identifier = '',
     sq = '',
     loc = '',
+    // Google Ads click identifier, forwarded to both the email and Zapier.
+    gclid = '',
     querystring = '',
   } = payload
 
@@ -68,7 +70,7 @@ export async function POST(request: NextRequest) {
   const webhook = process.env.ZAPIER_WEBHOOK_URL
   if (webhook) {
     try {
-      await fetch(webhook, {
+      const zapierRes = await fetch(webhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -91,14 +93,25 @@ export async function POST(request: NextRequest) {
           Identifier: identifier,
           'Search Query': sq,
           Location: loc,
+          GCLID: gclid,
           'All Fields': allFields,
           querystring,
           submittedAt: new Date().toISOString(),
           source: 'Brookswood Automotive website',
         }),
       })
-    } catch {
-      // Do not fail the user's submission if the webhook is down.
+      // Loud logging if Zapier rejects the submission (non-2xx), so a broken
+      // webhook is visible in the logs. The email still sends regardless.
+      if (!zapierRes.ok) {
+        const body = await zapierRes.text().catch(() => '')
+        console.error(
+          `[submit-form] Zapier webhook failed: HTTP ${zapierRes.status} ${zapierRes.statusText} — ${body.slice(0, 500)}`,
+        )
+      }
+    } catch (e) {
+      // Loud logging, but never fail the user's submission if the webhook is
+      // down — the email notification is the reliable fallback.
+      console.error('[submit-form] Zapier webhook error (submission not blocked):', e)
     }
   }
 
@@ -141,7 +154,10 @@ export async function POST(request: NextRequest) {
       const to = process.env.CONTACT_TO_EMAIL || 'info@brookswoodautomotive.co.uk'
       const fromEmail = process.env.SMTP_FROM || 'noreply@kangawoo.ai'
       const fromName = process.env.SMTP_FROM_NAME || 'Brookswood Automotive'
-      const rows = allFields
+      // User-visible fields, plus a GCLID row appended (kept out of `allFields`
+      // itself so the plain field list stays tracking-free) when present.
+      const emailLines = gclid ? `${allFields}\nGCLID: ${gclid}` : allFields
+      const rows = emailLines
         .split('\n')
         .map(line => {
           const i = line.indexOf(':')
@@ -155,7 +171,7 @@ export async function POST(request: NextRequest) {
         to,
         ...(email ? { replyTo: `${name || 'Website enquiry'} <${email}>` } : {}),
         subject: `${isPartial ? 'Partial enquiry' : 'New enquiry'}, Brookswood Automotive website`,
-        text: `New ${isPartial ? 'PARTIAL ' : ''}enquiry from the website:\n\n${allFields}`,
+        text: `New ${isPartial ? 'PARTIAL ' : ''}enquiry from the website:\n\n${emailLines}`,
         html: `<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#222;line-height:1.5;">
   <h2 style="margin:0 0 12px;font-size:18px;">New ${isPartial ? 'partial ' : ''}enquiry</h2>
   <table style="border-collapse:collapse;">${rows}</table>
