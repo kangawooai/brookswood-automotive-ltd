@@ -13,6 +13,9 @@ export type TrackingParams = {
   identifier: string
   sq: string
   loc: string
+  // Google Ads click identifier, captured from the landing URL and passed
+  // through to the email + Zapier on every form submission.
+  gclid: string
   querystring: string
 }
 
@@ -27,6 +30,7 @@ export const EMPTY_TRACKING: TrackingParams = {
   identifier: '',
   sq: '',
   loc: '',
+  gclid: '',
   querystring: '',
 }
 
@@ -68,6 +72,9 @@ export function captureTrackingParams(): TrackingParams {
     identifier: pick('identifier'),
     sq: pick('sq', 'q'),
     loc: pick('loc', 'gl'),
+    // Google click id; gbraid/wbraid are the privacy-safe variants Google
+    // sends in place of gclid on some iOS / app traffic.
+    gclid: pick('gclid', 'gbraid', 'wbraid'),
     querystring: window.location.search.replace(/^\?/, ''),
   }
 
