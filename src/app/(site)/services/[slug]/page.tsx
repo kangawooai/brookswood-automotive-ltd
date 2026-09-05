@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Phone, Check } from 'lucide-react'
+import { Phone, Check, Tag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SITE, SERVICES, getService } from '@/lib/site'
 import { PageHero, HeroButtons, SectionHeading, CtaBand, CheckList } from '@/components/blocks'
@@ -104,6 +104,46 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       >
         <HeroButtons />
       </PageHero>
+
+      {/* Limited-time clutch offer band (clutch page only) */}
+      {service.slug === 'clutches' && (
+        <section className="bg-primary text-primary-foreground">
+          <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12 lg:px-8">
+            <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-start gap-4">
+                <span className="flex size-12 shrink-0 items-center justify-center bg-white/15">
+                  <Tag className="size-6" strokeWidth={2.5} />
+                </span>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary-foreground/80">
+                    Limited-Time Offer
+                  </p>
+                  <p className="mt-1 text-3xl font-black uppercase leading-none tracking-tight sm:text-4xl md:text-5xl">
+                    20% Off Clutch Labour
+                  </p>
+                </div>
+              </div>
+              <Button
+                asChild
+                size="lg"
+                className="bg-white font-bold uppercase tracking-wide text-primary hover:bg-white/90"
+              >
+                <a href={`tel:${SITE.phoneHref}`}>
+                  <Phone /> {SITE.phoneDisplay}
+                </a>
+              </Button>
+            </div>
+            <p className="mt-6 max-w-4xl border-t border-white/20 pt-4 text-sm leading-relaxed text-primary-foreground/85">
+              Offer valid on clutch replacement labour only; parts and consumables are charged
+              separately. The 20% discount applies to labour costs and cannot be used in conjunction
+              with any other offer, promotion or discount. Subject to workshop availability and prior
+              booking — please quote this offer when booking. The final price is confirmed following
+              diagnosis and inspection of your vehicle. Brookswood Automotive LTD reserves the right
+              to amend or withdraw this offer at any time without notice.
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Intro + included */}
       <section className="bg-background py-20 md:py-24">
