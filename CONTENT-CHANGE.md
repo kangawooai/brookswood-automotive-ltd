@@ -1,11 +1,17 @@
 ## Proposed Changes
 
-- **Email all form submissions** to `info@brookswoodautomotive.co.uk` via Brevo SMTP, covering the contact form, multi-step booking form, and MOT landing page quote form
-- **Post all form submissions** to your Zapier webhook (securely stored 🔒)
-- **Include the GCLID** in every form payload, passed through to both the email and Zapier webhook
-- **Loud error logging** if the webhook fails, email always sends regardless
-- All forms covered via the shared `/api/submit-form` route in a single build
+- Add a bold red offer band to the clutch replacement landing page highlighting the 20% off clutch labour offer, with the full verbatim terms beneath it — positioned prominently on the page
 
-**Estimated cost: £1.40 – £3.60**
+**Estimated cost: £1.30 – £3.40**
 
-Click **Accept Plan** to get started, or **Amend Plan** to make changes.
+Since this is a small update, it's worth bundling anything else you'd like tweaked at the same time to get more from the build. Anything else to sort while we're in there?
+
+
+
+Ok I'll start working on those changes and will come back to you once ready to review.
+
+Your changes are ready to preview.
+
+- Added a bold red offer band to the clutch replacement landing page, prominently displaying the 20% off clutch labour offer with the full offer terms clearly shown beneath it
+
+Take a look in the preview above. When you're happy, hit **Deploy** to publish them to your live site.
