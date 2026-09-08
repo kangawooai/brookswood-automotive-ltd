@@ -92,8 +92,8 @@ export default async function MotFarehamLanding() {
         {/* Hero + quote form */}
         <section id="top" className="relative isolate overflow-hidden">
           <Image
-            src={PHOTOS.fordOnLift}
-            alt={PHOTO_ALT.fordOnLift}
+            src={PHOTOS.heroWorkshop}
+            alt={PHOTO_ALT.heroWorkshop}
             fill
             priority
             fetchPriority="high"
