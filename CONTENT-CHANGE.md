@@ -8,7 +8,7 @@ If a change cannot sensibly be made there — the thing described is not on that
 
 These values appear in what the customer agreed. They are the customer's offer to the public, not wording you may improve:
 
-- Amounts: £39.99, £4.50, £8.50
+- Amounts: £39.99, £3.85, £6.50
 
 - Copy them EXACTLY as written. Never round, re-scale or "tidy" a number.
 - Never substitute a different figure — changing "20% off" to "10% off" alters what the business is committing to.
@@ -17,15 +17,12 @@ These values appear in what the customer agreed. They are the customer's offer t
 
 ## Proposed Changes
 
-Adjustments to the MOT landing page (`/mot-fareham`):
+Simple layout fix to the MOT landing page (`/mot-fareham`):
 
-- **Gold card moved** — Relocate the "Free MOT for Life" gold membership card image to sit alongside/within the booking form section, so they complement each other visually
-- **Booking form repositioned** — Move the form down below the hero and below the 4 trust/feature items (DVSA approved, honest pricing, free retest, quick turnaround), so the hero feels cleaner and the form follows naturally after the trust-building content
-- **MOT availability copy fixed** — Rework all messaging to make clear MOTs are available **throughout the week AND on Saturdays** — no impression that weekends are the only option. Weekend availability is mentioned as an added bonus, not a restriction
+- **Gold card back in the hero** — Place the "Free MOT for Life" gold membership card floating on the right side of the hero (as originally designed in your mockup), alongside the headline and CTA buttons
+- **Booking form as its own section** — Move the form into a clean, separate section directly below the hero, no longer paired with the card
 
-**Estimated cost: £4.50 – £8.50**
-
-These are layout and copy tweaks that build on the existing rework — all applied in one build.
+**Estimated cost: £3.85 – £6.50**
 
 ## Attached files
 The customer uploaded the following file(s) during this chat. Where the objectives refer to a provided/attached image, logo, icon, screenshot, font or document, download the matching file (e.g. `curl -L -o <path> <url>`) into the project and use it — never hotlink a customer upload.
