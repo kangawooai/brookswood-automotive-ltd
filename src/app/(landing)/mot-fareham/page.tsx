@@ -174,7 +174,28 @@ export default async function MotFarehamLanding() {
           </div>
         </section>
 
-        {/* Booking form — its own clean section directly below the hero */}
+        {/* Trust bar */}
+        <section className="border-y-4 border-primary bg-secondary">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
+            {[
+              { value: `${SITE.yearsExperience}`, label: 'Years Experience' },
+              { value: `${rating.value}★`, label: 'Google Rating' },
+              ...(rating.count != null
+                ? [{ value: `${rating.count}`, label: 'Happy Reviews' }]
+                : []),
+              { value: 'Free', label: 'Retest Included' },
+            ].map((item) => (
+              <div key={item.label} className="px-4 py-8 text-center">
+                <p className="text-4xl font-black text-primary md:text-5xl">{item.value}</p>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-white/70 md:text-sm">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Booking form — its own clean section, sitting just below the trust bar */}
         <section
           id="quote"
           className="relative isolate scroll-mt-24 overflow-hidden bg-muted py-20 md:py-24"
@@ -206,27 +227,6 @@ export default async function MotFarehamLanding() {
                 <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Trust bar */}
-        <section className="border-y-4 border-primary bg-secondary">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
-            {[
-              { value: `${SITE.yearsExperience}`, label: 'Years Experience' },
-              { value: `${rating.value}★`, label: 'Google Rating' },
-              ...(rating.count != null
-                ? [{ value: `${rating.count}`, label: 'Happy Reviews' }]
-                : []),
-              { value: 'Free', label: 'Retest Included' },
-            ].map((item) => (
-              <div key={item.label} className="px-4 py-8 text-center">
-                <p className="text-4xl font-black text-primary md:text-5xl">{item.value}</p>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-white/70 md:text-sm">
-                  {item.label}
-                </p>
-              </div>
-            ))}
           </div>
         </section>
 
