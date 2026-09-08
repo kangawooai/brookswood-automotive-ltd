@@ -50,6 +50,10 @@ export const ABOUT_FAQS: Faq[] = [
 
 export const MOT_FAQS: Faq[] = [
   {
+    q: 'When can I book my MOT?',
+    a: 'MOT testing is available throughout the week, Monday to Friday, and on Saturdays from 9am to 1pm. Send us your details or call 01329 640528 and we will book you into the next slot that suits you.',
+  },
+  {
     q: 'How long does an MOT take?',
     a: 'A standard Class 4 MOT typically takes around 45 to 60 minutes. If you would like to wait, let us know when booking and we will do our best to accommodate you.',
   },
@@ -63,7 +67,7 @@ export const MOT_FAQS: Faq[] = [
   },
   {
     q: 'How much does an MOT cost?',
-    a: 'We charge competitive, transparent rates for MOT testing. Call us on 01329 640528 for our current price and to book a slot that suits you.',
+    a: 'As part of our launch offer, MOTs start from just £39.99. Call us on 01329 640528 for full details and to book your slot — any weekday or Saturday.',
   },
   {
     q: 'Can you carry out repairs if my car fails?',
