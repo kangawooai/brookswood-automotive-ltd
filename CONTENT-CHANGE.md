@@ -17,13 +17,11 @@ These values appear in what the customer agreed. They are the customer's offer t
 
 ## Proposed Changes
 
-Layout tweak to the MOT landing page (`/mot-fareham`):
-
-- **Quote/form section moved down one** — Shift the booking form section one position lower in the page order
+- **Hero background image updated** — Swap the current hero background on the MOT landing page to the workshop interior image (red hydraulic lifts, clean grey floor), matching your mockup exactly
 
 **Estimated cost: £1.85 – £4.85**
 
-Since this is a quick change, worth bundling anything else you'd like adjusted at the same time to make the most of the build. Anything else to tweak?
+Since this is a quick swap, worth bundling anything else you'd like changed at the same time — anything else to sort while we're at it?
 
 ## Attached files
 The customer uploaded the following file(s) during this chat. Where the objectives refer to a provided/attached image, logo, icon, screenshot, font or document, download the matching file (e.g. `curl -L -o <path> <url>`) into the project and use it — never hotlink a customer upload.
