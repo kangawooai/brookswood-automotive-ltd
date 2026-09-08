@@ -8,7 +8,7 @@ If a change cannot sensibly be made there — the thing described is not on that
 
 These values appear in what the customer agreed. They are the customer's offer to the public, not wording you may improve:
 
-- Amounts: £39.99, £3.85, £6.50
+- Amounts: £39.99, £1.85, £4.85
 
 - Copy them EXACTLY as written. Never round, re-scale or "tidy" a number.
 - Never substitute a different figure — changing "20% off" to "10% off" alters what the business is committing to.
@@ -17,12 +17,13 @@ These values appear in what the customer agreed. They are the customer's offer t
 
 ## Proposed Changes
 
-Simple layout fix to the MOT landing page (`/mot-fareham`):
+Small layout tweak to the MOT landing page (`/mot-fareham`):
 
-- **Gold card back in the hero** — Place the "Free MOT for Life" gold membership card floating on the right side of the hero (as originally designed in your mockup), alongside the headline and CTA buttons
-- **Booking form as its own section** — Move the form into a clean, separate section directly below the hero, no longer paired with the card
+- **Reviews moved up on mobile** — On mobile only, reorder the reviews section to appear one position higher in the page flow, so social proof is seen sooner by visitors on phones
 
-**Estimated cost: £3.85 – £6.50**
+**Estimated cost: £1.85 – £4.85**
+
+Since this is a small change, it's worth bundling anything else you'd like tweaked at the same time to get more value from the build — anything else to sort while we're at it?
 
 ## Attached files
 The customer uploaded the following file(s) during this chat. Where the objectives refer to a provided/attached image, logo, icon, screenshot, font or document, download the matching file (e.g. `curl -L -o <path> <url>`) into the project and use it — never hotlink a customer upload.
