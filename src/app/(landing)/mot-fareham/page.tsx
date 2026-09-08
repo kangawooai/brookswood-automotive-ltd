@@ -94,8 +94,8 @@ export default async function MotFarehamLanding() {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/55" />
-          <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-2 lg:px-8">
-            <div className="max-w-xl">
+          <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+            <div className="max-w-2xl">
               <span className="inline-block bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
                 Brookswood Automotive
               </span>
@@ -104,7 +104,8 @@ export default async function MotFarehamLanding() {
               </h1>
               <p className="mt-6 text-lg text-white/85 md:text-xl">
                 DVSA-approved Class 4 MOT testing with honest advice, fair pricing and a free retest on
-                qualifying repairs. Book your slot today.
+                qualifying repairs. Available Monday to Friday, plus Saturday mornings 9am–1pm — book your
+                slot today.
               </p>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {['DVSA-approved testers', 'Free retest included', 'Advice you can actually trust', 'Repairs sorted under one roof'].map(
@@ -135,17 +136,6 @@ export default async function MotFarehamLanding() {
               </div>
               <div className="mt-8">
                 <RatingBadge light value={rating.value} count={rating.count} />
-              </div>
-            </div>
-
-            {/* Quote form */}
-            <div id="quote" className="border border-border bg-card p-6 shadow-xl sm:p-8">
-              <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">Book Your MOT</h2>
-              <p className="mt-2 text-muted-foreground">
-                Send us your details and we will call you back to arrange a convenient slot.
-              </p>
-              <div className="mt-6">
-                <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
               </div>
             </div>
           </div>
@@ -247,6 +237,48 @@ export default async function MotFarehamLanding() {
             <SectionHeading eyebrow="MOT FAQs" title="Your MOT Questions, Answered" center />
             <div className="mt-10">
               <FaqList faqs={MOT_FAQS} />
+            </div>
+          </div>
+        </section>
+
+        {/* Booking form */}
+        <section id="quote" className="scroll-mt-16 bg-background py-20 md:py-24">
+          <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div className="max-w-xl">
+              <SectionHeading
+                eyebrow="Book Your MOT"
+                title="Reserve Your MOT Slot"
+                intro="Send us your details and we will call you back to arrange a convenient time. MOT testing is available Monday to Friday, plus Saturday mornings from 9am to 1pm."
+              />
+              <ul className="mt-8 grid gap-3">
+                {['DVSA-approved testers', 'Free retest on qualifying repairs', 'Honest, transparent pricing', 'Repairs sorted under one roof'].map(
+                  (item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center bg-primary text-primary-foreground">
+                        <Check className="size-3.5" strokeWidth={3} />
+                      </span>
+                      <span className="text-foreground">{item}</span>
+                    </li>
+                  ),
+                )}
+              </ul>
+              <div className="mt-8">
+                <Button asChild size="lg" className="font-bold uppercase tracking-wide">
+                  <a href={`tel:${SITE.phoneHref}`}>
+                    <Phone /> {SITE.phoneDisplay}
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            <div className="border border-border bg-card p-6 shadow-xl sm:p-8">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-foreground">Request a Callback</h3>
+              <p className="mt-2 text-muted-foreground">
+                Fill in your details below and our Fareham team will be in touch to confirm your slot.
+              </p>
+              <div className="mt-6">
+                <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
+              </div>
             </div>
           </div>
         </section>
