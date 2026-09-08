@@ -167,7 +167,7 @@ export default async function MotFarehamLanding() {
                 width={1400}
                 height={876}
                 priority
-                className="w-72 -rotate-3 rounded-xl shadow-2xl ring-1 ring-white/10 sm:w-96 lg:w-full lg:max-w-md"
+                className="w-72 -rotate-3 rounded-xl shadow-2xl sm:w-96 lg:w-full lg:max-w-md"
               />
             </div>
             </div>
