@@ -102,8 +102,9 @@ export default async function MotFarehamLanding() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/60" />
           <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-            {/* Launch-offer messaging — the hero now leads with the offer, the
-                booking form lives further down after the trust content. */}
+            {/* Launch-offer messaging alongside the gold membership card, which
+                floats on the right. The booking form is its own section below. */}
+            <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="max-w-2xl">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 bg-primary px-3 py-1 text-xs font-black uppercase tracking-widest text-primary-foreground">
@@ -155,6 +156,54 @@ export default async function MotFarehamLanding() {
               </ul>
               <div className="mt-8">
                 <RatingBadge light value={rating.value} count={rating.count} />
+              </div>
+            </div>
+
+            {/* The prize — Free MOT for Life gold membership card, floating */}
+            <div className="flex justify-center lg:justify-end">
+              <Image
+                src="/images/gold-card.webp"
+                alt="Brookswood Automotive Free MOT for Life gold membership card"
+                width={1400}
+                height={876}
+                priority
+                className="w-72 -rotate-3 rounded-xl shadow-2xl ring-1 ring-white/10 sm:w-96 lg:w-full lg:max-w-md"
+              />
+            </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Booking form — its own clean section directly below the hero */}
+        <section
+          id="quote"
+          className="relative isolate scroll-mt-24 overflow-hidden bg-muted py-20 md:py-24"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/5" />
+          <div className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <p className="text-sm font-black uppercase tracking-widest text-primary">
+                Launch Offer
+              </p>
+              <h2 className="mt-3 text-3xl font-black uppercase leading-[1.05] tracking-tight text-foreground md:text-4xl">
+                Book Your MOT &amp; Win a Free MOT for Life
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                MOTs are available all week — Monday to Friday, plus Saturdays 9am to 1pm. Every
+                booking enters you into our draw for a Brookswood gold membership: a free MOT, every
+                year, for life.
+              </p>
+            </div>
+            <div className="mt-10 border border-border bg-card p-6 text-left shadow-xl sm:p-8">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-foreground">
+                Book Your MOT
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Send us your details and we will call you back to confirm your slot — any weekday or
+                Saturday (9am–1pm).
+              </p>
+              <div className="mt-6">
+                <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
               </div>
             </div>
           </div>
@@ -225,51 +274,6 @@ export default async function MotFarehamLanding() {
                   </div>
                 )
               })}
-            </div>
-          </div>
-        </section>
-
-        {/* Booking form + gold membership card */}
-        <section
-          id="quote"
-          className="relative isolate scroll-mt-24 overflow-hidden bg-muted py-20 md:py-24"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/5" />
-          <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            {/* Left: the prize — gold membership card */}
-            <div className="max-w-xl">
-              <p className="text-sm font-black uppercase tracking-widest text-primary">
-                Launch Offer
-              </p>
-              <h2 className="mt-3 text-3xl font-black uppercase leading-[1.05] tracking-tight text-foreground md:text-4xl">
-                Book Your MOT &amp; Win a Free MOT for Life
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                MOTs are available all week — Monday to Friday, plus Saturdays 9am to 1pm. Every booking
-                enters you into our draw for a Brookswood gold membership: a free MOT, every year, for
-                life.
-              </p>
-              <Image
-                src="/images/gold-card.webp"
-                alt="Brookswood Automotive Free MOT for Life gold membership card"
-                width={1400}
-                height={876}
-                className="mt-8 w-64 -rotate-3 rounded-xl shadow-2xl ring-1 ring-black/5 sm:w-80 lg:w-full lg:max-w-md"
-              />
-            </div>
-
-            {/* Right: the booking form */}
-            <div className="border border-border bg-card p-6 shadow-xl sm:p-8">
-              <h3 className="text-2xl font-black uppercase tracking-tight text-foreground">
-                Book Your MOT
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Send us your details and we will call you back to confirm your slot — any weekday or
-                Saturday (9am–1pm).
-              </p>
-              <div className="mt-6">
-                <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
-              </div>
             </div>
           </div>
         </section>
