@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
-import { Phone, Check, Award, ShieldCheck, Wallet, Clock } from 'lucide-react'
+import { Phone, Check, Award, ShieldCheck, Wallet, Clock, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SITE, getService } from '@/lib/site'
 import { PHOTOS, PHOTO_ALT } from '@/lib/photos'
@@ -17,7 +17,7 @@ import { graph, webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from
 
 const PATH = '/mot-fareham'
 const DESCRIPTION =
-  'Book your MOT in Fareham at Brookswood Automotive. DVSA-approved Class 4 testing, honest advice and free retests on qualifying repairs. Call 01329 640528 for a slot.'
+  'Book your weekend MOT in Fareham at Brookswood Automotive — now open Saturdays 9am–1pm. DVSA-approved Class 4 testing from £39.99, plus your chance to win a free MOT for life. Call 01329 640528.'
 
 export const metadata: Metadata = {
   title: 'MOT Fareham | DVSA-Approved MOT Testing',
@@ -49,7 +49,7 @@ const WHY_US = [
 ]
 
 const PROCESS = [
-  { step: 'Book your slot', detail: 'Call us or request a callback with your registration and preferred date.' },
+  { step: 'Book your slot', detail: 'Send your details or call with your registration and we will confirm your Saturday slot (9am–1pm).' },
   { step: 'Full inspection', detail: 'Our approved tester works through the DVSA checklist thoroughly.' },
   { step: 'Honest results', detail: 'We explain the outcome in plain English and quote for any repairs first.' },
   { step: 'Back on the road', detail: 'Pass and you are done; any approved repairs come with a free retest.' },
@@ -58,6 +58,42 @@ const PROCESS = [
 export default async function MotFarehamLanding() {
   const mot = getService('mot-testing')!
   const { rating } = await getPlaceData()
+
+  const HERO_FEATURES = [
+    'DVSA-approved testers',
+    'Free retest included',
+    'Advice you can actually trust',
+    'Repairs sorted under one roof',
+  ]
+
+  // Gold membership card + trust bits. Rendered once inside the desktop left
+  // column (large) and again under the form on mobile (small) so the booking
+  // form stays high on small screens. Responsive width handles both contexts.
+  const heroExtras = (
+    <>
+      <Image
+        src="/images/gold-card.webp"
+        alt="Brookswood Automotive Free MOT for Life gold membership card"
+        width={1400}
+        height={876}
+        priority
+        className="w-40 -rotate-3 rounded-xl shadow-2xl ring-1 ring-white/10 sm:w-56 lg:w-full lg:max-w-sm"
+      />
+      <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+        {HERO_FEATURES.map((item) => (
+          <li key={item} className="flex items-start gap-3">
+            <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center bg-primary text-primary-foreground">
+              <Check className="size-3.5" strokeWidth={3} />
+            </span>
+            <span className="text-white/85">{item}</span>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-8">
+        <RatingBadge light value={rating.value} count={rating.count} />
+      </div>
+    </>
+  )
 
   return (
     <>
@@ -93,51 +129,68 @@ export default async function MotFarehamLanding() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/55" />
-          <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-            <div className="max-w-2xl">
-              <span className="inline-block bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
-                Brookswood Automotive
-              </span>
-              <h1 className="mt-5 text-4xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
-                Your MOT in Fareham, Done Properly
-              </h1>
-              <p className="mt-6 text-lg text-white/85 md:text-xl">
-                DVSA-approved Class 4 MOT testing with honest advice, fair pricing and a free retest on
-                qualifying repairs. Available Monday to Friday, plus Saturday mornings 9am–1pm — book your
-                slot today.
-              </p>
-              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                {['DVSA-approved testers', 'Free retest included', 'Advice you can actually trust', 'Repairs sorted under one roof'].map(
-                  (item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center bg-primary text-primary-foreground">
-                        <Check className="size-3.5" strokeWidth={3} />
-                      </span>
-                      <span className="text-white/85">{item}</span>
-                    </li>
-                  ),
-                )}
-              </ul>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="font-bold uppercase tracking-wide">
-                  <a href={`tel:${SITE.phoneHref}`}>
-                    <Phone /> {SITE.phoneDisplay}
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white/40 bg-transparent font-bold uppercase tracking-wide text-white hover:bg-white/10 hover:text-white"
-                >
-                  <a href="#quote">Get a Free Quote</a>
-                </Button>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/60" />
+          <div className="relative mx-auto grid max-w-7xl items-start gap-10 px-4 py-12 sm:px-6 md:py-20 lg:grid-cols-2 lg:px-8">
+            {/* Left: launch-offer messaging */}
+            <div className="order-1 max-w-xl">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 bg-primary px-3 py-1 text-xs font-black uppercase tracking-widest text-primary-foreground">
+                  <Star className="size-3.5 fill-current" /> Fareham&apos;s Newest MOT Station
+                </span>
+                <span className="inline-block bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
+                  Launch Offer
+                </span>
               </div>
-              <div className="mt-8">
-                <RatingBadge light value={rating.value} count={rating.count} />
+              <h1 className="mt-5 text-4xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
+                Win a Free MOT for Life
+              </h1>
+              <p className="mt-5 text-lg text-white/85 md:text-xl">
+                We are open for MOTs this{' '}
+                <span className="font-bold text-white">weekend only — Saturdays, 9am to 1pm</span>. Book
+                your Saturday slot and you could win a Brookswood gold membership: a free MOT, every year,
+                for life.
+              </p>
+
+              {/* Price + live availability */}
+              <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
+                <span className="inline-flex items-baseline gap-2 bg-primary px-4 py-2 text-sm font-bold uppercase tracking-wide text-primary-foreground">
+                  MOTs from <span className="text-2xl font-black leading-none">£39.99</span>
+                </span>
+                <span className="text-sm text-white/70">Fareham, Hampshire · T&amp;Cs apply</span>
+              </div>
+              <a
+                href="#quote"
+                className="mt-6 inline-flex items-center gap-3 border border-green-400/40 bg-green-500/10 px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-green-500/20"
+              >
+                <span className="relative flex size-3">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-400 opacity-75" />
+                  <span className="relative inline-flex size-3 rounded-full bg-green-400" />
+                </span>
+                Available This Weekend — Book Now
+              </a>
+
+              {/* Card + trust bits (desktop, in the left column) */}
+              <div className="mt-9 hidden lg:block">{heroExtras}</div>
+            </div>
+
+            {/* Booking form — pulled up next to the hero copy */}
+            <div
+              id="quote"
+              className="order-2 scroll-mt-24 border border-border bg-card p-6 shadow-xl sm:p-8"
+            >
+              <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">
+                Book Your Weekend MOT
+              </h2>
+              <p className="mt-2 text-muted-foreground">
+                Send us your details and we will call you back to confirm your Saturday slot (9am–1pm).
+              </p>
+              <div className="mt-6">
+                <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
               </div>
             </div>
+
+            {/* Card + trust bits (mobile, under the form so the form stays high) */}
+            <div className="order-3 lg:hidden">{heroExtras}</div>
           </div>
         </section>
 
@@ -241,59 +294,17 @@ export default async function MotFarehamLanding() {
           </div>
         </section>
 
-        {/* Booking form */}
-        <section id="quote" className="scroll-mt-16 bg-background py-20 md:py-24">
-          <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div className="max-w-xl">
-              <SectionHeading
-                eyebrow="Book Your MOT"
-                title="Reserve Your MOT Slot"
-                intro="Send us your details and we will call you back to arrange a convenient time. MOT testing is available Monday to Friday, plus Saturday mornings from 9am to 1pm."
-              />
-              <ul className="mt-8 grid gap-3">
-                {['DVSA-approved testers', 'Free retest on qualifying repairs', 'Honest, transparent pricing', 'Repairs sorted under one roof'].map(
-                  (item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center bg-primary text-primary-foreground">
-                        <Check className="size-3.5" strokeWidth={3} />
-                      </span>
-                      <span className="text-foreground">{item}</span>
-                    </li>
-                  ),
-                )}
-              </ul>
-              <div className="mt-8">
-                <Button asChild size="lg" className="font-bold uppercase tracking-wide">
-                  <a href={`tel:${SITE.phoneHref}`}>
-                    <Phone /> {SITE.phoneDisplay}
-                  </a>
-                </Button>
-              </div>
-            </div>
-
-            <div className="border border-border bg-card p-6 shadow-xl sm:p-8">
-              <h3 className="text-2xl font-black uppercase tracking-tight text-foreground">Request a Callback</h3>
-              <p className="mt-2 text-muted-foreground">
-                Fill in your details below and our Fareham team will be in touch to confirm your slot.
-              </p>
-              <div className="mt-6">
-                <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Contact CTA */}
         <section id="contact" className="bg-primary">
           <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div className="max-w-2xl">
                 <h2 className="text-3xl font-black uppercase tracking-tight text-primary-foreground md:text-4xl">
-                  Ready to book your MOT?
+                  Ready to book your weekend MOT?
                 </h2>
                 <p className="mt-4 text-lg text-primary-foreground/90">
-                  Call our Fareham team now or request a callback and we will get you a convenient slot with
-                  honest advice and no surprises.
+                  Call our Fareham team now or request a callback and we will book you into the next
+                  available Saturday slot (9am–1pm), with honest advice and no surprises.
                 </p>
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
