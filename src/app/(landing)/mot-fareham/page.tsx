@@ -17,7 +17,7 @@ import { graph, webPageSchema, breadcrumbSchema, serviceSchema, faqSchema } from
 
 const PATH = '/mot-fareham'
 const DESCRIPTION =
-  'Book your weekend MOT in Fareham at Brookswood Automotive — now open Saturdays 9am–1pm. DVSA-approved Class 4 testing from £39.99, plus your chance to win a free MOT for life. Call 01329 640528.'
+  'Book your MOT in Fareham at Brookswood Automotive — DVSA-approved Class 4 testing throughout the week, plus Saturdays 9am–1pm. MOTs from £39.99, and your chance to win a free MOT for life. Call 01329 640528.'
 
 export const metadata: Metadata = {
   title: 'MOT Fareham | DVSA-Approved MOT Testing',
@@ -49,7 +49,7 @@ const WHY_US = [
 ]
 
 const PROCESS = [
-  { step: 'Book your slot', detail: 'Send your details or call with your registration and we will confirm your Saturday slot (9am–1pm).' },
+  { step: 'Book your slot', detail: 'Send your details or call with your registration and we will confirm a slot that suits you — any weekday or Saturday (9am–1pm).' },
   { step: 'Full inspection', detail: 'Our approved tester works through the DVSA checklist thoroughly.' },
   { step: 'Honest results', detail: 'We explain the outcome in plain English and quote for any repairs first.' },
   { step: 'Back on the road', detail: 'Pass and you are done; any approved repairs come with a free retest.' },
@@ -65,35 +65,6 @@ export default async function MotFarehamLanding() {
     'Advice you can actually trust',
     'Repairs sorted under one roof',
   ]
-
-  // Gold membership card + trust bits. Rendered once inside the desktop left
-  // column (large) and again under the form on mobile (small) so the booking
-  // form stays high on small screens. Responsive width handles both contexts.
-  const heroExtras = (
-    <>
-      <Image
-        src="/images/gold-card.webp"
-        alt="Brookswood Automotive Free MOT for Life gold membership card"
-        width={1400}
-        height={876}
-        priority
-        className="w-40 -rotate-3 rounded-xl shadow-2xl ring-1 ring-white/10 sm:w-56 lg:w-full lg:max-w-sm"
-      />
-      <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-        {HERO_FEATURES.map((item) => (
-          <li key={item} className="flex items-start gap-3">
-            <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center bg-primary text-primary-foreground">
-              <Check className="size-3.5" strokeWidth={3} />
-            </span>
-            <span className="text-white/85">{item}</span>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-8">
-        <RatingBadge light value={rating.value} count={rating.count} />
-      </div>
-    </>
-  )
 
   return (
     <>
@@ -130,9 +101,10 @@ export default async function MotFarehamLanding() {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/60" />
-          <div className="relative mx-auto grid max-w-7xl items-start gap-10 px-4 py-12 sm:px-6 md:py-20 lg:grid-cols-2 lg:px-8">
-            {/* Left: launch-offer messaging */}
-            <div className="order-1 max-w-xl">
+          <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+            {/* Launch-offer messaging — the hero now leads with the offer, the
+                booking form lives further down after the trust content. */}
+            <div className="max-w-2xl">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 bg-primary px-3 py-1 text-xs font-black uppercase tracking-widest text-primary-foreground">
                   <Star className="size-3.5 fill-current" /> Fareham&apos;s Newest MOT Station
@@ -145,10 +117,11 @@ export default async function MotFarehamLanding() {
                 Win a Free MOT for Life
               </h1>
               <p className="mt-5 text-lg text-white/85 md:text-xl">
-                We are open for MOTs this{' '}
-                <span className="font-bold text-white">weekend only — Saturdays, 9am to 1pm</span>. Book
-                your Saturday slot and you could win a Brookswood gold membership: a free MOT, every year,
-                for life.
+                We test MOTs{' '}
+                <span className="font-bold text-white">right through the week — Monday to Friday</span>,
+                and we are open <span className="font-bold text-white">Saturdays too, 9am to 1pm</span>. Book
+                a slot that suits you and you could win a Brookswood gold membership: a free MOT, every
+                year, for life.
               </p>
 
               {/* Price + live availability */}
@@ -166,31 +139,24 @@ export default async function MotFarehamLanding() {
                   <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-400 opacity-75" />
                   <span className="relative inline-flex size-3 rounded-full bg-green-400" />
                 </span>
-                Available This Weekend — Book Now
+                Slots Open All Week — Book Now
               </a>
 
-              {/* Card + trust bits (desktop, in the left column) */}
-              <div className="mt-9 hidden lg:block">{heroExtras}</div>
-            </div>
-
-            {/* Booking form — pulled up next to the hero copy */}
-            <div
-              id="quote"
-              className="order-2 scroll-mt-24 border border-border bg-card p-6 shadow-xl sm:p-8"
-            >
-              <h2 className="text-2xl font-black uppercase tracking-tight text-foreground">
-                Book Your Weekend MOT
-              </h2>
-              <p className="mt-2 text-muted-foreground">
-                Send us your details and we will call you back to confirm your Saturday slot (9am–1pm).
-              </p>
-              <div className="mt-6">
-                <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
+              {/* Trust features + rating */}
+              <ul className="mt-9 grid gap-3 sm:grid-cols-2">
+                {HERO_FEATURES.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center bg-primary text-primary-foreground">
+                      <Check className="size-3.5" strokeWidth={3} />
+                    </span>
+                    <span className="text-white/85">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <RatingBadge light value={rating.value} count={rating.count} />
               </div>
             </div>
-
-            {/* Card + trust bits (mobile, under the form so the form stays high) */}
-            <div className="order-3 lg:hidden">{heroExtras}</div>
           </div>
         </section>
 
@@ -263,6 +229,51 @@ export default async function MotFarehamLanding() {
           </div>
         </section>
 
+        {/* Booking form + gold membership card */}
+        <section
+          id="quote"
+          className="relative isolate scroll-mt-24 overflow-hidden bg-muted py-20 md:py-24"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/5" />
+          <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            {/* Left: the prize — gold membership card */}
+            <div className="max-w-xl">
+              <p className="text-sm font-black uppercase tracking-widest text-primary">
+                Launch Offer
+              </p>
+              <h2 className="mt-3 text-3xl font-black uppercase leading-[1.05] tracking-tight text-foreground md:text-4xl">
+                Book Your MOT &amp; Win a Free MOT for Life
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                MOTs are available all week — Monday to Friday, plus Saturdays 9am to 1pm. Every booking
+                enters you into our draw for a Brookswood gold membership: a free MOT, every year, for
+                life.
+              </p>
+              <Image
+                src="/images/gold-card.webp"
+                alt="Brookswood Automotive Free MOT for Life gold membership card"
+                width={1400}
+                height={876}
+                className="mt-8 w-64 -rotate-3 rounded-xl shadow-2xl ring-1 ring-black/5 sm:w-80 lg:w-full lg:max-w-md"
+              />
+            </div>
+
+            {/* Right: the booking form */}
+            <div className="border border-border bg-card p-6 shadow-xl sm:p-8">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-foreground">
+                Book Your MOT
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Send us your details and we will call you back to confirm your slot — any weekday or
+                Saturday (9am–1pm).
+              </p>
+              <div className="mt-6">
+                <ContactForm defaultService="MOT Testing" formId="mot_landing_form" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Process */}
         <section className="bg-secondary py-20 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -300,11 +311,12 @@ export default async function MotFarehamLanding() {
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div className="max-w-2xl">
                 <h2 className="text-3xl font-black uppercase tracking-tight text-primary-foreground md:text-4xl">
-                  Ready to book your weekend MOT?
+                  Ready to book your MOT?
                 </h2>
                 <p className="mt-4 text-lg text-primary-foreground/90">
                   Call our Fareham team now or request a callback and we will book you into the next
-                  available Saturday slot (9am–1pm), with honest advice and no surprises.
+                  available slot — any weekday or Saturday (9am–1pm) — with honest advice and no
+                  surprises.
                 </p>
               </div>
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
