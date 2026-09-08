@@ -17,13 +17,13 @@ These values appear in what the customer agreed. They are the customer's offer t
 
 ## Proposed Changes
 
-Small layout tweak to the MOT landing page (`/mot-fareham`):
+Layout tweak to the MOT landing page (`/mot-fareham`):
 
-- **Reviews moved up on mobile** — On mobile only, reorder the reviews section to appear one position higher in the page flow, so social proof is seen sooner by visitors on phones
+- **Quote/form section moved down one** — Shift the booking form section one position lower in the page order
 
 **Estimated cost: £1.85 – £4.85**
 
-Since this is a small change, it's worth bundling anything else you'd like tweaked at the same time to get more value from the build — anything else to sort while we're at it?
+Since this is a quick change, worth bundling anything else you'd like adjusted at the same time to make the most of the build. Anything else to tweak?
 
 ## Attached files
 The customer uploaded the following file(s) during this chat. Where the objectives refer to a provided/attached image, logo, icon, screenshot, font or document, download the matching file (e.g. `curl -L -o <path> <url>`) into the project and use it — never hotlink a customer upload.
