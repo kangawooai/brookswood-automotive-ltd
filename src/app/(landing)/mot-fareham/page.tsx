@@ -278,25 +278,30 @@ export default async function MotFarehamLanding() {
           </div>
         </section>
 
-        {/* Process */}
-        <section className="bg-secondary py-20 md:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeading eyebrow="How It Works" title="Booking Your MOT Is Simple" light />
-            <div className="mt-12 grid gap-8 md:grid-cols-4">
-              {PROCESS.map((item, i) => (
-                <div key={item.step}>
-                  <span className="text-5xl font-black text-primary">{String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="mt-3 text-lg font-bold uppercase tracking-tight text-white">{item.step}</h3>
-                  <p className="mt-2 text-sm text-white/70">{item.detail}</p>
-                </div>
-              ))}
+        {/* Process + Reviews — on mobile the reviews are pulled up above the
+            process steps so social proof lands sooner; desktop keeps the
+            original Process → Reviews order. */}
+        <div className="flex flex-col">
+          {/* Process */}
+          <section className="order-2 bg-secondary py-20 md:order-1 md:py-24">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <SectionHeading eyebrow="How It Works" title="Booking Your MOT Is Simple" light />
+              <div className="mt-12 grid gap-8 md:grid-cols-4">
+                {PROCESS.map((item, i) => (
+                  <div key={item.step}>
+                    <span className="text-5xl font-black text-primary">{String(i + 1).padStart(2, '0')}</span>
+                    <h3 className="mt-3 text-lg font-bold uppercase tracking-tight text-white">{item.step}</h3>
+                    <p className="mt-2 text-sm text-white/70">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Reviews */}
-        <div id="reviews" className="scroll-mt-16">
-          <Reviews />
+          {/* Reviews */}
+          <div id="reviews" className="order-1 scroll-mt-16 md:order-2">
+            <Reviews />
+          </div>
         </div>
 
         {/* FAQ */}
