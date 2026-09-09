@@ -64,7 +64,7 @@
 }
 
 :root {
-    /* Brand palette — Brookswood Automotive: #CC0100 red, #00cbcc cyan, #1C2024 neutral */
+    /* Brand palette — Brookswood Automotive: #CC0100 red, #b30505 deep red accent, #1C2024 neutral */
     --background: #ffffff;
     --foreground: #1c2024;
     --card: #ffffff;
@@ -77,15 +77,15 @@
     --secondary-foreground: #ffffff;
     --muted: #f1f3f5;
     --muted-foreground: #59626d;
-    --accent: #00cbcc;
-    --accent-foreground: #08302f;
+    --accent: #b30505;
+    --accent-foreground: #ffffff;
     --destructive: #b00020;
     --destructive-foreground: #ffffff;
     --border: #e2e5e9;
     --input: #d7dbe0;
     --ring: #cc0100;
     --chart-1: #cc0100;
-    --chart-2: #00cbcc;
+    --chart-2: #b30505;
     --chart-3: #1c2024;
     --chart-4: #59626d;
     --chart-5: #f0a500;
@@ -130,15 +130,15 @@
     --secondary-foreground: #ffffff;
     --muted: #22262b;
     --muted-foreground: #9aa4ae;
-    --accent: #00cbcc;
-    --accent-foreground: #08302f;
+    --accent: #b30505;
+    --accent-foreground: #ffffff;
     --destructive: #e5484d;
     --destructive-foreground: #ffffff;
     --border: #333a41;
     --input: #333a41;
     --ring: #e5322f;
     --chart-1: #e5322f;
-    --chart-2: #00cbcc;
+    --chart-2: #b30505;
     --chart-3: #9aa4ae;
     --chart-4: #59626d;
     --chart-5: #f0a500;

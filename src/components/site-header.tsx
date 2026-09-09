@@ -50,10 +50,10 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
   }, [])
   const pathname = usePathname()
   const isHome = pathname === '/'
-  // On the home page, mobile logo/icon hovers use the cyan accent instead of the
-  // default (which tints towards the dark accent-foreground green).
-  const cyanHover = isHome ? 'group transition-colors hover:bg-accent/10 hover:text-accent' : ''
-  const cyanIcon = isHome ? 'transition-colors group-hover:text-accent' : ''
+  // On the home page, mobile logo/icon hovers use the accent red instead of the
+  // default tint.
+  const accentHover = isHome ? 'group transition-colors hover:bg-accent/10 hover:text-accent' : ''
+  const accentIcon = isHome ? 'transition-colors group-hover:text-accent' : ''
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
@@ -143,15 +143,15 @@ export function SiteHeader({ linesOpen: initialLinesOpen = false }: { linesOpen?
 
         {/* Mobile */}
         <div className="flex items-center gap-2 lg:hidden">
-          <Button asChild size="icon" variant="ghost" aria-label="Call us" className={cyanHover}>
+          <Button asChild size="icon" variant="ghost" aria-label="Call us" className={accentHover}>
             <a href={`tel:${SITE.phoneHref}`}>
-              <Phone className={`size-5 text-primary ${cyanIcon}`} />
+              <Phone className={`size-5 text-primary ${accentIcon}`} />
             </a>
           </Button>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline" aria-label="Open menu" className={cyanHover}>
-                <Menu className={`size-5 ${cyanIcon}`} />
+              <Button size="icon" variant="outline" aria-label="Open menu" className={accentHover}>
+                <Menu className={`size-5 ${accentIcon}`} />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-sm px-6 pt-6">
