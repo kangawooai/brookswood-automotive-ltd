@@ -6,7 +6,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { SITE, SERVICES } from '@/lib/site'
 import { getStoredTrackingParams } from '@/lib/tracking-params'
@@ -17,9 +16,9 @@ const schema = z.object({
   name: z.string().min(2, 'Please enter your name'),
   email: z.string().email('Please enter a valid email'),
   phone: z.string().min(7, 'Please enter a valid phone number'),
-  postcode: z.string().min(4, 'Please enter your postcode'),
+  reg: z.string().min(2, 'Please enter your registration number'),
   service: z.string().optional(),
-  message: z.string().optional(),
+  preferredDate: z.string().optional(),
 })
 
 type FormValues = z.infer<typeof schema>
@@ -143,11 +142,17 @@ export function ContactForm({
           {errors.email && <p className="text-xs text-primary">{errors.email.message}</p>}
         </div>
         <div className="space-y-1.5">
-          <Label htmlFor="postcode" className={labelClass}>
-            Postcode
+          <Label htmlFor="reg" className={labelClass}>
+            Registration Number
           </Label>
-          <Input id="postcode" {...register('postcode')} className={inputClass} autoComplete="postal-code" />
-          {errors.postcode && <p className="text-xs text-primary">{errors.postcode.message}</p>}
+          <Input
+            id="reg"
+            {...register('reg')}
+            className={`${inputClass} uppercase`}
+            placeholder="e.g. AB12 CDE"
+            autoComplete="off"
+          />
+          {errors.reg && <p className="text-xs text-primary">{errors.reg.message}</p>}
         </div>
       </div>
 
@@ -173,10 +178,10 @@ export function ContactForm({
       </div>
 
       <div className="space-y-1.5">
-        <Label htmlFor="message" className={labelClass}>
-          How can we help?
+        <Label htmlFor="preferredDate" className={labelClass}>
+          Desired Booking Date
         </Label>
-        <Textarea id="message" rows={4} {...register('message')} className={inputClass} />
+        <Input id="preferredDate" type="date" {...register('preferredDate')} className={inputClass} />
       </div>
 
       {error && <p className="text-sm font-medium text-primary">{error}</p>}

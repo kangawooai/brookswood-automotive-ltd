@@ -140,7 +140,7 @@ export default async function MotFarehamLanding() {
                   <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-400 opacity-75" />
                   <span className="relative inline-flex size-3 rounded-full bg-green-400" />
                 </span>
-                Slots Open All Week — Book Now
+                Slots Open This Week — Book Now
               </a>
 
               {/* Trust features + rating */}
@@ -319,7 +319,7 @@ export default async function MotFarehamLanding() {
           <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
             <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div className="max-w-2xl">
-                <h2 className="text-3xl font-black uppercase tracking-tight text-primary-foreground md:text-4xl">
+                <h2 className="text-3xl font-black uppercase tracking-wide leading-snug text-primary-foreground md:text-4xl">
                   Ready to book your MOT?
                 </h2>
                 <p className="mt-4 text-lg text-primary-foreground/90">
