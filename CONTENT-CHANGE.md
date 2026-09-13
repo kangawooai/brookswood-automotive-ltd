@@ -11,8 +11,10 @@ These values appear in what the customer agreed. They are the customer's offer t
 
 ## Proposed Changes
 
-- On the MOT Fareham landing page, remove the background layer styling from the gold membership card image — stripping the `rounded-xl`, `shadow-2xl`, and `ring-1 ring-white/10` classes so the card sits clean without any shadow, ring, or rounded overlay behind it
+- **"Slots Open All Week" link** — change the text from "all week" to "this week"
+- **Booking form block** — replace the Postcode field with a Registration Number field, and change "How can we help?" to "Desired Booking Date"
+- **"Ready to book your MOT?" heading** — fix the spacing so it doesn't look too cramped
 
 **Estimated cost: £2.55 – £6.60**
 
-Since this is a small, single change, you'll get more value if we bundle a few tweaks in one go — anything else you'd like sorted at the same time?
+Since each update has a one-off setup cost, you'll get more for your money if we do a few tweaks together — anything else you'd like sorted while we're at it?
